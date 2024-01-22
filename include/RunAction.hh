@@ -36,6 +36,7 @@
 #include "globals.hh"
 #include "TH1F.h"
 #include "TString.h"
+#include "G4ThreeVector.hh"
 class G4Run;
 
 /// Run action class
@@ -59,8 +60,13 @@ class RunAction : public G4UserRunAction
     std::vector<int> feventno;
     std::vector<double> fEn;
     std::vector<double> fth;
+    std::vector<double> fX;
+    std::vector<double> fY;
+    std::vector<double> fZ;
+    std::vector<double> flength;
     std::vector<TString> fname;
     void AddEdep (int eventno, TString pname,G4double edep,G4double th);
+    void AddEdep (int eventno, TString pname,G4double edep,G4ThreeVector pos,G4double length);
     TFile *fout=0;
     TTree *tree=0;
   private:

@@ -44,9 +44,11 @@ EventAction::EventAction(RunAction* runAction)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void EventAction::BeginOfEventAction(const G4Event*)
+void EventAction::BeginOfEventAction(const G4Event* evt)
 {
   fEdep = 0.;
+  G4int eventno = evt->GetEventID();
+  if(eventno%10000==0) G4cout<<"EVENT: "<<eventno<<G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -56,13 +58,18 @@ void EventAction::EndOfEventAction(const G4Event*)
   // accumulate statistics in run action
   if(fEn.size()!=0) {
      for(int i=0;i<fEn.size();i++) {
-        fRunAction->AddEdep(feventno.at(i),fname.at(i),fEn.at(i),fth.at(i));
+        if(fth.size()>0) fRunAction->AddEdep(feventno.at(i),fname.at(i),fEn.at(i),fth.at(i));
+        if(fpos.size()>0) {
+		fRunAction->AddEdep(feventno.at(i),fname.at(i),fEn.at(i),fpos.at(i),flength.at(i));
+	}
      }
    }
    feventno.clear();
    fname.clear();
    fEn.clear();
    fth.clear();
+   fpos.clear();
+   flength.clear();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -56,13 +56,16 @@ int main(int argc,char** argv)
 
   // Optionally: choose a different Random engine...
   // G4Random::setTheEngine(new CLHEP::MTwistEngine);
+  G4Random::setTheEngine(new CLHEP::RanecuEngine());
+  G4long seed = time(NULL);
+  G4Random::setTheSeed(seed);  //
+
 
   //use G4SteppingVerboseWithUnits
   G4int precision = 4;
 //  G4SteppingVerbose::UseBestUnit(precision);
 
   // Construct the default run manager
-  //
 //  auto* runManager =
 //    G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 

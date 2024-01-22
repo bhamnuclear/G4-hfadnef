@@ -34,6 +34,7 @@
 #include "globals.hh"
 #include <vector>
 #include "TString.h"
+#include "G4ThreeVector.hh"
 /// Event action class
 ///
 
@@ -53,8 +54,12 @@ class EventAction : public G4UserEventAction
     std::vector<int> feventno;
     std::vector<double> fEn;
     std::vector<double> fth;
+    std::vector<double> flength;
+    std::vector<G4ThreeVector> fpos;
     std::vector<TString> fname;
     void AddEdep(G4int eventno, TString pname, G4double edep,G4double th) {feventno.push_back(eventno), fname.push_back(pname); fEn.push_back(edep);fth.push_back(th); }
+    void AddEdep(G4int eventno, TString pname, G4double edep,G4ThreeVector th) {feventno.push_back(eventno), fname.push_back(pname); fEn.push_back(edep);fpos.push_back(th);flength.push_back(1); }
+    void AddEdep(G4int eventno, TString pname, G4double edep,G4ThreeVector th,G4double length) {feventno.push_back(eventno), fname.push_back(pname); fEn.push_back(edep);fpos.push_back(th);flength.push_back(length); }
 
   private:
     RunAction* fRunAction = nullptr;

@@ -36,6 +36,7 @@
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
+#include "G4IonTable.hh"
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
 
@@ -89,8 +90,14 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) //Uses BrumLiT 
   G4ParticleDefinition* particle = particleTable->FindParticle(particleName="neutron");
   fParticleGun->SetParticleDefinition(particle);
   fParticleGun->GeneratePrimaryVertex(anEvent);
+  G4ParticleDefinition* Be7def;
+  Be7def=G4IonTable::GetIonTable()->GetIon(4,7,excited?0.:0.429*MeV);
+  fParticleGun->SetParticleDefinition(Be7def);
+  fParticleGun->SetParticleEnergy(0*MeV);
+//  fParticleGun->GeneratePrimaryVertex(anEvent);//Do the 7Be too (possibly excited)
 //  G4cout<<"Neutron: "<<En<<G4endl;
 // Make 7Be too - TODO JEB
+  
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -102,10 +109,11 @@ double PrimaryGeneratorAction::InteractionE(double Ep) {
         //Then return Ep for z
         bool trials=true;
         double XSmax = gXS_t->Eval(Einitial);//Max XS is at the highest E
-        XSmax = 1000;
+        XSmax = 1000;//Overwrite manually to 1000 mb
         int loopcounter=0;
+//	protons_taken=0;
         while(trials) {//Randomly choose a depth into the target (rather than energy to keep same target thickness)
-                double trial_z = max_depth*rndm->Rndm();
+                double trial_z = max_depth*rndm->Rndm();//mm
                 //Calc XS at Z
                 double energy = Eloss(Ep,trial_z);
                 if(energy<=Eth) continue;
@@ -129,6 +137,9 @@ double PrimaryGeneratorAction::InteractionE(double Ep) {
                         G4cout<<"Rejection sampling not working properly - 1000 samples taken"<<G4endl;
                         return 0;
                 }
+		double number_density = trial_z*0.1*0.534*6.023e23/6.941; //mm->[cm]*[g/cm3]*[mol/g]=atoms/cm2
+		protons_taken += 1/(XSmax*1e-27*number_density);//mb->cm2*atoms/cm2 --> atoms
+//		G4cout<<protons_taken<<G4endl;
         }
 	return 0;
 }

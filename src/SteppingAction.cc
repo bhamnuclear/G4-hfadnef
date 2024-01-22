@@ -49,31 +49,51 @@ SteppingAction::SteppingAction(EventAction* eventAction)
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
+//  step->SetStepLength(1e-7*m); //Doesn't work
+
   G4ParticleDefinition* projectile = step->GetTrack()->GetDefinition();
   G4String logicname = step->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetLogicalVolume()->GetName();
   TString particlename=projectile->GetParticleName();
+//  if(step->GetTrack()->GetCurrentStepNumber()==0) G4cout<<particlename<<G4endl;//What is going on :)
+
 //  Limit simulation time
   G4double time = step->GetTrack()->GetGlobalTime();
 //  G4cout<<particlename<<"\t"<<time/second<<G4endl;
   if(projectile->GetPDGLifeTime()/(second*3.154e+7) > 1) {
     step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any tracks longer than one day
-    G4cout<<"Killing: "<<particlename<<G4endl;
+//    G4cout<<"Killing: "<<particlename<<G4endl;
   }
-//  if(particlename.Contains("Be7")) G4cout<<projectile->GetParticleName()<<"\t"<<logicname<<G4endl;
-//  if(projectile->GetParticleName()=="neutron"/*&& step->GetTrack()->GetCurrentStepNumber()==1*/) {
-//	G4ThreeVector position = step->GetTrack()->GetPosition();
-//	G4cout<<logicname<<"\t"<<position.getX()<<"\t"<<position.getY()<<"\t"<<position.getZ()<<G4endl;
-//   }
+ // Kill anything below 1 metre negative Y
+  G4ThreeVector location = step->GetTrack()->GetPosition();
+//  if(particlename=="neutron") G4cout<<logicname<<"\t"<<step->GetTrack()->GetKineticEnergy()/keV<<"\t"<<step->GetTotalEnergyDeposit()<<"\t"<<location.x()<<"\t"<<location.y()<<"\t"<<location.z()<<G4endl;
+  
+  if(location.y()<-1*m || (step->GetTrack()->GetKineticEnergy()>0 && step->GetStepLength()<1e-7*m)) {
+    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any tracks longer than one day
+    //G4cout<<"Killing: "<<particlename<<" at "<<location<<G4endl;
+  }
+  if(projectile->GetParticleName()=="e-") {
+    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any electrons!
 
+  }
 //  if(projectile->GetParticleName()=="neutron"/*&& step->GetTrack()->GetCurrentStepNumber()==1*/) {
   int runnumber = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
   G4double edep=step->GetTotalEnergyDeposit();
-//  if(projectile->GetParticleName()=="neutron" && (logicname=="gamma_logical" || logicname=="logictarget")) {//Neutron flux mode
-  if((logicname=="gamma_logical" && edep>0)) {//Neutron/gamma damage mode
-//     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetMomentum().theta());
-     fEventAction->AddEdep(runnumber,particlename,edep/MeV,step->GetTrack()->GetMomentum().theta());
-     step->GetTrack()->SetTrackStatus(fStopAndKill);//Kill neutron once it is in target
+//  if(logicname!="World") G4cout<<logicname<<"\t"<<step->GetPostStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
+  if(projectile->GetParticleName()=="neutron" && (logicname=="gamma_logical" || logicname=="logictarget")) {//Neutron flux mode
+//     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition());//Option for neutron monitoring
+//     G4cout<<runnumber<<"\t"<<particlename<<"\t"<<step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV<<"\t"<<step->GetTrack()->GetPosition()<<"\t"<<step->GetStepLength()<<G4endl;
+     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition(),step->GetStepLength());//Option for neutron monitoring biased by step length
+//     step->GetTrack()->SetTrackStatus(fStopAndKill);//Kill neutron once it is in target
   }
+
+
+//  if((logicname=="gamma_logical" && edep>0)) {//Neutron/gamma damage mode
+//     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetMomentum().theta());
+//     fEventAction->AddEdep(runnumber,particlename,edep/MeV,step->GetTrack()->GetMomentum().theta());//Option for neutron monitoring
+//     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition());//Option for neutron monitoring
+//     fEventAction->AddEdep(runnumber,particlename,edep/MeV,step->GetTrack()->GetPosition());//Option for activation analysis
+//     step->GetTrack()->SetTrackStatus(fStopAndKill);//Kill neutron once it is in target
+//    }
   if (!fScoringVolume) {
     const auto detConstruction = static_cast<const DetectorConstruction*>(
       G4RunManager::GetRunManager()->GetUserDetectorConstruction());

@@ -66,12 +66,17 @@ RunAction::RunAction()
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
 
-  fout=new TFile("output.root","RECREATE");
+  fout=new TFile("neutrons.root","RECREATE");
   tree = new TTree("data","data");
   tree->Branch("feventno",&feventno);
   tree->Branch("fname",&fname);
   tree->Branch("fEn",&fEn);
   tree->Branch("fth",&fth);
+  tree->Branch("fX",&fX);
+  tree->Branch("fY",&fY);
+  tree->Branch("fZ",&fZ);
+  tree->Branch("fZ",&fZ);
+  tree->Branch("flength",&flength);
 
 
 }
@@ -97,27 +102,16 @@ void RunAction::BeginOfRunAction(const G4Run*)
 void RunAction::EndOfRunAction(const G4Run* run)
 {
   G4int nofEvents = fEn.size();
-//  G4cout<<nofEvents<<" neutrons"<<G4endl;
+  G4cout<<nofEvents<<" neutrons in target"<<G4endl;
   int thr=G4Threading::G4GetThreadId();
   G4cout<<"Thread: "<<thr<<G4endl;
 //  G4cout<<"Run ID: "<<thr<<G4endl;
   if (nofEvents == 0) return;
   std::ofstream outs;
 //  outs.open(Form("pneutrons_%d.txt",thr),std::ios_base::app);
-  outs.open(Form("pneutrons_%d.txt",0),std::ios_base::app);
-  for(int i=0;i<nofEvents;i++) {
-//    G4cout<<"Neutron:\t"<<thr<<"\t"<<fEn.at(i)/MeV<<G4endl;
-    outs<<fEn.at(i)/MeV<<"\t"<<fth.at(i)<<std::endl;
-  }
-  outs.close();
   G4cout<<"Events: "<<nofEvents<<G4endl;
   if(nofEvents==0) return;
-//  if(nofEvents>4000) return;//Fix when it does this again
-    // Open an output file
-  G4String fileName = "output.root";
-//  TThread::Initialize();
-//  G4String fileName = "neutrons.root";
-//  analysisManager->OpenFile(fileName);
+
   if(fout!=0) {
     G4cout<<"FILL"<<G4endl;
     tree->Fill();
@@ -137,6 +131,18 @@ void RunAction::AddEdep(int eventno, TString pname, G4double edep, G4double th)
   fname.push_back(pname);
   fEn.push_back(edep);
   fth.push_back(th);
+}
+
+void RunAction::AddEdep(int eventno, TString pname, G4double edep, G4ThreeVector pos, G4double length)
+{
+  feventno.push_back(int(eventno));
+  fname.push_back(pname);
+  fEn.push_back(edep);
+  fX.push_back(pos.x());
+  fY.push_back(pos.y());
+  fZ.push_back(pos.z());
+  flength.push_back(length);
+//  G4cout<<eventno<<"\t"<<edep<<"\t"<<length<<G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

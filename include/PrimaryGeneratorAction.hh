@@ -82,7 +82,7 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     double thetaCM,thetalab;
     bool secondks=false;
     bool excited=false;
-
+    double protons_taken=0;
 
     // method from the base class
     void GeneratePrimaries(G4Event*) override;
