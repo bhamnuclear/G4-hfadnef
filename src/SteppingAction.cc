@@ -68,22 +68,28 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 //  if(particlename=="neutron") G4cout<<logicname<<"\t"<<step->GetTrack()->GetKineticEnergy()/keV<<"\t"<<step->GetTotalEnergyDeposit()<<"\t"<<location.x()<<"\t"<<location.y()<<"\t"<<location.z()<<G4endl;
   
   if(location.y()<-1*m || (step->GetTrack()->GetKineticEnergy()>0 && step->GetStepLength()<1e-7*m)) {
-    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any tracks longer than one day
+//    step->GetTrack()->SetTrackStatus(fStopAndKill);
     //G4cout<<"Killing: "<<particlename<<" at "<<location<<G4endl;
   }
   if(projectile->GetParticleName()=="e-") {
     step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any electrons!
 
   }
-//  if(projectile->GetParticleName()=="neutron"/*&& step->GetTrack()->GetCurrentStepNumber()==1*/) {
+/*
+  if(projectile->GetParticleName()!="neutron") {
+    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore anything that isn't a neutron! Severe!
+  }
+*/
+
   int runnumber = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
   G4double edep=step->GetTotalEnergyDeposit();
-//  if(logicname!="World") G4cout<<logicname<<"\t"<<step->GetPostStepPoint()->GetPhysicalVolume()->GetName()<<G4endl;
-  if(projectile->GetParticleName()=="neutron" && (logicname=="gamma_logical" || logicname=="logictarget")) {//Neutron flux mode
+// TEMPORARILY DISABLED THE LOGICTARGET
+//  if(logicname=="logicCLLBC" && time/second<1) {//CLLBC detector mode -- prompt only (1 second)
+//   G4cout<<logicname<<G4endl;
+  if(((projectile->GetParticleName()=="neutron" || 1)  && (logicname=="logicfoil"))) {//Neutron flux mode
 //     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition());//Option for neutron monitoring
-//     G4cout<<runnumber<<"\t"<<particlename<<"\t"<<step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV<<"\t"<<step->GetTrack()->GetPosition()<<"\t"<<step->GetStepLength()<<G4endl;
      fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition(),step->GetStepLength());//Option for neutron monitoring biased by step length
-//     step->GetTrack()->SetTrackStatus(fStopAndKill);//Kill neutron once it is in target
+//     fEventAction->AddEdep(runnumber,particlename,edep/MeV,step->GetTrack()->GetPosition(),step->GetStepLength());//Option for CLLBC
   }
 
 

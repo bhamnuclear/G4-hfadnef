@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/jeb/adnef/simple/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/exampleB1.dir/all
+all: CMakeFiles/adnef.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,41 +71,41 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/exampleB1.dir/clean
+clean: CMakeFiles/adnef.dir/clean
 clean: CMakeFiles/B1.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/exampleB1.dir
+# Target rules for target CMakeFiles/adnef.dir
 
 # All Build rule for target.
-CMakeFiles/exampleB1.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jeb/adnef/simple/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target exampleB1"
-.PHONY : CMakeFiles/exampleB1.dir/all
+CMakeFiles/adnef.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adnef.dir/build.make CMakeFiles/adnef.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adnef.dir/build.make CMakeFiles/adnef.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jeb/adnef/simple/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target adnef"
+.PHONY : CMakeFiles/adnef.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/exampleB1.dir/rule: cmake_check_build_system
+CMakeFiles/adnef.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jeb/adnef/simple/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/exampleB1.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/adnef.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jeb/adnef/simple/build/CMakeFiles 0
-.PHONY : CMakeFiles/exampleB1.dir/rule
+.PHONY : CMakeFiles/adnef.dir/rule
 
 # Convenience name for target.
-exampleB1: CMakeFiles/exampleB1.dir/rule
-.PHONY : exampleB1
+adnef: CMakeFiles/adnef.dir/rule
+.PHONY : adnef
 
 # clean rule for target.
-CMakeFiles/exampleB1.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/exampleB1.dir/build.make CMakeFiles/exampleB1.dir/clean
-.PHONY : CMakeFiles/exampleB1.dir/clean
+CMakeFiles/adnef.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adnef.dir/build.make CMakeFiles/adnef.dir/clean
+.PHONY : CMakeFiles/adnef.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/B1.dir
 
 # All Build rule for target.
-CMakeFiles/B1.dir/all: CMakeFiles/exampleB1.dir/all
+CMakeFiles/B1.dir/all: CMakeFiles/adnef.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/B1.dir/build.make CMakeFiles/B1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/B1.dir/build.make CMakeFiles/B1.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jeb/adnef/simple/build/CMakeFiles --progress-num= "Built target B1"

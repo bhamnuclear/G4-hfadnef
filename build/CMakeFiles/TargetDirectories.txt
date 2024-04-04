@@ -1,4 +1,4 @@
-/home/jeb/adnef/simple/build/CMakeFiles/exampleB1.dir
+/home/jeb/adnef/simple/build/CMakeFiles/adnef.dir
 /home/jeb/adnef/simple/build/CMakeFiles/B1.dir
 /home/jeb/adnef/simple/build/CMakeFiles/edit_cache.dir
 /home/jeb/adnef/simple/build/CMakeFiles/rebuild_cache.dir

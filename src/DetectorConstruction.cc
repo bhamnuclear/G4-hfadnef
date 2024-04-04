@@ -43,6 +43,7 @@
 #include "G4SystemOfUnits.hh"
 #include "G4VisAttributes.hh"
 #include "G4SubtractionSolid.hh"
+#include "G4GDMLParser.hh"
 namespace B1
 {
 
@@ -50,12 +51,14 @@ namespace B1
 
 G4VPhysicalVolume* DetectorConstruction::Construct()
 {
+//  G4GDMLParser fParser;
+//  fParser.Read("room.gdml");
   // Get nist material manager
   G4NistManager* nist = G4NistManager::Instance();
 
   // Envelope parameters
   //
-  G4double env_sizeXY = 200*cm, env_sizeZ = 200*um;//Titanium target size
+  G4double env_sizeXY = 110*cm, env_sizeZ = 300*um;//Target size
 
   G4Material* lithium = nist->FindOrBuildMaterial("G4_Li");
   G4Material* Si = nist->FindOrBuildMaterial("G4_Si");
@@ -71,39 +74,150 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material* paraffin = nist->FindOrBuildMaterial("G4_PARAFFIN");
   G4Material* graphite = nist->FindOrBuildMaterial("G4_GRAPHITE");
   G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
+  G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
+  G4Material* boron = nist->FindOrBuildMaterial("G4_B");
+  G4Material* bpoly =  new G4Material("BoratedPoly",1.04*g/cm3,2);
+  bpoly->AddMaterial(poly, 95*perCent);
+  bpoly->AddMaterial(boron, 5*perCent);
+  G4Material* elCs = nist->FindOrBuildMaterial("G4_Cs");
+  G4Material* elLa = nist->FindOrBuildMaterial("G4_La");
+  G4Material* elBr = nist->FindOrBuildMaterial("G4_Br");
+  G4Material* elCl = nist->FindOrBuildMaterial("G4_Cl");
+  G4int ncomp, nAtoms, z, a;
+  G4double abundance;
+  G4Material* enrichedLi = new G4Material("enrichedLi",0.534*g/cm3,ncomp=2);
+  G4Element *Li6 = new G4Element("Li6",z=3,a=6,6.015122*g/mole);
+  G4Element *Li7 = new G4Element("Li7",z=3,a=7,7.016004*g/mole);
+  G4cout<<"Enriching lithium"<<G4endl;
+  enrichedLi->AddElement(Li6,abundance=95*perCent);
+  enrichedLi->AddElement(Li7,abundance=5*perCent);
+  G4Material* CLLBC = new G4Material("CLLBC",4.08*g/cm3,5);
+  G4double wtotal = (2*132.9+1*6.941+1*138.9+4.8*79.904+1.2*35.453);
+  G4double wCs =(2*132.9)/wtotal;//Weightsfraction
+  G4double wLi =(6.941)/wtotal;
+  G4double wLa =(138.9)/wtotal;
+  G4double wBr =(4.8*79.904)/wtotal;
+  G4double wCl =(1.2*35.453)/wtotal;
+  CLLBC->AddMaterial(elCs, wCs);
+  CLLBC->AddMaterial(enrichedLi, wLi);
+  CLLBC->AddMaterial(elLa, wLa);
+  CLLBC->AddMaterial(elBr, wBr);
+  CLLBC->AddMaterial(elCl, wCl);
   // Option to switch on/off checking of volumes overlaps
   //
+  G4cout<<"Built CLLBC"<<G4endl;
   G4bool checkOverlaps = true;
 
   //
   // World
   //
-  G4double world_sizeXZ = 500.*m;
-  G4double world_sizeY  = 100.*m;
-  G4Material* vacuum =
-    new G4Material("Vacuum",      //Name as String
-                   1,             //Atomic Number,  in this case we use 1 for hydrogen  
-                   1.008*g/mole,  //Mass per Mole "Atomic Weight"  1.008*g/mole for Hydoren 
-                   1.e-25*g/cm3,  //Density of Vaccuum  *Cant be Zero, Must be small insted 
-                   kStateGas,     //kStateGas for Gas
-                   2.73*kelvin,   //Temperature for gas
-                   1.e-25*g/cm3); //Pressure for Vaccum
+     G4double world_sizeXZ = 50.*m;
+     G4double world_sizeY  = 50.*m;
+     G4Material* vacuum =
+       new G4Material("Vacuum",      //Name as String
+                      1,             //Atomic Number,  in this case we use 1 for hydrogen  
+                      1.008*g/mole,  //Mass per Mole "Atomic Weight"  1.008*g/mole for Hydoren 
+                      1.e-25*g/cm3,  //Density of Vaccuum  *Cant be Zero, Must be small insted 
+                      kStateGas,     //kStateGas for Gas
+                      2.73*kelvin,   //Temperature for gas
+                       1.e-25*g/cm3); //Pressure for Vaccum
   
-  auto solidWorld = new G4Box("World",                           // its name
-    0.5 * world_sizeXZ, 0.5 * world_sizeY, 0.5 * world_sizeXZ);  // its size
+     auto solidWorld = new G4Box("World",                           // its name
+       0.5 * world_sizeXZ, 0.5 * world_sizeY, 0.5 * world_sizeXZ);  // its size
 
-  auto logicWorld = new G4LogicalVolume(solidWorld,  // its solid
-    air,                                       // its material
-    "World");                                        // its name
+      auto logicWorld = new G4LogicalVolume(solidWorld,  // its solid
+       air,                                       // its material
+       "World");                                        // its name
 
-  auto physWorld = new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(),                           // at (0,0,0)
-    logicWorld,                                // its logical volume
-    "World",                                   // its name
-    nullptr,                                   // its mother  volume
-    false,                                     // no boolean operation
-    0,                                         // copy number
-    checkOverlaps);                            // overlaps checking
+//  G4VPhysicalVolume *physWorld = fParser.GetWorldVolume();
+//  G4cout<<"Return GDML world"<<G4endl;
+
+     auto physWorld = new G4PVPlacement(nullptr,  // no rotation
+        G4ThreeVector(),                           // at (0,0,0)
+       logicWorld,                                // its logical volume
+       "World",                                   // its name
+       nullptr,                                   // its mother  volume
+       false,                                     // no boolean operation
+       0,                                         // copy number
+       checkOverlaps);                            // overlaps checking
+
+  G4double vertical_offset = -1.22*m+1.13*m+1.11*m*0.5;//1.22 to floor, 1.13 to lip of Ti, 1.11*0.5 to mid
+  G4RotationMatrix* Rotationroom = new G4RotationMatrix();
+  Rotationroom->rotateX(90*deg);
+  Rotationroom->rotateZ(0*deg);
+
+  G4ThreeVector targetoffset= G4ThreeVector(-13.465*m,-1.18*m,-23.6*m);//-13.5 m,-1.18 m,
+  G4ThreeVector roomoffset= G4ThreeVector(-13.465*m+1.6*m,-1.18*m,-23.6*m);//-13.5 m,-1.18 m,
+  G4RotationMatrix* Rotation = new G4RotationMatrix();
+  Rotation->rotateX(0*deg);
+  Rotation->rotateY(90*deg);
+  Rotation->rotateZ(0*deg);
+
+  G4cout<<"Importing room .stl files"<<G4endl;
+  G4ThreeVector CADoffset = G4ThreeVector(0*m,43.5*cm,0*cm);
+  auto mesh_bwalls = CADMesh::TessellatedMesh::FromSTL("CAD/borated_walls.stl");
+  G4VSolid *solid_bwalls = mesh_bwalls->GetSolid();
+  auto solid_boronwalls = new G4LogicalVolume(solid_bwalls,bpoly,"solid_boronwalls",0,0,0);
+  auto blackcolour = new G4VisAttributes();
+  blackcolour->SetColour(0.1,0.1,0.1);
+  solid_boronwalls->SetVisAttributes(blackcolour);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_boronwalls,"physical_boronwalls",logicWorld,false,checkOverlaps);
+
+  auto translucentcolour = new G4VisAttributes();
+  translucentcolour->SetColour(0.9,0.9,0.9,0.1);
+
+  auto mesh_walls = CADMesh::TessellatedMesh::FromSTL("CAD/concrete_walls.stl");
+  G4VSolid *solid_cwalls = mesh_walls->GetSolid();
+  auto solid_walls = new G4LogicalVolume(solid_cwalls,concrete,"solid_walls",0,0,0);
+  solid_walls->SetVisAttributes(translucentcolour);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_walls,"physical_walls",logicWorld,false,checkOverlaps);
+
+  auto mesh_ceiling = CADMesh::TessellatedMesh::FromSTL("CAD/ceiling.stl");
+  G4VSolid *solid_cceiling = mesh_ceiling->GetSolid();
+  auto solid_ceiling = new G4LogicalVolume(solid_cceiling,concrete,"solid_ceiling",0,0,0);
+  solid_ceiling->SetVisAttributes(translucentcolour);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_ceiling,"physical_ceiling",logicWorld,false,checkOverlaps);
+
+  auto mesh_floor = CADMesh::TessellatedMesh::FromSTL("CAD/floor.stl");
+  G4VSolid *solid_cfloor = mesh_floor->GetSolid();
+  auto solid_floor = new G4LogicalVolume(solid_cfloor,concrete,"solid_floor",0,0,0);
+  solid_floor->SetVisAttributes(translucentcolour);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_floor,"physical_floor",logicWorld,false,checkOverlaps);
+
+  auto leadcolour = new G4VisAttributes();
+  leadcolour->SetColour(0.3,0.3,0.5,0.9);
+
+
+  auto mesh_leadshield = CADMesh::TessellatedMesh::FromSTL("CAD/lead.stl");
+  G4VSolid *solid_cleadshield = mesh_leadshield->GetSolid();
+  auto solid_leadshield = new G4LogicalVolume(solid_cleadshield,lead,"solid_leadshield",0,0,0);
+  solid_leadshield->SetVisAttributes(leadcolour);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_leadshield,"physical_leadshield",logicWorld,false,checkOverlaps);
+
+  auto mesh_concretestack = CADMesh::TessellatedMesh::FromSTL("CAD/concrete_stack.stl");
+  G4VSolid *solid_cconcretestack = mesh_concretestack->GetSolid();
+  auto solid_concretestack = new G4LogicalVolume(solid_cconcretestack,concrete,"solid_concretestack",0,0,0);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_concretestack,"physical_concretestack",logicWorld,false,checkOverlaps);
+
+  auto mesh_blocker_1 = CADMesh::TessellatedMesh::FromSTL("CAD/blocker_1.stl");
+  G4VSolid *solid_cblocker_1 = mesh_blocker_1->GetSolid();
+  auto solid_blocker_1 = new G4LogicalVolume(solid_cblocker_1,concrete,"solid_blocker_1",0,0,0);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_blocker_1,"physical_blocker_1",logicWorld,false,checkOverlaps);
+
+  auto mesh_blocker_2 = CADMesh::TessellatedMesh::FromSTL("CAD/blocker_2.stl");
+  G4VSolid *solid_cblocker_2 = mesh_blocker_2->GetSolid();
+  auto solid_blocker_2 = new G4LogicalVolume(solid_cblocker_2,concrete,"solid_blocker_2",0,0,0);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_blocker_2,"physical_blocker_2",logicWorld,false,checkOverlaps);
+
+  auto mesh_blocker_3 = CADMesh::TessellatedMesh::FromSTL("CAD/blocker_3.stl");
+  G4VSolid *solid_cblocker_3 = mesh_blocker_3->GetSolid();
+  auto solid_blocker_3 = new G4LogicalVolume(solid_cblocker_3,concrete,"solid_blocker_3",0,0,0);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_blocker_3,"physical_blocker_3",logicWorld,false,checkOverlaps);
+
+  auto mesh_blocker_4 = CADMesh::TessellatedMesh::FromSTL("CAD/blocker_4.stl");
+  G4VSolid *solid_cblocker_4 = mesh_blocker_4->GetSolid();
+  auto solid_blocker_4 = new G4LogicalVolume(solid_cblocker_4,concrete,"solid_blocker_4",0,0,0);
+  new G4PVPlacement(Rotationroom,CADoffset,solid_blocker_4,"physical_blocker_4",logicWorld,false,checkOverlaps);
 
   //
   // Lithium
@@ -116,7 +230,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     "Lithium");                                 // its name
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(),          // at (0,0,0)
+    G4ThreeVector(0*m,vertical_offset,0*m),          // at (0,0,0)
     logicEnv,                 // its logical volume
     "Lithium",               // its name
     logicWorld,               // its mother  volume
@@ -141,7 +255,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logicback->SetVisAttributes(coppercolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.5*env_sizeZ+0.5*back_sizeZ),          // at (0,0,0)
+    G4ThreeVector(0,vertical_offset,0.5*env_sizeZ+0.5*back_sizeZ),          // at (0,0,0)
     logicback,                 // its logical volume
     "Copper",               // its name
     logicWorld,               // its mother  volume
@@ -166,7 +280,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logicgraphite->SetVisAttributes(graphitecolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.5*env_sizeZ+0.5*back_sizeZ+7*mm),          // at (0,0,0)
+    G4ThreeVector(0,vertical_offset,0.5*env_sizeZ+0.5*back_sizeZ+7*mm),          // at (0,0,0)
     logicgraphite,                 // its logical volume
     "Graphite",               // its name
     logicWorld,               // its mother  volume
@@ -177,7 +291,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Titanium
   //
   auto solidtitanium = new G4Box("titanium",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*6.*mm);  // its size
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*6*mm);  // its size
 
   auto logictitanium = new G4LogicalVolume(solidtitanium,  // its solid
     Ti,                                     // its material
@@ -188,40 +302,53 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   logictitanium->SetVisAttributes(titaniumcolour);
 
-/*  new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,42*mm-0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
+  new G4PVPlacement(nullptr,  // no rotation
+    G4ThreeVector(0,vertical_offset,42*mm-0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
     logictitanium,                 // its logical volume
     "titanium",               // its name
     logicWorld,               // its mother  volume
     false,                    // no boolean operation
     0,                        // copy number
     checkOverlaps);           // overlaps checking
-*/
+//Back side
+  new G4PVPlacement(nullptr,  // no rotation
+    G4ThreeVector(0,vertical_offset,-1*cm+0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
+    logictitanium,                 // its logical volume
+    "titanium",               // its name
+    logicWorld,               // its mother  volume
+    false,                    // no boolean operation
+    0,                        // copy number
+    checkOverlaps);           // overlaps checking
+
 
 // Forward Scatterer
 
-  auto solidscatterer = new G4Box("scatterer",0.5*10*cm,0.5*10*cm,0.5*1*mm);
-  auto logicscatterer = new G4LogicalVolume(solidscatterer,paraffin, "logicscatterer");
-  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+17.0*mm),logicscatterer,"logicscatterer",logicWorld,false,0,checkOverlaps);
+  auto solidscatterer = new G4Box("scatterer",0.5*10*cm,0.5*10*cm,0.5*12.7*um);
+  auto logicscatterer = new G4LogicalVolume(solidscatterer,poly, "logic_clingfilm");
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+30*um),logicscatterer,"logic_clingfilm",logicWorld,false,0,checkOverlaps);
 
 // Backward Scatterer
 
-  auto solidscattererb = new G4Box("scattererb",0.5*10*cm,0.5*10*cm,0.5*5*mm);
+  auto solidscattererb = new G4Box("scattererb",0.5*10*cm,0.5*10*cm,0.5*50*mm);
   auto logicscattererb = new G4LogicalVolume(solidscattererb,graphite, "logicscattererb");
-  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+20*mm),logicscattererb,"logicscattererb",logicWorld,false,0,checkOverlaps);
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+30*mm),logicscattererb,"logicscattererb",logicWorld,false,0,checkOverlaps);
+
+  auto solidscattererc = new G4Box("scattererc",0.5*10*cm,0.5*10*cm,0.5*25*mm);
+  auto logicscattererc = new G4LogicalVolume(solidscattererc,bpoly, "logicscattererc");
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+100*mm),logicscattererc,"logicscattererc",logicWorld,false,0,checkOverlaps);
 
   //
   // Target space
   //
 
   auto solidtarget = new G4Box("target",                    // its name
-    0.5 * 5 *cm, 0.5 * 5*cm, 0.5*1*mm);  // its size
+    0.5 * 2.5 *cm, 0.5 * 2.5*cm, 0.5*1*mm);  // its size
 
-//  auto solidtarget = new G4Tubs("target", 0*mm, 35*mm, 10*mm, 0*deg, 360*deg);
+//  auto solidtarget = new G4Tubs("target", 0*mm, 6*mm, 0.14*mm, 0*deg, 360*deg);//Gold
 
 
   auto logictarget = new G4LogicalVolume(solidtarget, 
-    cobalt,                                     // its material
+    lithium,                                     // its material
     "logictarget");                                 // its name
 
   auto targetcolour = new G4VisAttributes();
@@ -229,8 +356,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   logictarget->SetVisAttributes(targetcolour);
 
+
+
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+10*mm+2.01*mm),          // at (0,0,0)
+    G4ThreeVector(0,0,0.046*m+2*mm),          // at (0,0,0)
     logictarget,                 // its logical volume
     "logictarget",               // its name
     logicWorld,               // its mother  volume
@@ -239,24 +368,41 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     checkOverlaps);           // overlaps checking
 
   fScoringVolume = logictarget;
+  // CLLBC
+
+  auto solidCLLBC = new G4Tubs("solidCLLBC", 0*mm, 1*2.54*cm,1*2.54*cm , 0*deg, 360*deg);//pname, rmin, rmax, dz (half lenght), start phi, segment angle phi
+  auto logicCLLBC = new G4LogicalVolume(solidCLLBC,CLLBC,"logicCLLBC");
+//  new G4PVPlacement(nullptr, G4ThreeVector(0,0,0.1*m), logicCLLBC, "CLLBC", logicWorld, false, 0, checkOverlaps); //CLLBC 1 metre from beam
 
  // Activation foil
    
   auto foil1 = new G4Box("foil1",                    // its name
-    0.5 * 12 *cm, 0.5 * 12*cm, 0.5*0.0127*mm);  // its size
+    0.5 * 50 *cm, 0.5 * 50*cm, 0.5*1*mm);  // its size
   auto logicfoil1 = new G4LogicalVolume(foil1,  // its solid
-    molybdenum,                                     // its material
-    "foil1");                                 // its name
+    cobalt,                                     // its material
+    "logicfoil");                                 // its name
+  auto logicbacking = new G4LogicalVolume(foil1,  // its solid
+    aluminium,                                     // its material
+    "backing");                                 // its name
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+10*mm+3*mm),          // at (0,0,0)
+    G4ThreeVector(0,0,0.046*m+30*cm),          // at (0,0,0)
     logicfoil1,                 // its logical volume
     "logicfoil1",               // its name
     logicWorld,               // its mother  volume
     false,                    // no boolean operation
     0,                        // copy number
     checkOverlaps);           // overlaps checking
-
+/*
+  new G4PVPlacement(nullptr,  // no rotation
+    G4ThreeVector(0,0,0.046*m+32*cm),          // at (0,0,0)
+    logicbacking,                 // its logical volume
+    "backing",               // its name
+    logicWorld,               // its mother  volume
+    false,                    // no boolean operation
+    0,                        // copy number
+    checkOverlaps);           // overlaps checking
+*/
 
 // Graphite
 /*
@@ -304,11 +450,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     checkOverlaps);           // overlaps checking
 */
 // Pb shield
-  auto leadcolour = new G4VisAttributes();
-  leadcolour->SetColour(0.1,0.6,0.8);
-
-  auto leadouter = new G4Box("leadouter",0.5*200*cm,0.5*200*cm,0.5*50*mm);
-  auto leadinner = new G4Box("leadinner",0.5*10*cm,0.5*10*cm,0.5*50*mm);
+//  auto leadcolour = new G4VisAttributes();
+//  leadcolour->SetColour(0.1,0.6,0.8);
+/*
+  auto leadouter = new G4Box("leadouter",0.5*200*cm,0.5*200*cm,0.5*100*mm);
+  auto leadinner = new G4Box("leadinner",0.5*10*cm,0.5*10*cm,0.5*100*mm);
 
   auto solidleadshield = new G4SubtractionSolid("solidleadshield",leadouter,leadinner,0,G4ThreeVector(0,0,0));
 
@@ -319,14 +465,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logicleadshield->SetVisAttributes(leadcolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+25*mm),          // at (0,0,0)
+    G4ThreeVector(0,0,0.046*m+50*mm),          // at (0,0,0)
     logicleadshield,                 // its logical volume
     "logicleadshield",               // its name
     logicWorld,               // its mother  volume
     false,                    // no boolean operation
     0,                        // copy number
     checkOverlaps);           // overlaps checking
-
+*/
 // Scattering parafin
 /*
   auto solidscatter = new G4Box("scatter",                    // its name
@@ -350,33 +496,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0,                        // copy number
     checkOverlaps);           // overlaps checking
 */
-// Ti wall
-
-  auto solidTiwall = new G4Box("Tiwall",                    // its name
-    0.5 * 50 *cm, 0.5 * 50 * cm, 0.5*6*mm);  // its size
-
-  auto logictiwall = new G4LogicalVolume(solidTiwall,  // its solid
-    Ti,                                     // its material
-    "logictiwall");                                 // its name
-
-  auto tiwallcolour = new G4VisAttributes();
-  tiwallcolour->SetColour(0.7,0.8,0.8);
-
-  logictiwall->SetVisAttributes(tiwallcolour);
-
-  new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m-6*mm),          // at (0,0,0)
-    logictiwall,                 // its logical volume
-    "logictiwall",               // its name
-    logicWorld,               // its mother  volume
-    false,                    // no boolean operation
-    0,                        // copy number
-    checkOverlaps);           // overlaps checking
-
-  //
-  //always return the physical World
-  //
-  G4double beamheight = 1*m;//For now
+  G4double beamheight = 1.21*m;//For now
 /*
 // Floor
   auto solidfloor = new G4Box("Floor",                    // its name
@@ -401,18 +521,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     checkOverlaps);           // overlaps checking
 */
 /// Import CAD
-  G4RotationMatrix* Rotation = new G4RotationMatrix();
-  Rotation->rotateX(0*deg);
-  Rotation->rotateY(90*deg);
-  Rotation->rotateZ(0*deg);
-  G4RotationMatrix* Rotationroom = new G4RotationMatrix();
-  Rotationroom->rotateX(90*deg);
-  Rotationroom->rotateY(0*deg);
-  Rotationroom->rotateZ(90*deg);
-  G4ThreeVector targetoffset= G4ThreeVector(-13.465*m,-1.18*m,-23.6*m);//-13.5 m,-1.18 m,
-  G4ThreeVector roomoffset= G4ThreeVector(-13.465*m+1.6*m,-1.18*m,-23.6*m);//-13.5 m,-1.18 m,
 //  G4ThreeVector roomoffset= G4ThreeVector(13.465*m,-1.18*m,23.6*m);//-13.5 m,-1.18 m,
-  G4cout<<"Importing room .stl file"<<G4endl;
 
 // Tetrahedral mesh route -- not working with overlapping points
 /*
@@ -421,16 +530,43 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   auto mesh_assembly = mesh->GetAssembly();
   mesh_assembly->MakeImprint(logicWorld,roomoffset,Rotationroom);
 */
-
+/*
   auto mesh = CADMesh::TessellatedMesh::FromSTL("concrete.stl");
   G4VSolid *solid = mesh->GetSolid();
-  auto solid_logical = new G4LogicalVolume(solid, concrete, "solid_logical", 0, 0 ,0);
-  new G4PVPlacement(Rotationroom,roomoffset,solid_logical,"physical_solid",logicWorld,false, checkOverlaps );
+  auto solid_logical = new G4LogicalVolume(solid, concrete, "solid_room", 0, 0 ,0);
+  new G4PVPlacement(Rotationroom,roomoffset,solid_logical,"physical_room",logicWorld,false, checkOverlaps );
   auto concretecolour = new G4VisAttributes();
   concretecolour->SetColour(0.6,0.5,0.5,0.5);
   solid_logical->SetVisAttributes(concretecolour);
+*/
+/*
+  auto concrete_floor = new G4Box("floor",5*0.5*m,0.5*m,5*0.5*m);
+  auto solid_concrete_floor = new G4LogicalVolume(concrete_floor, concrete, "concrete_floor", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(-1*m, -1.22*m-0.5*m,2*m), solid_concrete_floor, "solid_floor", logicWorld, false, checkOverlaps);
+
+  auto concrete_ceil = new G4Box("ceil",5*0.5*m,0.5*m,5*0.5*m);
+  auto solid_concrete_ceil = new G4LogicalVolume(concrete_ceil, concrete, "concrete_ceil", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(-1*m, -1.22*m+0.5*m+3*m,2*m), solid_concrete_ceil, "solid_ceil", logicWorld, false, checkOverlaps);
+
+  auto concrete_back = new G4Box("back",5*0.5*m,5*0.5*m,0.5*m);
+  auto solid_concrete_back = new G4LogicalVolume(concrete_back, concrete, "concrete_back", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(-1*m, -1.22*m+1.5*m,-1*m), solid_concrete_back, "solid_back", logicWorld, false, checkOverlaps);
+
+  auto concrete_forw = new G4Box("forw",5*0.5*m,5*0.5*m,0.5*m);
+  auto solid_concrete_forw = new G4LogicalVolume(concrete_forw, concrete, "concrete_forw", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(-1*m, -1.22*m+1.5*m,-1*m+5*m), solid_concrete_forw, "solid_forw", logicWorld, false, checkOverlaps);
+
+  auto concrete_far = new G4Box("far",0.5*m,5*0.5*m,5*0.5*m);
+  auto solid_concrete_far = new G4LogicalVolume(concrete_far, concrete, "concrete_far", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(1.5*m+0.5*m, -1.22*m+2.5*m,-1*m+2.5*m), solid_concrete_far, "solid_far", logicWorld, false, checkOverlaps);
 
 
+
+  auto concrete_blocker = new G4Box("blocker",0.1*m,1*m,1*m);
+  auto solid_concrete_blocker = new G4LogicalVolume(concrete_blocker, concrete, "concrete_blocker", 0, 0 , 0);
+  new G4PVPlacement(nullptr, G4ThreeVector(-1.5*m, -1.22*m+0.5*m,0*m), solid_concrete_blocker, "solid_blocker1", logicWorld, false, checkOverlaps);
+  new G4PVPlacement(nullptr, G4ThreeVector(1.5*m, -1.22*m+0.5*m,0*m), solid_concrete_blocker, "solid_blocker2", logicWorld, false, checkOverlaps);
+*/
 
 /// Import CAD of target station
 /*

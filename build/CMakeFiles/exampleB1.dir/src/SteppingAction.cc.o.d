@@ -223,16 +223,17 @@ CMakeFiles/exampleB1.dir/src/SteppingAction.cc.o: \
  /usr/include/c++/13/bits/shared_ptr_atomic.h \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h /usr/include/c++/13/cstdarg \
+ /usr/local/include/Geant4/G4ThreeVector.hh \
+ /usr/local/include/Geant4/globals.hh \
+ /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
+ /usr/local/include/Geant4/CLHEP/Utility/defs.h \
+ /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
  /home/jeb/adnef/simple/include/DetectorConstruction.hh \
  /usr/local/include/Geant4/G4VUserDetectorConstruction.hh \
- /usr/local/include/Geant4/globals.hh \
  /usr/local/include/Geant4/G4SystemOfUnits.hh \
  /usr/local/include/Geant4/CLHEP/Units/SystemOfUnits.h \
  /usr/local/include/Geant4/G4Step.hh /usr/include/c++/13/stdlib.h \
  /usr/local/include/Geant4/G4ThreeVector.hh \
- /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
- /usr/local/include/Geant4/CLHEP/Utility/defs.h \
- /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
  /usr/local/include/Geant4/G4VPhysicalVolume.hh \
  /usr/local/include/Geant4/geomdefs.hh \
  /usr/local/include/Geant4/G4RotationMatrix.hh \

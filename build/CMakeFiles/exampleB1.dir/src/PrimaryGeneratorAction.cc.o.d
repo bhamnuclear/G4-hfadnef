@@ -495,5 +495,7 @@ CMakeFiles/exampleB1.dir/src/PrimaryGeneratorAction.cc.o: \
  /usr/include/c++/13/bits/list.tcc \
  /usr/local/include/Geant4/G4ParticleTable.hh \
  /usr/local/include/Geant4/G4ParticleDefinition.hh \
+ /usr/local/include/Geant4/G4IonTable.hh \
+ /usr/local/include/Geant4/G4Ions.hh \
  /usr/local/include/Geant4/G4SystemOfUnits.hh \
  /usr/local/include/Geant4/Randomize.hh

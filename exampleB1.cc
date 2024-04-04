@@ -31,7 +31,12 @@
 #include "ActionInitialization.hh"
 
 //#include "G4RunManagerFactory.hh"
+
+#ifdef G4MULTITHREADED
+#include "G4MTRunManager.hh"
+#else
 #include "G4RunManager.hh"
+#endif
 #include "G4SteppingVerbose.hh"
 #include "G4UImanager.hh"
 #include "QBBC.hh"
@@ -68,10 +73,12 @@ int main(int argc,char** argv)
   // Construct the default run manager
 //  auto* runManager =
 //    G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
-
+#ifdef G4MULTITHREADED
+   G4MTRunManager* runManager = new G4MTRunManager;
+   runManager->SetNumberOfThreads(1);
+#else
    G4RunManager* runManager = new G4RunManager;
-//   G4MTRunManager* runManager = new G4MTRunManager;
-
+#endif
   // Set mandatory initialization classes
   //
   // Detector construction
@@ -91,9 +98,9 @@ int main(int argc,char** argv)
 
   // Initialize visualization
   //
-  G4VisManager* visManager = new G4VisExecutive;
+  //G4VisManager* visManager = new G4VisExecutive;
   // G4VisExecutive can take a verbosity argument - see /vis/verbose guidance.
-  // G4VisManager* visManager = new G4VisExecutive("Quiet");
+   G4VisManager* visManager = new G4VisExecutive("Quiet");
   visManager->Initialize();
 
   // Get the pointer to the User Interface manager

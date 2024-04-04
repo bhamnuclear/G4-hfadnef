@@ -60,24 +60,27 @@ RunAction::RunAction()
   new G4UnitDefinition("microgray", "microGy" , "Dose", microgray);
   new G4UnitDefinition("nanogray" , "nanoGy"  , "Dose", nanogray);
   new G4UnitDefinition("picogray" , "picoGy"  , "Dose", picogray);
-
   // Register accumulable to the accumulable manager
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
+  int threadid=G4Threading::G4GetThreadId();
+  if(threadid<0) threadid=0;
+  if(fout==0) {
+    G4cout<<"THREAD: "<<Form("neutrons%d.root",threadid)<<G4endl;
 
-  fout=new TFile("neutrons.root","RECREATE");
-  tree = new TTree("data","data");
-  tree->Branch("feventno",&feventno);
-  tree->Branch("fname",&fname);
-  tree->Branch("fEn",&fEn);
-  tree->Branch("fth",&fth);
-  tree->Branch("fX",&fX);
-  tree->Branch("fY",&fY);
-  tree->Branch("fZ",&fZ);
-  tree->Branch("fZ",&fZ);
-  tree->Branch("flength",&flength);
-
+    fout=new TFile(Form("neutrons%d.root",threadid),"RECREATE");
+    tree = new TTree("data","data");
+    tree->Branch("feventno",&feventno);
+    tree->Branch("fname",&fname);
+    tree->Branch("fEn",&fEn);
+    tree->Branch("fth",&fth);
+    tree->Branch("fX",&fX);
+    tree->Branch("fY",&fY);
+    tree->Branch("fZ",&fZ);
+    tree->Branch("fZ",&fZ);
+    tree->Branch("flength",&flength);
+  }
 
 }
 RunAction::~RunAction()
@@ -104,7 +107,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
   G4int nofEvents = fEn.size();
   G4cout<<nofEvents<<" neutrons in target"<<G4endl;
   int thr=G4Threading::G4GetThreadId();
-  G4cout<<"Thread: "<<thr<<G4endl;
+  G4cout<<"Finished thread: "<<thr<<G4endl;
 //  G4cout<<"Run ID: "<<thr<<G4endl;
   if (nofEvents == 0) return;
   std::ofstream outs;

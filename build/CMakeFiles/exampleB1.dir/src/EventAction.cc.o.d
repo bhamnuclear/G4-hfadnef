@@ -221,6 +221,11 @@ CMakeFiles/exampleB1.dir/src/EventAction.cc.o: \
  /usr/include/c++/13/bits/shared_ptr_atomic.h \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h /usr/include/c++/13/cstdarg \
+ /usr/local/include/Geant4/G4ThreeVector.hh \
+ /usr/local/include/Geant4/globals.hh \
+ /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
+ /usr/local/include/Geant4/CLHEP/Utility/defs.h \
+ /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
  /home/jeb/adnef/simple/include/RunAction.hh /usr/include/root/TFile.h \
  /usr/include/root/Compression.h /usr/include/root/TDirectoryFile.h \
  /usr/include/root/TDirectory.h /usr/include/root/TNamed.h \
@@ -257,7 +262,6 @@ CMakeFiles/exampleB1.dir/src/EventAction.cc.o: \
  /usr/include/root/TBits.h /usr/local/include/Geant4/G4UserRunAction.hh \
  /usr/local/include/Geant4/G4Accumulable.hh \
  /usr/local/include/Geant4/G4VAccumulable.hh \
- /usr/local/include/Geant4/globals.hh \
  /usr/local/include/Geant4/G4VAccumulable.icc \
  /usr/local/include/Geant4/G4MergeMode.hh /usr/include/c++/13/functional \
  /usr/include/c++/13/bits/std_function.h \
@@ -278,9 +282,6 @@ CMakeFiles/exampleB1.dir/src/EventAction.cc.o: \
  /usr/local/include/Geant4/G4PrimaryVertex.hh \
  /usr/local/include/Geant4/pwdefs.hh \
  /usr/local/include/Geant4/G4ThreeVector.hh \
- /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
- /usr/local/include/Geant4/CLHEP/Utility/defs.h \
- /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
  /usr/local/include/Geant4/G4PrimaryParticle.hh \
  /usr/local/include/Geant4/G4HCofThisEvent.hh \
  /usr/local/include/Geant4/G4VHitsCollection.hh \
