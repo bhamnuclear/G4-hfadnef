@@ -85,11 +85,12 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
   G4double edep=step->GetTotalEnergyDeposit();
 // TEMPORARILY DISABLED THE LOGICTARGET
 //  if(logicname=="logicCLLBC" && time/second<1) {//CLLBC detector mode -- prompt only (1 second)
-//   G4cout<<logicname<<G4endl;
-  if(((projectile->GetParticleName()=="neutron" || 1)  && (logicname=="logicfoil"))) {//Neutron flux mode
+//   G4cout<<projectile->GetParticleName()<<"\t"<<logicname<<G4endl;
+  if(((projectile->GetParticleName()=="neutron" || 1)  && (logicname=="logictarget"))) {//Neutron flux mode
 //     fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition());//Option for neutron monitoring
      fEventAction->AddEdep(runnumber,particlename,step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV,step->GetTrack()->GetPosition(),step->GetStepLength());//Option for neutron monitoring biased by step length
 //     fEventAction->AddEdep(runnumber,particlename,edep/MeV,step->GetTrack()->GetPosition(),step->GetStepLength());//Option for CLLBC
+//    G4cout<<step->GetTrack()->GetDynamicParticle()->GetKineticEnergy()/MeV<<G4endl;
   }
 
 

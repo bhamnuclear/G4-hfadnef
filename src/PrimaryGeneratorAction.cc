@@ -39,7 +39,7 @@
 #include "G4IonTable.hh"
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
-
+#include "TThread.h"
 namespace B1
 {
 
@@ -72,6 +72,8 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) //Uses BrumLiT code to make our own neutrons
 {
+  int threadid=G4Threading::G4GetThreadId();
+
   G4String particleName;
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4double offset = G4RandGauss::shoot(0.,(39*mm)/(2.35));//39 mm FWHM

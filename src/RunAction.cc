@@ -66,26 +66,28 @@ RunAction::RunAction()
   accumulableManager->RegisterAccumulable(fEdep2);
   int threadid=G4Threading::G4GetThreadId();
   if(threadid<0) threadid=0;
-  if(fout==0) {
+  if(fout[threadid]==0) {
     G4cout<<"THREAD: "<<Form("neutrons%d.root",threadid)<<G4endl;
 
-    fout=new TFile(Form("neutrons%d.root",threadid),"RECREATE");
-    tree = new TTree("data","data");
-    tree->Branch("feventno",&feventno);
-    tree->Branch("fname",&fname);
-    tree->Branch("fEn",&fEn);
-    tree->Branch("fth",&fth);
-    tree->Branch("fX",&fX);
-    tree->Branch("fY",&fY);
-    tree->Branch("fZ",&fZ);
-    tree->Branch("fZ",&fZ);
-    tree->Branch("flength",&flength);
+    fout[threadid]=new TFile(Form("neutrons%d.root",threadid),"RECREATE");
+    tree[threadid] = new TTree("data","data");
+    tree[threadid]->Branch("feventno",&feventno);
+    tree[threadid]->Branch("fname",&fname);
+    tree[threadid]->Branch("fEn",&fEn);
+    tree[threadid]->Branch("fth",&fth);
+    tree[threadid]->Branch("fX",&fX);
+    tree[threadid]->Branch("fY",&fY);
+    tree[threadid]->Branch("fZ",&fZ);
+    tree[threadid]->Branch("fZ",&fZ);
+    tree[threadid]->Branch("flength",&flength);
   }
 
 }
 RunAction::~RunAction()
 {
-    fout->Close();
+  int threadid=G4Threading::G4GetThreadId();
+    G4cout<<"Trying to close thread "<<threadid<<" for "<<fout[threadid]<<G4endl;
+    fout[threadid]->Close();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -106,8 +108,8 @@ void RunAction::EndOfRunAction(const G4Run* run)
 {
   G4int nofEvents = fEn.size();
   G4cout<<nofEvents<<" neutrons in target"<<G4endl;
-  int thr=G4Threading::G4GetThreadId();
-  G4cout<<"Finished thread: "<<thr<<G4endl;
+  int threadid=G4Threading::G4GetThreadId();
+  G4cout<<"Finished thread: "<<threadid<<G4endl;
 //  G4cout<<"Run ID: "<<thr<<G4endl;
   if (nofEvents == 0) return;
   std::ofstream outs;
@@ -115,11 +117,12 @@ void RunAction::EndOfRunAction(const G4Run* run)
   G4cout<<"Events: "<<nofEvents<<G4endl;
   if(nofEvents==0) return;
 
-  if(fout!=0) {
-    G4cout<<"FILL"<<G4endl;
-    tree->Fill();
-    tree->Print();
-    tree->Write();
+  if(fout[threadid]!=0) {
+    G4cout<<"FILL "<<threadid<<"\t"<<tree[threadid]<<"\t"<<fout[threadid]<<G4endl;
+    tree[threadid]->Fill();
+    tree[threadid]->Print();
+    G4cout<<"Write"<<G4endl;
+    tree[threadid]->Write();
     G4cout<<"CLOSE"<<G4endl;
 
   }

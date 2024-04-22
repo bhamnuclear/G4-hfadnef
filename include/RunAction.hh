@@ -67,8 +67,8 @@ class RunAction : public G4UserRunAction
     std::vector<TString> fname;
     void AddEdep (int eventno, TString pname,G4double edep,G4double th);
     void AddEdep (int eventno, TString pname,G4double edep,G4ThreeVector pos,G4double length);
-    TFile *fout=0;
-    TTree *tree=0;
+    TFile *fout[16]={0};
+    TTree *tree[16]={0};
   private:
     G4Accumulable<G4double> fEdep = 0.;
     G4Accumulable<G4double> fEdep2 = 0.;
