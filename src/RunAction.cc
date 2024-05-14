@@ -87,7 +87,7 @@ RunAction::~RunAction()
 {
   int threadid=G4Threading::G4GetThreadId();
     G4cout<<"Trying to close thread "<<threadid<<" for "<<fout[threadid]<<G4endl;
-    fout[threadid]->Close();
+    if (fThreadid>=0) fout[threadid]->Close();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -117,7 +117,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
   G4cout<<"Events: "<<nofEvents<<G4endl;
   if(nofEvents==0) return;
 
-  if(fout[threadid]!=0) {
+  if(fout[threadid]!=0 && fThreadid>=0) {
     G4cout<<"FILL "<<threadid<<"\t"<<tree[threadid]<<"\t"<<fout[threadid]<<G4endl;
     tree[threadid]->Fill();
     tree[threadid]->Print();
