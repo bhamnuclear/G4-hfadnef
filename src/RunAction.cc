@@ -87,7 +87,7 @@ RunAction::~RunAction()
 {
   int threadid=G4Threading::G4GetThreadId();
     G4cout<<"Trying to close thread "<<threadid<<" for "<<fout[threadid]<<G4endl;
-    if (fThreadid>=0) fout[threadid]->Close();
+    if (fout[threadid]!=0) fout[threadid]->Close();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
