@@ -43,17 +43,20 @@
 #include "QGSP_BIC_AllHP.hh"
 #include "QGSP_BIC.hh"
 
+
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 
 #include "Randomize.hh"
-
+#include "TThread.h"
+#include "TROOT.h"
 using namespace B1;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc,char** argv)
 {
+  TThread::Initialize();
   // Detect interactive mode (if no arguments) and define UI session
   //
   G4UIExecutive* ui = nullptr;
@@ -78,6 +81,7 @@ int main(int argc,char** argv)
    runManager->SetNumberOfThreads(1);
 #else
    G4RunManager* runManager = new G4RunManager;
+   runManager->SetNumberOfThreads(10);
 #endif
   // Set mandatory initialization classes
   //
@@ -87,8 +91,8 @@ int main(int argc,char** argv)
   // Physics list
 //  G4VModularPhysicsList* physicsList = new QBBC;
 //  G4VModularPhysicsList* physicsList = new QBBC;
-  G4VModularPhysicsList* physicsList = new QGSP_BIC_AllHP;//Vaguely working?
-//  G4VModularPhysicsList* physicsList = new QGSP_BIC;
+//  G4VModularPhysicsList* physicsList = new QGSP_BIC_AllHP;//Vaguely working?
+  G4VModularPhysicsList* physicsList = new QGSP_BIC;
 
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
@@ -98,7 +102,7 @@ int main(int argc,char** argv)
 
   // Initialize visualization
   //
-  //G4VisManager* visManager = new G4VisExecutive;
+//  G4VisManager* visManager = new G4VisExecutive;
   // G4VisExecutive can take a verbosity argument - see /vis/verbose guidance.
    G4VisManager* visManager = new G4VisExecutive("Quiet");
   visManager->Initialize();
@@ -113,7 +117,7 @@ int main(int argc,char** argv)
     G4String command = "/control/execute ";
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command+fileName);
-    UImanager->ApplyCommand("/control/execute run1.mac");
+//    UImanager->ApplyCommand("/control/execute run1.mac");
 
   }
   else {
@@ -128,7 +132,7 @@ int main(int argc,char** argv)
   // owned and deleted by the run manager, so they should not be deleted
   // in the main() program !
 
-  delete visManager;
+//  delete visManager;
   delete runManager;
 }
 

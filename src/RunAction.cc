@@ -42,6 +42,7 @@
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
 #include "TThread.h"
+#include "G4AutoDelete.hh"
 namespace B1
 {
 
@@ -65,12 +66,14 @@ RunAction::RunAction()
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
   int threadid=G4Threading::G4GetThreadId();
-  if(threadid<0) threadid=0;
-  if(fout[threadid]==0) {
+  if(fout[threadid]==nullptr && threadid>=0) {
     G4cout<<"THREAD: "<<Form("neutrons%d.root",threadid)<<G4endl;
 
     fout[threadid]=new TFile(Form("neutrons%d.root",threadid),"RECREATE");
     tree[threadid] = new TTree("data","data");
+//    G4AutoDelete::Register(fout[threadid]);
+//    G4AutoDelete::Register(tree[threadid]);
+
     tree[threadid]->Branch("feventno",&feventno);
     tree[threadid]->Branch("fname",&fname);
     tree[threadid]->Branch("fEn",&fEn);
@@ -86,8 +89,9 @@ RunAction::RunAction()
 RunAction::~RunAction()
 {
   int threadid=G4Threading::G4GetThreadId();
-    G4cout<<"Trying to close thread "<<threadid<<" for "<<fout[threadid]<<G4endl;
-    fout[threadid]->Close();
+    G4cout<<"Trying to close thread "<<threadid<<G4endl;
+//    if(threadid < 0) threadid=0;
+//	if(fout[threadid]!=0) fout[threadid]->Close();
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -107,25 +111,37 @@ void RunAction::BeginOfRunAction(const G4Run*)
 void RunAction::EndOfRunAction(const G4Run* run)
 {
   G4int nofEvents = fEn.size();
-  G4cout<<nofEvents<<" neutrons in target"<<G4endl;
-  int threadid=G4Threading::G4GetThreadId();
-  G4cout<<"Finished thread: "<<threadid<<G4endl;
-//  G4cout<<"Run ID: "<<thr<<G4endl;
   if (nofEvents == 0) return;
+
+  int threadid=G4Threading::G4GetThreadId();
+  G4cout<<nofEvents<<" neutrons in target for thread "<<threadid<<G4endl;
+//  G4cout<<"Run ID: "<<thr<<G4endl;
   std::ofstream outs;
 //  outs.open(Form("pneutrons_%d.txt",thr),std::ios_base::app);
   G4cout<<"Events: "<<nofEvents<<G4endl;
   if(nofEvents==0) return;
-
-  if(fout[threadid]!=0) {
+//  if(threadid<0) threadid=0;
+  if(fout[threadid] != nullptr) {
     G4cout<<"FILL "<<threadid<<"\t"<<tree[threadid]<<"\t"<<fout[threadid]<<G4endl;
     tree[threadid]->Fill();
-    tree[threadid]->Print();
-    G4cout<<"Write"<<G4endl;
+//    tree[threadid]->Print();
+    fout[threadid]->cd();
     tree[threadid]->Write();
-    G4cout<<"CLOSE"<<G4endl;
+    fout[threadid]->Close();//Test here
+//    fout[threadid]->ls();
+//    for(int i=0;i<1000;i++) {
+//      G4cout<<threadid<<G4endl;
+//    }
 
+//    delete tree[threadid];
+//    tree[threadid] = 0;//Reset pointer
+//    delete fout[threadid];
+//    fout[threadid] = 0;//Reset pointer
   }
+  else {
+    G4cout<<"Error for threadid "<<threadid<<G4endl;
+  }
+
 //  tree->Branch("hE",&hE);
 }
 
