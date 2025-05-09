@@ -15,3 +15,6 @@ To run the visual mode do: ./adnef
 To run batch mode do: ./adnef run1.mac
 
 Change the proton energy and number of neutrons in the run1.mac file
+
+Works in multi-threaded GEANT, writing the outputs from each thread to a .root file with the thread number in the file.
+These can be merged with standard ROOT hadd
