@@ -227,15 +227,36 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //
   // Lithium
   //
+/*								3mm
+|<---->|        |<-->|  |<-->|                          |<------------>|
++------+        +----+  +----+                          +-------------+
+|  Ti  |        | G2 |  | G1 |                          | Cu petal w/ |
+|6 mm  |        |    |  |    |                          | 10% water   |
+|      |        |    |  |    |                          | by volume   |
++------+        +----+  +----+                          +-------------+
+
+<------------------->                                  <------------->
+     Layer stack 1                                          Layer stack 2
+
+<------------------------------------------------------------->
+*/
+  G4double li_thickness = 300*um;
+  G4double cu_thickness = 3*mm;
+  G4double li_to_cu_gap = 20.5*mm;
+  G4double graphite1_thickness = 3.5*mm;
+  G4double g1_to_g2_gap = 4.5*mm;
+  G4double graphite2_thickness = 3.5*mm;
+  G4double g2_to_ti_gap = 4*mm;
+  G4double ti_thickness = 6*mm;
   auto solidEnv = new G4Box("Lithium",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5 * env_sizeZ);  // its size
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5 * li_thickness);  // its size
 
   auto logicEnv = new G4LogicalVolume(solidEnv,  // its solid
     lithium,                                     // its material
     "Lithium");                                 // its name
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0*m,vertical_offset,0*m),          // at (0,0,0)
+    G4ThreeVector(0*m,vertical_offset,0*m),          // at (0,0,0) is the centre of the lithium petal
     logicEnv,                 // its logical volume
     "Lithium",               // its name
     logicWorld,               // its mother  volume
@@ -245,10 +266,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //
   // Copper
   //
-  G4double back_sizeZ=3.*mm;
 
   auto solidback = new G4Box("Copper",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*back_sizeZ);  // its size
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*cu_thickness);  // its size
 
   auto logicback = new G4LogicalVolume(solidback,  // its solid
     copper,                                     // its material
@@ -260,7 +280,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logicback->SetVisAttributes(coppercolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,vertical_offset,0.5*env_sizeZ+0.5*back_sizeZ),          // at (0,0,0)
+    G4ThreeVector(0,vertical_offset,0.5*cu_thickness+li_thickness),          // at (0,0,0)
     logicback,                 // its logical volume
     "Copper",               // its name
     logicWorld,               // its mother  volume
@@ -269,25 +289,44 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     checkOverlaps);           // overlaps checking
 
   //
-  // Graphite
+  // Graphite x2
   //
 
-  auto solidgraphite = new G4Box("Graphite",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*7*mm);  // its size
+  auto solidgraphite1 = new G4Box("Graphite1",                    // its name
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*graphite1_thickness);  // its size
 
-  auto logicgraphite = new G4LogicalVolume(solidback,  // its solid
+  auto logicgraphite1 = new G4LogicalVolume(solidgraphite1,  // its solid
     graphite,                                     // its material
-    "Graphite");                                 // its name
+    "Graphite1");                                 // its name
+
+  auto solidgraphite2 = new G4Box("Graphite2",                    // its name
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*graphite2_thickness);  // its size
+
+
+  auto logicgraphite2 = new G4LogicalVolume(solidgraphite2,  // its solid
+    graphite,                                     // its material
+    "Graphite2");                                 // its name
 
   auto graphitecolour = new G4VisAttributes();
   graphitecolour->SetColour(0.2,0.2,0.2);
 
-  logicgraphite->SetVisAttributes(graphitecolour);
+  logicgraphite1->SetVisAttributes(graphitecolour);
+  logicgraphite2->SetVisAttributes(graphitecolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,vertical_offset,0.5*env_sizeZ+0.5*back_sizeZ+7*mm),          // at (0,0,0)
-    logicgraphite,                 // its logical volume
-    "Graphite",               // its name
+    G4ThreeVector(0,vertical_offset,li_thickness+cu_thickness+li_to_cu_gap+0.5*graphite1_thickness),          // at (0,0,0)
+    logicgraphite1,                 // its logical volume
+    "Graphite1",               // its name
+    logicWorld,               // its mother  volume
+    false,                    // no boolean operation
+    0,                        // copy number
+    checkOverlaps);           // overlaps checking
+
+
+  new G4PVPlacement(nullptr,  // no rotation
+    G4ThreeVector(0,vertical_offset,li_thickness+cu_thickness+li_to_cu_gap+graphite1_thickness+g1_to_g2_gap+0.5*graphite2_thickness),          // at (0,0,0)
+    logicgraphite2,                 // its logical volume
+    "Graphite2",               // its name
     logicWorld,               // its mother  volume
     false,                    // no boolean operation
     0,                        // copy number
@@ -296,7 +335,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // Titanium flange
   //
   auto solidtitanium = new G4Box("titanium",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*6*mm);  // its size
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*ti_thickness);  // its size
 
   auto logictitanium = new G4LogicalVolume(solidtitanium,  // its solid
     Ti,                                     // its material
@@ -308,24 +347,26 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logictitanium->SetVisAttributes(titaniumcolour);
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,vertical_offset,42*mm-0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
+    G4ThreeVector(0,vertical_offset,li_thickness+cu_thickness+li_to_cu_gap+graphite1_thickness+g1_to_g2_gap+graphite2_thickness+g2_to_ti_gap+0.5*ti_thickness),
     logictitanium,                 // its logical volume
     "titanium",               // its name
     logicWorld,               // its mother  volume
     false,                    // no boolean operation
     0,                        // copy number
     checkOverlaps);           // overlaps checking
+
 //Back side
-  new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,vertical_offset,-1*cm+0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
-    logictitanium,                 // its logical volume
-    "titanium",               // its name
-    logicWorld,               // its mother  volume
-    false,                    // no boolean operation
-    0,                        // copy number
-    checkOverlaps);           // overlaps checking
+//  new G4PVPlacement(nullptr,  // no rotation
+//    G4ThreeVector(0,vertical_offset,-1*cm+0.5*6*mm),          // Back edge at 42 mm due to 6 mm thickness of Ti
+//    logictitanium,                 // its logical volume
+//    "titanium",               // its name
+//    logicWorld,               // its mother  volume
+//    false,                    // no boolean operation
+//    0,                        // copy number
+//    checkOverlaps);           // overlaps checking
 
-
+//Optional scatterers ------------------------->>>
+/*
 // Forward Scatterer
 
   auto solidscatterer = new G4Box("scatterer",0.5*10*cm,0.5*10*cm,0.5*5*mm);
@@ -341,13 +382,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   auto solidscattererc = new G4Box("scattererc",0.5*10*cm,0.5*10*cm,0.5*25*mm);
   auto logicscattererc = new G4LogicalVolume(solidscattererc,bpoly, "logicscattererc");
 //  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+55*mm+25*mm),logicscattererc,"logicscattererc",logicWorld,false,0,checkOverlaps);
-
+*/
   //
   // Target space
   //
-
+  G4double foil_size = 50*mm;
+  G4double foil_thickness = 1*mm;
+  G4double ti_to_foil_gap = 1*mm;
+  G4double outer_distance = li_thickness+cu_thickness+li_to_cu_gap+graphite1_thickness+g1_to_g2_gap+graphite2_thickness+g2_to_ti_gap+ti_thickness;
   auto solidtarget = new G4Box("target",                    // its name
-    0.5 * 2 *mm, 0.5 * 2*mm, 0.5*1*mm);  // its size
+    0.5 * foil_size, 0.5 * foil_size, 0.5*foil_thickness*mm);  // its size
 
 //  auto solidtarget = new G4Tubs("target", 0*mm, 6*mm, 0.14*mm, 0*deg, 360*deg);//Gold
 
@@ -362,9 +406,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   logictarget->SetVisAttributes(targetcolour);
 
 
-
+  G4cout<<"Target placed at "<<(outer_distance+ti_to_foil_gap+0.5*foil_thickness)/mm<<" mm from target"<<G4endl;
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+2.*mm),          // at (0,0,0)
+    G4ThreeVector(0,0,outer_distance+ti_to_foil_gap+0.5*foil_thickness),          // at (0,0,0)
     logictarget,                 // its logical volume
     "logictarget",               // its name
     logicWorld,               // its mother  volume
@@ -373,13 +417,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     checkOverlaps);           // overlaps checking
 
   fScoringVolume = logictarget;
+//Optional CLLBC detectors
+/*
   // CLLBC
 
   auto solidCLLBC = new G4Tubs("solidCLLBC", 0*mm, 1*2.54*cm,1*2.54*cm , 0*deg, 360*deg);//pname, rmin, rmax, dz (half lenght), start phi, segment angle phi
   auto logicCLLBC = new G4LogicalVolume(solidCLLBC,CLLBC,"logicCLLBC");
 //  new G4PVPlacement(nullptr, G4ThreeVector(0,0,0.1*m), logicCLLBC, "CLLBC", logicWorld, false, 0, checkOverlaps); //CLLBC 1 metre from beam
-
- // Activation foil
+*/
+ // Activation foils
    
   auto foil1 = new G4Box("foil1",                    // its name
     0.5 * 5 *cm, 0.5 * 5*cm, 0.5*1*mm);  // its size

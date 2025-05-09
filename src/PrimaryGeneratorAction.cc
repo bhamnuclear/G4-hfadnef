@@ -78,7 +78,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) //Uses BrumLiT 
   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
   G4double offset = G4RandGauss::shoot(0.,(39*mm)/(2.35));//39 mm FWHM
   G4double phi = G4UniformRand()*2*4*atan(1.);//0->2pi
-  fParticleGun->SetParticlePosition(G4ThreeVector(offset*cos(phi),offset*sin(phi),-0.1*mm));//Surface of Li
+  fParticleGun->SetParticlePosition(G4ThreeVector(offset*cos(phi),offset*sin(phi),-0.15*mm));//Surface of Li
   if(Einitial == 0) Einitial = fParticleGun->GetParticleEnergy(); //Set class variables once from the macro
   //Sample Ep_interaction
   double Eint = InteractionE(Einitial);
