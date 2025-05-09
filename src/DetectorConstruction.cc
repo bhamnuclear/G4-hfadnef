@@ -76,6 +76,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material* paraffin = nist->FindOrBuildMaterial("G4_PARAFFIN");
   G4Material* graphite = nist->FindOrBuildMaterial("G4_GRAPHITE");
   G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
+  G4Material* water = nist->FindOrBuildMaterial("G4_WATER");
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
   G4Material* lowpoly = new G4Material("lowpoly",0.09*g/cm3,1);
   lowpoly->AddMaterial(poly,100*perCent);
@@ -97,6 +98,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4cout<<"Enriching lithium"<<G4endl;
   enrichedLi->AddElement(Li6,abundance=95*perCent);
   enrichedLi->AddElement(Li7,abundance=5*perCent);
+  G4Material* copperwater = new G4Material("copperwater",8.164*g/cm2,2);//10% water (by volume) inside 90% copper
+  copperwater->AddMaterial(copper,0.988);
+  copperwater->AddMaterial(water,0.012);//By weight
   G4Material* CLLBC = new G4Material("CLLBC",4.08*g/cm3,5);
   G4double wtotal = (2*132.9+1*6.941+1*138.9+4.8*79.904+1.2*35.453);
   G4double wCs =(2*132.9)/wtotal;//Weightsfraction
@@ -271,7 +275,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*cu_thickness);  // its size
 
   auto logicback = new G4LogicalVolume(solidback,  // its solid
-    copper,                                     // its material
+    copperwater,                                     // its material
     "Copper");                                 // its name
 
   auto coppercolour = new G4VisAttributes();
