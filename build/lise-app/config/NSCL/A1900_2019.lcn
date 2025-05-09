@@ -1,0 +1,1060 @@
+Version 16.15.51
+
+{============================= Main Part ======================================}
+[general]
+                    File = C:/LISEcute/_install/config/NSCL/A1900_2019.lcn
+                    Date = 12-07-2023
+                    Time = 04:15:21
+                   Title = NSCL A1900 Fragment Separator 2019
+          BlockStructure = DSWDMSWMMDSWDMMSMMMMMMMM
+          NumberOfBlocks = 24
+
+[OpticsBeam]
+                      BX = 1                    (+/-)mm          ; one-half the horisontal beam extent (x)
+                      BT = 6                    (+/-)mrad        ; one-half the horisontal beam divergence(x')
+                      BY = 1                    (+/-)mm          ; one-half the vertical beam extent (y)
+                      BF = 8                    (+/-)mrad        ; one-half the vertical beam divergence (y')
+                      BL = 0                    (+/-)mm          
+                      BD = 0.07                 (+/-)%           ; one-half of the momentum spread (dp/p)
+                  ShiftX = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleX = 0                    mrad             ; beam respect to the spectrometer axis
+                  ShiftY = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleY = 0                    mrad             ; beam respect to the spectrometer axis
+            Scheme Angle = 0                    degrees          
+                  ShapeX = 1
+                  ShapeT = 1
+                  ShapeY = 1
+                  ShapeF = 1
+                  ShapeL = 1
+                  ShapeD = 1
+               OptBeam_X = 1                    (+/-)mm          
+               OptBeam_T = 30                   (+/-)mrad        
+               OptBeam_Y = 1                    (+/-)mm          
+               OptBeam_F = 30                   (+/-)mrad        
+               OptBeam_L = 0                    (+/-)mm          
+               OptBeam_D = 1.5                  (+/-)%           
+
+
+{============================= BLOCK D1 - Dipole ======================================}
+
+[D1_General]
+                    Name = D1,1                                  ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 8.719                m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 0
+             Before_Quad = 3                                     ; number of quadrupoles before optic device
+              After_Quad = 3                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 0                                     ;  Z - Q  = charge state settings
+        Calibration file = A1900/A1900_D1-Z026.cal
+
+[D1_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[D1_optics]
+                    row1 = -2.28459e+00,+9.00000e-03,+0.00000e+00,+0.00000e+00,+0.00000e+00,+2.92533e+01
+                    row2 = +1.06245e+00,-4.41890e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,-2.83000e-03
+                    row3 = +0.00000e+00,+0.00000e+00,+7.38530e-01,+2.20000e-03,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+3.74271e+00,+1.36526e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +3.10738e+00,-1.29270e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+5.77690e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D1_AngAcceptance]
+                   X-Use = 1
+                 X-Value = 60                   mrad             ; acceptance
+                   Y-Use = 1
+                 Y-Value = 40                   mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[D1_DipoleSettings]
+                    Brho = 4.36328              Tm               ; magnetic rigidity
+                   Angle = 45                   degrees          
+                  Radius = 3.1                  m                
+
+[D1_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1
+                 GapVert = 0                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 0                    deg              ; code 2.0 - entrance
+              Beta2angle = 0                    deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Entrance Use 1/0
+          UseExitFringeF = 1                                     ; Exit Use 1/0
+
+
+{============================= BLOCK S1 - Drift ======================================}
+
+[S1_General]
+                    Name = I1_slits,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 1
+
+[S1_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-100.00,-100.0,100.00,100.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[S1_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S1_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S1_DriftSettings]
+                    Mode = 1                                     ; 4-finger, E-Quad 3, M-Quad 2, Stand 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+
+
+{============================= BLOCK W1 - Wedge ======================================}
+
+[W1_General]
+                    Name = I1_wedge,1                            ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[W1_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 1,193,2.702,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.1                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+
+[W1_ProdTarget]
+              ProdTarget = 0
+
+[W1_WedgeSettings]
+             ProfileMode = 2                                     ; 0-Wedge,1-Homo,2-Curved,3-Custom
+    PhysProfileDesirable = 2                                     ; 0-Achrom,1-Monoch,2-user-defined
+                   Angle = 0                    mrad             ; wedge slope for the mode (0-Wedge)
+               Direction = 0                                     ; x=0, y=1
+       CalculateForBlock = D4
+           DirectReverse = 0                                     ; 0-direct, 1-LISE reverse, 2-COSY
+        ExternalInternal = 1                                     ; external=0 / internal=1
+            ReadInternal = 1
+       CustExternalInter = 1                                     ; external=0 / internal=1
+           CustReadInter = 0
+                  Porder = 2                                     ; polynom order 1-4
+                   coef0 = 0e+0                 mm^(+1)          
+                   coef1 = 0e+0                 mm^(+0)          
+                   coef2 = 0e+0                 mm^(-1)          
+                   coef3 = 0e+0                 mm^(-2)          
+                   coef4 = 0e+0                 mm^(-3)          
+         MatrixElement66 = 1                                     ; d/d matrix, default 1
+
+[W1_CurvedProfile]
+; Version 7.1    19-12-2006   16:26:00
+; Block: Wedge_I1     Settings: 45Fe26+     Energy: 109.86 MeV/u
+; Degrader: Al (705.14 micron)     Dispersion:  mm/%
+; Mode: Profile from file     Wedge angle=577.76 mrad
+; NP	X0	L	h	e0
+; 128	60.00	120.00	78.01	600.00
+; =========================================================================
+;========================== curved degrader ===============================
+; N	X(mm)	Thick(um)	H(mm)	Tan(reduced)
+0	-60.0000	680.7750	0.0000	0.5427
+1	-59.0625	681.3180	0.5097	0.5446
+2	-58.1250	681.8338	1.0210	0.5464
+3	-57.1875	682.3509	1.5341	0.5482
+4	-56.2500	682.8692	2.0489	0.55
+5	-55.3125	683.3889	2.5654	0.5518
+6	-54.3750	683.9099	3.0836	0.5536
+7	-53.4375	684.4612	3.6035	0.5555
+8	-52.5000	684.9558	4.1251	0.5572
+9	-51.5625	685.4806	4.6484	0.559
+10	-50.6250	686.0068	5.1733	0.5608
+11	-49.6875	686.5343	5.6999	0.5626
+12	-48.7500	687.0630	6.2282	0.5644
+13	-47.8125	687.5930	6.7582	0.5662
+14	-46.8750	688.1243	7.2898	0.568
+15	-45.9375	688.6272	7.8231	0.5697
+16	-45.0000	689.1610	8.3580	0.5715
+17	-44.0625	689.6663	8.8946	0.5732
+18	-43.1250	690.2025	9.4329	0.575
+19	-42.1875	690.7400	9.9728	0.5768
+20	-41.2500	691.2488	10.5143	0.5785
+21	-40.3125	691.7887	11.0575	0.5803
+22	-39.3750	692.2998	11.6023	0.582
+23	-38.4375	692.8120	12.1487	0.5837
+24	-37.5000	693.3556	12.6967	0.5855
+25	-36.5625	693.8701	13.2464	0.5872
+26	-35.6250	694.3857	13.7977	0.5889
+27	-34.6875	694.9024	14.3506	0.5906
+28	-33.7500	695.4507	14.9052	0.5924
+29	-32.8125	695.9697	15.4613	0.5941
+30	-31.8750	696.4898	16.0190	0.5958
+31	-30.9375	697.0110	16.5784	0.5975
+32	-30.0000	697.5332	17.1393	0.5992
+33	-29.0625	698.0566	17.7019	0.6009
+34	-28.1250	698.5811	18.2660	0.6026
+35	-27.1875	699.1066	18.8317	0.6043
+36	-26.2500	699.6332	19.3990	0.606
+37	-25.3125	700.1609	19.9679	0.6077
+38	-24.3750	700.6586	20.5384	0.6093
+39	-23.4375	701.1884	21.1104	0.611
+40	-22.5000	701.7193	21.6840	0.6127
+41	-21.5625	702.2512	22.2592	0.6144
+42	-20.6250	702.7528	22.8360	0.616
+43	-19.6875	703.2869	23.4143	0.6177
+44	-18.7500	703.8219	23.9942	0.6194
+45	-17.8125	704.3265	24.5756	0.621
+46	-16.8750	704.8637	25.1586	0.6227
+47	-15.9375	705.3702	25.7431	0.6243
+48	-15.0000	705.9094	26.3292	0.626
+49	-14.0625	706.4178	26.9168	0.6276
+50	-13.1250	706.9591	27.5060	0.6293
+51	-12.1875	707.4694	28.0967	0.6309
+52	-11.2500	708.0127	28.6890	0.6326
+53	-10.3125	708.5250	29.2827	0.6342
+54	-9.3750	709.0382	29.8781	0.6358
+55	-8.4375	709.5523	30.4749	0.6374
+56	-7.5000	710.0995	31.0733	0.6391
+57	-6.5625	710.6155	31.6732	0.6407
+58	-5.6250	711.1324	32.2746	0.6423
+59	-4.6875	711.6503	32.8775	0.6439
+60	-3.7500	712.1690	33.4819	0.6455
+61	-2.8125	712.7212	34.0879	0.6472
+62	-1.8750	713.2418	34.6954	0.6488
+63	-0.9375	713.7633	35.3043	0.6504
+64	0.0000	714.2857	35.9148	0.652
+65	0.9375	714.8090	36.5268	0.6536
+66	1.8750	715.3333	37.1403	0.6552
+67	2.8125	715.8584	37.7552	0.6568
+68	3.7500	716.3844	38.3717	0.6584
+69	4.6875	716.8783	38.9897	0.6599
+70	5.6250	717.4061	39.6091	0.6615
+71	6.5625	717.9347	40.2300	0.6631
+72	7.5000	718.4642	40.8525	0.6647
+73	8.4375	718.9946	41.4763	0.6663
+74	9.3750	719.5259	42.1017	0.6679
+75	10.3125	720.0247	42.7286	0.6694
+76	11.2500	720.5577	43.3569	0.671
+77	12.1875	721.0916	43.9867	0.6726
+78	13.1250	721.5929	44.6180	0.6741
+79	14.0625	722.1284	45.2507	0.6757
+80	15.0000	722.6648	45.8849	0.6773
+81	15.9375	723.1685	46.5206	0.6788
+82	16.8750	723.7066	47.1577	0.6804
+83	17.8125	724.2119	47.7963	0.6819
+84	18.7500	724.7517	48.4363	0.6835
+85	19.6875	725.2585	49.0778	0.685
+86	20.6250	725.8000	49.7207	0.6866
+87	21.5625	726.3084	50.3651	0.6881
+88	22.5000	726.8515	51.0109	0.6897
+89	23.4375	727.3614	51.6582	0.6912
+90	24.3750	727.8721	52.3069	0.6927
+91	25.3125	728.4177	52.9571	0.6943
+92	26.2500	728.9299	53.6087	0.6958
+93	27.1875	729.4429	54.2617	0.6973
+94	28.1250	729.9909	54.9162	0.6989
+95	29.0625	730.5054	55.5721	0.7004
+96	30.0000	731.0207	56.2294	0.7019
+97	30.9375	731.5367	56.8882	0.7034
+98	31.8750	732.0879	57.5483	0.705
+99	32.8125	732.6054	58.2099	0.7065
+100	33.7500	733.1236	58.8730	0.708
+101	34.6875	733.6426	59.5374	0.7095
+102	35.6250	734.1623	60.2033	0.711
+103	36.5625	734.6828	60.8706	0.7125
+104	37.5000	735.2039	61.5392	0.714
+105	38.4375	735.7258	62.2093	0.7155
+106	39.3750	736.2484	62.8808	0.717
+107	40.3125	736.7718	63.5538	0.7185
+108	41.2500	737.2958	64.2281	0.72
+109	42.1875	737.8206	64.9038	0.7215
+110	43.1250	738.3461	65.5809	0.723
+111	44.0625	738.8723	66.2595	0.7245
+112	45.0000	739.3993	66.9394	0.726
+113	45.9375	739.9269	67.6207	0.7275
+114	46.8750	740.4553	68.3034	0.729
+115	47.8125	740.9843	68.9875	0.7305
+116	48.7500	741.4788	69.6730	0.7319
+117	49.6875	742.0092	70.3599	0.7334
+118	50.6250	742.5403	71.0482	0.7349
+119	51.5625	743.0722	71.7378	0.7364
+120	52.5000	743.5692	72.4289	0.7378
+121	53.4375	744.1024	73.1213	0.7393
+122	54.3750	744.6363	73.8151	0.7408
+123	55.3125	745.1709	74.5103	0.7423
+124	56.2500	745.6705	75.2068	0.7437
+125	57.1875	746.2064	75.9047	0.7452
+126	58.1250	746.7073	76.6040	0.7466
+127	59.0625	747.2446	77.3047	0.7481
+128	60.0000	747.7825	78.0067	0.7496
+
+
+{============================= BLOCK D2 - Dipole ======================================}
+
+[D2_General]
+                    Name = D2,1                                  ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 8.767                m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 0
+             Before_Quad = 3                                     ; number of quadrupoles before optic device
+              After_Quad = 3                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 0                                     ;  Z - Q  = charge state settings
+        Calibration file = A1900/A1900_D2-Z048.cal
+
+[D2_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-150.00,-150.0,150.00,150.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-150.00,-150.0,150.00,150.0         ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[D2_optics]
+                    row1 = -1.01866e+00,-1.22200e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,-2.93222e+01
+                    row2 = +3.64000e-03,-9.81240e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,-1.09260e-01
+                    row3 = +0.00000e+00,+0.00000e+00,+1.14196e+00,-1.90000e-03,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+4.12780e+00,+8.68940e-01,+0.00000e+00,+0.00000e+00
+                    row5 = -2.17900e-02,+2.87590e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+7.07710e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D2_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 30                   mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 60                   mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[D2_DipoleSettings]
+                    Brho = 4.36328              Tm               ; magnetic rigidity
+                   Angle = -45                  degrees          
+                  Radius = 3.1                  m                
+
+[D2_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1
+                 GapVert = 0                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 0                    deg              ; code 2.0 - entrance
+              Beta2angle = 0                    deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Entrance Use 1/0
+          UseExitFringeF = 1                                     ; Exit Use 1/0
+
+
+{============================= BLOCK M1 - Material ======================================}
+
+[M1_General]
+                    Name = I2_PPAC0,1                            ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M1_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 1,2.2,2.702,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.1                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,0                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 1,2.54,3.125         ns,mm,mm         ; Time&X&Y space
+
+[M1_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M1_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK S2 - Drift ======================================}
+
+[S2_General]
+                    Name = I2_slits,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 1
+
+[S2_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-150.00,-150.0,150.00,150.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-50.00,-150.0,50.00,150.0           ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[S2_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S2_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S2_DriftSettings]
+                    Mode = 1                                     ; 4-finger, E-Quad 3, M-Quad 2, Stand 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+
+
+{============================= BLOCK W2 - Wedge ======================================}
+
+[W2_General]
+                    Name = I2_wedge,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+
+[W2_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,0,2.702,0,0,0                       ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.3                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+
+[W2_ProdTarget]
+              ProdTarget = 0
+
+[W2_WedgeSettings]
+             ProfileMode = 2                                     ; 0-Wedge,1-Homo,2-Curved,3-Custom
+    PhysProfileDesirable = 2                                     ; 0-Achrom,1-Monoch,2-user-defined
+                   Angle = 0                    mrad             ; wedge slope for the mode (0-Wedge)
+               Direction = 0                                     ; x=0, y=1
+       CalculateForBlock = D4
+           DirectReverse = 0                                     ; 0-direct, 1-LISE reverse, 2-COSY
+        ExternalInternal = 1                                     ; external=0 / internal=1
+            ReadInternal = 1
+       CustExternalInter = 1                                     ; external=0 / internal=1
+           CustReadInter = 0
+                  Porder = 2                                     ; polynom order 1-4
+                   coef0 = 0e+0                 mm^(+1)          
+                   coef1 = 0e+0                 mm^(+0)          
+                   coef2 = 0e+0                 mm^(-1)          
+                   coef3 = 0e+0                 mm^(-2)          
+                   coef4 = 0e+0                 mm^(-3)          
+         MatrixElement66 = 1                                     ; d/d matrix, default 1
+
+[W2_CurvedProfile]
+; Version 6.6.3    19-07-2004   10:53:42
+; Block: Wedge_I2     Settings: 48Ni28+     Energy: 101.36 MeV/u
+; Degrader: Al (740.19 micron)     Dispersion:  mm/%
+; Mode: User-defined     Wedge angle=-0.4356 mrad
+; NP	X0	L	h	e0
+; 32	175.00	350.00	163.20	663.96
+; Official NSCL curved degrader
+;========================== curved degrader ===============================
+; N	X(mm)	Thick(um)	H(mm)	Tan(reduced)
+0	-175.0000	0.0000	163.2022	0.71552
+1	-164.0625	0.0000	155.4440	0.70312
+2	-153.1250	0.0000	147.8223	0.69057
+3	-142.1875	0.0000	140.3388	0.67786
+4	-131.2500	0.0000	132.9951	0.66499
+5	-120.3125	0.0000	125.7932	0.65194
+6	-109.3750	0.0000	118.7350	0.6387
+7	-98.4375	0.0000	111.8226	0.62527
+8	-87.5000	0.0000	105.0583	0.61163
+9	-76.5625	0.0000	98.4444	0.59776
+10	-65.6250	0.0000	91.9836	0.58365
+11	-54.6875	0.0000	85.6785	0.56928
+12	-43.7500	0.0000	79.5320	0.55464
+13	-32.8125	0.0000	73.5474	0.53969
+14	-21.8750	0.0000	67.7281	0.52441
+15	-10.9375	0.0000	62.0779	0.50878
+16	0.0000	0.0000	56.6008	0.49275
+17	10.9375	0.0000	51.3013	0.47629
+18	21.8750	0.0000	46.1845	0.45936
+19	32.8125	0.0000	41.2557	0.44189
+20	43.7500	0.0000	36.5213	0.42383
+21	54.6875	0.0000	31.9882	0.40509
+22	65.6250	0.0000	27.6643	0.38557
+23	76.5625	0.0000	23.5588	0.36515
+24	87.5000	0.0000	19.6825	0.34367
+25	98.4375	0.0000	16.0481	0.32091
+26	109.3750	0.0000	12.6712	0.29658
+27	120.3125	0.0000	9.5713	0.27027
+28	131.2500	0.0000	6.7736	0.24131
+29	142.1875	0.0000	4.3131	0.20861
+30	153.1250	0.0000	2.2425	0.17003
+31	164.0625	0.0000	0.6563	0.12001
+32	175.0000	0.0000	0.0000	0
+
+
+{============================= BLOCK M2 - Material ======================================}
+
+[M2_General]
+                    Name = I2_PPAC1,1                            ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M2_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 1,2.2,2.702,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.1                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,0                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 1,2.54,3.125         ns,mm,mm         ; Time&X&Y space
+
+[M2_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M2_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M3 - Material ======================================}
+
+[M3_General]
+                    Name = I2_SCI,1                              ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M3_Compound]
+               contents1 = 0,6,9,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,254,1.032,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,5                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,5                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,15,100           ns,mm,mm         ; Time&X&Y space
+
+[M3_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M3_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK D3 - Dipole ======================================}
+
+[D3_General]
+                    Name = D3,1                                  ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 8.767                m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 0
+             Before_Quad = 3                                     ; number of quadrupoles before optic device
+              After_Quad = 3                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 0                                     ;  Z - Q  = charge state settings
+        Calibration file = A1900/A1900_D3-Z071.cal
+
+[D3_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[D3_optics]
+                    row1 = -9.82890e-01,-1.53900e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,-2.87424e+01
+                    row2 = +3.76000e-03,-1.01682e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+2.13170e-01
+                    row3 = +0.00000e+00,+0.00000e+00,+8.77160e-01,+4.00000e-03,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+4.16302e+00,+1.15903e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +1.01600e-02,+2.92590e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+7.85680e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D3_AngAcceptance]
+                   X-Use = 1
+                 X-Value = 30                   mrad             ; acceptance
+                   Y-Use = 1
+                 Y-Value = 55                   mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[D3_DipoleSettings]
+                    Brho = 4.36328              Tm               ; magnetic rigidity
+                   Angle = -45                  degrees          
+                  Radius = 3.1                  m                
+
+[D3_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1
+                 GapVert = 0                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 0                    deg              ; code 2.0 - entrance
+              Beta2angle = 0                    deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Entrance Use 1/0
+          UseExitFringeF = 1                                     ; Exit Use 1/0
+
+
+{============================= BLOCK S3 - Drift ======================================}
+
+[S3_General]
+                    Name = I3_slits,1                            ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 1
+
+[S3_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-100.00,-100.0,100.00,100.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-100.00,-100.0,100.00,100.0         ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[S3_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e-05
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e-05
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S3_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S3_DriftSettings]
+                    Mode = 0                                     ; 4-finger, E-Quad 3, M-Quad 2, Stand 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+
+
+{============================= BLOCK W3 - Wedge ======================================}
+
+[W3_General]
+                    Name = I3_wedge,1                            ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[W3_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,0,2.702,0,0,0                       ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.1                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+
+[W3_ProdTarget]
+              ProdTarget = 0
+
+[W3_WedgeSettings]
+             ProfileMode = 1                                     ; 0-Wedge,1-Homo,2-Curved,3-Custom
+    PhysProfileDesirable = 2                                     ; 0-Achrom,1-Monoch,2-user-defined
+                   Angle = 0                    mrad             ; wedge slope for the mode (0-Wedge)
+               Direction = 0                                     ; x=0, y=1
+       CalculateForBlock = D4
+           DirectReverse = 0                                     ; 0-direct, 1-LISE reverse, 2-COSY
+        ExternalInternal = 0                                     ; external=0 / internal=1
+            ReadInternal = 0
+       CustExternalInter = 1                                     ; external=0 / internal=1
+           CustReadInter = 0
+                  Porder = 2                                     ; polynom order 1-4
+                   coef0 = 0e+0                 mm^(+1)          
+                   coef1 = 0e+0                 mm^(+0)          
+                   coef2 = 0e+0                 mm^(-1)          
+                   coef3 = 0e+0                 mm^(-2)          
+                   coef4 = 0e+0                 mm^(-3)          
+         MatrixElement66 = 1                                     ; d/d matrix, default 1
+
+
+{============================= BLOCK D4 - Dipole ======================================}
+
+[D4_General]
+                    Name = D4,1                                  ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 9.39                 m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 0
+             Before_Quad = 3                                     ; number of quadrupoles before optic device
+              After_Quad = 3                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 0                                     ;  Z - Q  = charge state settings
+        Calibration file = A1900/A1900_D4-Z093.cal
+
+[D4_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-100.00,-150.0,100.00,150.0         ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[D4_optics]
+                    row1 = -1.10265e+00,+2.94600e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,+3.23225e+01
+                    row2 = +3.64500e-02,-9.16650e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,-1.07562e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+3.10738e+00,+3.00000e-03,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+3.85725e+00,+3.25510e-01,+0.00000e+00,+0.00000e+00
+                    row5 = -7.80000e-04,-2.93110e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+1.06770e+01
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D4_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 28                   mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 50                   mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[D4_DipoleSettings]
+                    Brho = 4.36328              Tm               ; magnetic rigidity
+                   Angle = 45                   degrees          
+                  Radius = 3.1                  m                
+
+[D4_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1
+                 GapVert = 0                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 0                    deg              ; code 2.0 - entrance
+              Beta2angle = 0                    deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Entrance Use 1/0
+          UseExitFringeF = 1                                     ; Exit Use 1/0
+
+
+{============================= BLOCK M4 - Material ======================================}
+
+[M4_General]
+                    Name = FP_PPAC0,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M4_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 1,2,2.702,0,0,0                       ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,0.1                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,0                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 1,1,1                ns,mm,mm         ; Time&X&Y space
+
+[M4_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M4_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M5 - Material ======================================}
+
+[M5_General]
+                    Name = FP_PPAC1,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M5_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 1,2,2.702,0,0,0                       ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 0,1                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,0                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 1,1,1                ns,mm,mm         ; Time&X&Y space
+
+[M5_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M5_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK S4 - Drift ======================================}
+
+[S4_General]
+                    Name = FP_slits,1                            ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+        RemotePermission = 1
+
+[S4_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-25.00,-25.0,25.00,25.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-25.00,-25.0,25.00,25.0             ; joint,Bottom,B-limit,Top,T-limit
+         ApplyForMethods = 1, 1                                  ; Distribution, Ellipse
+
+[S4_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S4_AngAcceptance]
+                   X-Use = 0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S4_DriftSettings]
+                    Mode = 1                                     ; 4-finger, E-Quad 3, M-Quad 2, Stand 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+
+
+{============================= BLOCK M6 - Material ======================================}
+
+[M6_General]
+                    Name = XF_SCI,1                              ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M6_Compound]
+               contents1 = 0,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,6,9,12.011                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,127,1.032,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,0.127                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M6_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M6_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M7 - Material ======================================}
+
+[M7_General]
+                    Name = FP_PIN,1                              ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M7_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,504,2.321,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,2                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.2,1,1              ns,mm,mm         ; Time&X&Y space
+
+[M7_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M7_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M8 - Material ======================================}
+
+[M8_General]
+                    Name = FP_Stack0,1                           ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M8_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,500,2.321,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,0.5                                 ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M8_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M8_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M9 - Material ======================================}
+
+[M9_General]
+                    Name = FP_Stack1,1                           ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M9_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1000,2.321,0,0,0                    ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,1                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M9_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M9_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M10 - Material ======================================}
+
+[M10_General]
+                    Name = FP_Stack2,1                           ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M10_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1000,2.321,0,0,0                    ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,1                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M10_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M10_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M11 - Material ======================================}
+
+[M11_General]
+                    Name = FP_Stack3,1                           ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M11_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1000,2.321,0,0,0                    ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,1                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M11_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M11_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M12 - Material ======================================}
+
+[M12_General]
+                    Name = FP_Stack4,1                           ; Name of Block, Constant name 1/0
+               Available = 0
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M12_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1000,2.321,0,0,0                    ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,1                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,0.5                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M12_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M12_ProdTarget]
+              ProdTarget = 0
+
+
+{============================= BLOCK M13 - Material ======================================}
+
+[M13_General]
+                    Name = FP_SCI,1                              ; Name of Block, Constant name 1/0
+               Available = 1
+                  Length = 0                    m                ; Length block for optical blocks
+
+[M13_Compound]
+               contents1 = 0,6,9,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 4,100,1.032,0,0,0                     ; State,Thickness,density,angle,SolidGas,..
+                  Defect = 1,50                                  ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1
+             ResolutionE = 0,2                                   ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.2,100,100          ns,mm,mm         ; Time&X&Y space
+
+[M13_BlockCalibration]
+                     TOF = 1,1,0,ns
+                      dE = 1,1,0,MeV
+                       X = 1,1,0,mm
+                       Y = 1,1,0,mm
+
+[M13_ProdTarget]
+              ProdTarget = 0
+

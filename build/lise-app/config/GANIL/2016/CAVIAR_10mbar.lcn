@@ -1,0 +1,264 @@
+Version 7.9.1
+
+{============================= Main Part ======================================}
+[general]
+                    File = E:\perrot\GANIL\Etudes\code lise\fichiers de base\version_02\CAVIAR_10mbar.lcn
+                    Date = 28-08-2006
+                    Time = 16:53:32
+                   Title = CAVIAR at 10mbar of Isobutane
+          BlockStructure = MMMMMMMM
+
+[OpticsBeam]
+                      BX = 1.5                  (±)mm            ; one-half the horisontal beam extent (x)
+                      BT = 3.3                  (±)mrad          ; one-half the horisontal beam divergence(x')
+                      BY = 1.5                  (±)mm            ; one-half the vertical beam extent (y)
+                      BF = 3.3                  (±)mrad          ; one-half the vertical beam divergence (y')
+                      BL = 0                    (±)mm            
+                      BD = 0.001                (±)%             ; one-half of the momentum spread (dp/p)
+                  ShiftX = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleX = 0                    mrad             ; beam respect to the spectrometer axis
+                  ShiftY = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleY = 0                    mrad             ; beam respect to the spectrometer axis
+            Scheme Angle =   45                 degrees          
+
+[SlitsBeforeTarget]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-15.00,-50.0,15.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-15.00,-50.0,15.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+
+{============================= BLOCK M1 - Material ======================================}
+
+[M1_General]
+                    Name = Entrance Kapton,1                     ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M1_Compound]
+               contents1 = 0,6,22,12.011                         ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               contents3 = 2,7,2,14.007                          ; Nomer,Z,Atoms,Mass
+               contents4 = 3,8,5,15.999                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,8,1.42,0,0                          ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,0.008                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M1_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M1_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M2 - Material ======================================}
+
+[M2_General]
+                    Name = Isobutane Gas,1                       ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M2_Compound]
+               contents1 = 0,6,4,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,20000,2.358e-5,0,1                  ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,20                                  ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M2_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M2_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M3 - Material ======================================}
+
+[M3_General]
+                    Name = Al Cathode,1                          ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M3_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1.5,2.702,0,0                       ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,0.002                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M3_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M3_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M4 - Material ======================================}
+
+[M4_General]
+                    Name = Isobutane Gas,1                       ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M4_Compound]
+               contents1 = 0,6,4,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,3200,2.358e-5,0,0                   ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,8                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M4_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M4_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M5 - Material ======================================}
+
+[M5_General]
+                    Name = Isobutane Gas,1                       ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M5_Compound]
+               contents1 = 0,6,4,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,3200,2.358e-5,0,0                   ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,4                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M5_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M5_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M6 - Material ======================================}
+
+[M6_General]
+                    Name = Al Cathode,1                          ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M6_Compound]
+               contents1 = 0,13,1,26.982                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1.5,2.702,0,0                       ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,0.002                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M6_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M6_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M7 - Material ======================================}
+
+[M7_General]
+                    Name = Isobutane Gas,1                       ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M7_Compound]
+               contents1 = 0,6,4,12.011                          ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,20000,2.358e-5,0,0                  ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,20                                  ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M7_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M7_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= BLOCK M8 - Material ======================================}
+
+[M8_General]
+                    Name = Exit Kapton,1                         ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M8_Compound]
+               contents1 = 0,6,22,12.011                         ; Nomer,Z,Atoms,Mass
+               contents2 = 1,1,10,1.008                          ; Nomer,Z,Atoms,Mass
+               contents3 = 2,7,2,14.007                          ; Nomer,Z,Atoms,Mass
+               contents4 = 3,8,5,15.999                          ; Nomer,Z,Atoms,Mass
+               thickness = 0,8,1.42,0,0                          ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,0.008                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.2                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.3,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M8_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M8_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+

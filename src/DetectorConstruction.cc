@@ -64,17 +64,21 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Material* Si = nist->FindOrBuildMaterial("G4_Si");
   G4Material* copper = nist->FindOrBuildMaterial("G4_Cu");
   G4Material* aluminium = nist->FindOrBuildMaterial("G4_Al");
+  G4Material* berylium = nist->FindOrBuildMaterial("G4_Be");
   G4Material* iron = nist->FindOrBuildMaterial("G4_Fe");
   G4Material* cobalt = nist->FindOrBuildMaterial("G4_Co");
   G4Material* HPGe = nist->FindOrBuildMaterial("G4_Ge");
   G4Material* Ti = nist->FindOrBuildMaterial("G4_Ti");
   G4Material* lead = nist->FindOrBuildMaterial("G4_Pb");
+  G4Material* cadmium = nist->FindOrBuildMaterial("G4_Cd");
   G4Material* molybdenum = nist->FindOrBuildMaterial("G4_Mo");
   G4Material* concrete = nist->FindOrBuildMaterial("G4_CONCRETE");
   G4Material* paraffin = nist->FindOrBuildMaterial("G4_PARAFFIN");
   G4Material* graphite = nist->FindOrBuildMaterial("G4_GRAPHITE");
   G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
+  G4Material* lowpoly = new G4Material("lowpoly",0.09*g/cm3,1);
+  lowpoly->AddMaterial(poly,100*perCent);
   G4Material* boron = nist->FindOrBuildMaterial("G4_B");
   G4Material* bpoly =  new G4Material("BoratedPoly",1.04*g/cm3,2);
   bpoly->AddMaterial(poly, 95*perCent);
@@ -86,8 +90,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4int ncomp, nAtoms, z, a;
   G4double abundance;
   G4Material* enrichedLi = new G4Material("enrichedLi",0.534*g/cm3,ncomp=2);
-  G4Element *Li6 = new G4Element("Li6",z=3,a=6,6.015122*g/mole);
-  G4Element *Li7 = new G4Element("Li7",z=3,a=7,7.016004*g/mole);
+//  G4Element *Li6 = new G4Element("Li6",z=3,a=6,6.015122*g/mole);
+//  G4Element *Li7 = new G4Element("Li7",z=3,a=7,7.016004*g/mole);
+  G4Element *Li6 = new G4Element("Li6","Li",3,6.015122*g/mole);
+  G4Element *Li7 = new G4Element("Li7","Li",3,7.016004*g/mole);
   G4cout<<"Enriching lithium"<<G4endl;
   enrichedLi->AddElement(Li6,abundance=95*perCent);
   enrichedLi->AddElement(Li7,abundance=5*perCent);
@@ -218,7 +224,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4VSolid *solid_cblocker_4 = mesh_blocker_4->GetSolid();
   auto solid_blocker_4 = new G4LogicalVolume(solid_cblocker_4,concrete,"solid_blocker_4",0,0,0);
   new G4PVPlacement(Rotationroom,CADoffset,solid_blocker_4,"physical_blocker_4",logicWorld,false,checkOverlaps);
-
   //
   // Lithium
   //
@@ -288,10 +293,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0,                        // copy number
     checkOverlaps);           // overlaps checking
   //
-  // Titanium
+  // Titanium flange
   //
   auto solidtitanium = new G4Box("titanium",                    // its name
-    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*0.006*mm);  // its size
+    0.5 * env_sizeXY, 0.5 * env_sizeXY, 0.5*6*mm);  // its size
 
   auto logictitanium = new G4LogicalVolume(solidtitanium,  // its solid
     Ti,                                     // its material
@@ -323,32 +328,32 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 // Forward Scatterer
 
-  auto solidscatterer = new G4Box("scatterer",0.5*10*cm,0.5*10*cm,0.5*12.7*um);
-  auto logicscatterer = new G4LogicalVolume(solidscatterer,poly, "logic_clingfilm");
-  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+0.1*mm),logicscatterer,"logic_clingfilm",logicWorld,false,0,checkOverlaps);
+  auto solidscatterer = new G4Box("scatterer",0.5*10*cm,0.5*10*cm,0.5*5*mm);
+  auto logicscatterer = new G4LogicalVolume(solidscatterer,cadmium, "logic_cadmium");
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+5*mm),logicscatterer,"logic_cadmium",logicWorld,false,0,checkOverlaps);
 
 // Backward Scatterer
 
-  auto solidscattererb = new G4Box("scattererb",0.5*10*cm,0.5*10*cm,0.5*25*mm);
-  auto logicscattererb = new G4LogicalVolume(solidscattererb,graphite, "logicscattererb");
-  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+30*mm),logicscattererb,"logicscattererb",logicWorld,false,0,checkOverlaps);
+  auto solidscattererb = new G4Box("scattererb",0.5*10*cm,0.5*10*cm,0.5*5*mm);
+  auto logicscattererb = new G4LogicalVolume(solidscattererb,cadmium, "logicscattererb");
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+15*mm),logicscattererb,"logicscattererb",logicWorld,false,0,checkOverlaps);
 
   auto solidscattererc = new G4Box("scattererc",0.5*10*cm,0.5*10*cm,0.5*25*mm);
   auto logicscattererc = new G4LogicalVolume(solidscattererc,bpoly, "logicscattererc");
-//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+100*mm),logicscattererc,"logicscattererc",logicWorld,false,0,checkOverlaps);
+//  new G4PVPlacement(0,G4ThreeVector(0,0,0.046*m+55*mm+25*mm),logicscattererc,"logicscattererc",logicWorld,false,0,checkOverlaps);
 
   //
   // Target space
   //
 
   auto solidtarget = new G4Box("target",                    // its name
-    0.5 * 2.5 *cm, 0.5 * 2.5*cm, 0.5*1*mm);  // its size
+    0.5 * 2 *mm, 0.5 * 2*mm, 0.5*1*mm);  // its size
 
 //  auto solidtarget = new G4Tubs("target", 0*mm, 6*mm, 0.14*mm, 0*deg, 360*deg);//Gold
 
 
   auto logictarget = new G4LogicalVolume(solidtarget, 
-    cobalt,                                     // its material
+    iron,                                     // its material
     "logictarget");                                 // its name
 
   auto targetcolour = new G4VisAttributes();
@@ -377,17 +382,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
  // Activation foil
    
   auto foil1 = new G4Box("foil1",                    // its name
-    0.5 * 2.5 *cm, 0.5 * 2.5*cm, 0.5*1*mm);  // its size
+    0.5 * 5 *cm, 0.5 * 5*cm, 0.5*1*mm);  // its size
   auto logicfoil1 = new G4LogicalVolume(foil1,  // its solid
-    cobalt,                                     // its material
+    iron,                                     // its material
     "logicfoil");                                 // its name
-  auto logicbacking = new G4LogicalVolume(foil1,  // its solid
-    aluminium,                                     // its material
+
+  auto foil2 = new G4Box("foil2",                    // its name
+    0.5 * 5 *cm, 0.5 * 5*cm, 0.5*1*mm);  // its size
+
+  auto logicbacking = new G4LogicalVolume(foil2,  // its solid
+    poly,                                     // its material
     "backing");                                 // its name
+
 /*
 
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+30*cm),          // at (0,0,0)
+    G4ThreeVector(0,0,0.046*m+9*mm),          // at (0,0,0)
     logicfoil1,                 // its logical volume
     "logicfoil1",               // its name
     logicWorld,               // its mother  volume
@@ -395,7 +405,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0,                        // copy number
     checkOverlaps);           // overlaps checking
   new G4PVPlacement(nullptr,  // no rotation
-    G4ThreeVector(0,0,0.046*m+32*cm),          // at (0,0,0)
+    G4ThreeVector(0,0,0.046*m+0.501*mm),          // at (0,0,0)
     logicbacking,                 // its logical volume
     "backing",               // its name
     logicWorld,               // its mother  volume
@@ -403,7 +413,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     0,                        // copy number
     checkOverlaps);           // overlaps checking
 */
-
 // Graphite
 /*
   auto solidgraphite = new G4Box("graphite",                    // its name

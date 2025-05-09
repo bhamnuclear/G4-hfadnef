@@ -1,0 +1,20 @@
+# i[A]	B(Rwb)[kG]	 Leff[m]	grad
+4 6			
+0	0	0.730662	0
+30	10.87901	0.730662	7.25267
+45	16.52555	0.716226	11.01703
+50	18.06489	0.710081	12.043258
+70	22.48794	0.699541	14.991961
+90	25.83906	0.701747	17.226043
+
+#FSQE n=2								
+# comments:  From TypeE_summary_v2.xlsx described in T40301-TD-000408								
+# Parameters for read/write by RW_M5_PARAMS_V01								
+#_________________________________________________________________________ 								
+#M5_PARAM_TABLE_V01								
+#0.15	 Reference radius to use with coefficients.							
+#0.625	 yoke length							
+#2	 IMP order of multipole							
+#2	 IMP_REF multipole for effective length of M5							
+#0	 oper. lower limit (field gradient)							
+#16.67	 oper. upper limit (field gradient)							

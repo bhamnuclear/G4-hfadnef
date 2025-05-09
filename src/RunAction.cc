@@ -126,6 +126,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
     tree[threadid]->Fill();
 //    tree[threadid]->Print();
     fout[threadid]->cd();
+//    G4cout<<tree[threadid]->GetEntries()<<" events for thread "<<threadid<<G4endl;
     tree[threadid]->Write();
     fout[threadid]->Close();//Test here
 //    fout[threadid]->ls();

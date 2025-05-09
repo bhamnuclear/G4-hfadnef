@@ -96,7 +96,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) //Uses BrumLiT 
   Be7def=G4IonTable::GetIonTable()->GetIon(4,7,excited?0.:0.429*MeV);
   fParticleGun->SetParticleDefinition(Be7def);
   fParticleGun->SetParticleEnergy(0*MeV);
-//  fParticleGun->GeneratePrimaryVertex(anEvent);//Do the 7Be too (possibly excited)
+  fParticleGun->GeneratePrimaryVertex(anEvent);//Do the 7Be too (possibly excited)
 //  G4cout<<"Neutron: "<<En<<G4endl;
 // Make 7Be too - TODO JEB
   
@@ -242,7 +242,7 @@ double PrimaryGeneratorAction::NeutronEnergy(double Ep, double theta, double the
         if(excited) Ex=0.431;//MeV
         double ECM = mLi*Ep/(mLi+mp)+Q-Ex;
         if(ECM<0) {
-                G4cout<<"Below threshold! Something is wrong!"<<G4endl;
+//                G4cout<<"Below threshold! Something is wrong!"<<G4endl;
                 return 0;
         }
 	double p_nT = sqrt(2.*ECM*mn*(mBe/(mn+mBe)));

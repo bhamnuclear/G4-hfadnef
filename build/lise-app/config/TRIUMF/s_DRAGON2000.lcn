@@ -1,0 +1,510 @@
+Version 9.10.141
+
+{============================= Main Part ======================================}
+[general]
+                    File = G:\sDRAGON2000.lcn
+                    Date = 22-07-2015
+                    Time = 12:43:11
+                   Title = DRAGON 2000 segmented
+          BlockStructure = DSESSDESM
+
+[OpticsBeam]
+                      BX = 2                    (±)mm            ; one-half the horisontal beam extent (x)
+                      BT = 15.5                 (±)mrad          ; one-half the horisontal beam divergence(x')
+                      BY = 2                    (±)mm            ; one-half the vertical beam extent (y)
+                      BF = 15.5                 (±)mrad          ; one-half the vertical beam divergence (y')
+                      BL = 0                    (±)mm            
+                      BD = 1.5                  (±)%             ; one-half of the momentum spread (dp/p)
+                  ShiftX = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleX = 0                    mrad             ; beam respect to the spectrometer axis
+                  ShiftY = 0                    mm               ; beam respect to the spectrometer axis
+                  AngleY = 0                    mrad             ; beam respect to the spectrometer axis
+            Scheme Angle = 0                    degrees          
+                  ShapeX = 1
+                  ShapeT = 33
+                  ShapeY = 1
+                  ShapeF = 33
+                  ShapeL = 1
+                  ShapeD = 33
+
+[SlitsBeforeTarget]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-15.00,-50.0,15.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-15.00,-50.0,15.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+
+{============================= BLOCK D1 - Dipole ======================================}
+
+[D1_General]
+                    Name = MD1,1                                 ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 3.731000             m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+             Before_Quad = 2                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 7                                     ;  Z - Q  = charge state settings
+        Calibration file = NULL
+
+[D1_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-4.00,-40.0,4.00,40.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[D1_optics]
+                    row1 = -4.44710e-01,-1.00000e-05,+0.00000e+00,+0.00000e+00,+0.00000e+00,+6.04249e+00
+                    row2 = -1.62778e+00,-2.24871e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+8.02329e+00
+                    row3 = +0.00000e+00,+0.00000e+00,-3.63885e+00,+6.70000e-04,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,-1.72728e+00,-2.74500e-01,+0.00000e+00,+0.00000e+00
+                    row5 = -6.26780e-01,-1.35878e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,-1.06620e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D1_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 24.6                 mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 41.8                 mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[D1_DipoleSettings]
+                    Brho = 0.27948              Tm               ; magnetic rigidity
+                   Angle = 50                   degrees          
+                  Radius = 1                    m                
+
+[D1_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1                                     ; Use 1/0
+                 GapVert = 5                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 5.8                  deg              ; code 2.0 - entrance
+              Beta2angle = 5.8                  deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Use 1/0
+
+
+{============================= BLOCK S1 - Drift ======================================}
+
+[S1_General]
+                    Name = CHARGE slits,1                        ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+
+[S1_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-30.00,-150.0,30.00,150.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-20.00,-150.0,20.00,150.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[S1_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S1_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[S1_DriftSettings]
+                    Mode = 1                                     ; E-Quad 3, M Sext-Quad 2, Standard 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+        Length_effective = 0                    m                
+               Leff_coef = 0.7                  1                
+               Leff_mode = 0                                     ; file-3, calc-2, manually-1, keep-0
+           MagneticField = 0                    KG               
+                  Radius = 5                    cm               ; half-aperture
+       Include 2nd order = 0                                     ; 1 - Yes / 0 - No
+          CorrespondBrho = 0                    Tm               
+          CorrespondErho = 0e+0                 J/c              ; for e-quad
+                 Voltage = 0                    kV               ; for e-quad
+           sextMagnField = 0                    KG               
+                 sextRad = 5                    cm               ; half-aperture
+        Calibration file = NULL
+
+
+{============================= BLOCK E1 - ElecDip ======================================}
+
+[E1_General]
+                    Name = ED1,1                                 ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 5.403000             m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 0                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 0                                     ; 0/1 -  no/yes
+             Before_Quad = 5                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 7                                     ;  Z - Q  = charge state settings
+        Calibration file = NULL
+
+[E1_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[E1_optics]
+                    row1 = -1.55671e+00,-5.44505e-04,+0.00000e+00,+0.00000e+00,+0.00000e+00,+9.42319e+00
+                    row2 = -2.01877e-01,-6.42447e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,+6.70058e+00
+                    row3 = +0.00000e+00,+0.00000e+00,-7.67798e-01,+1.75922e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,-5.67350e-01,-2.47768e-03,+0.00000e+00,+0.00000e+00
+                    row5 = +8.52863e-01,-6.05031e-01,+0.00000e+00,+0.00000e+00,+1.00000e+00,-5.60151e-01
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[E1_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 48.8                 mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 26.5                 mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[E1_ElectricDipoleSettings]
+                     E_F = 595.71               KV/m             ; electric field
+                     gap = 0.1                  m                ; distance between plates
+                   Angle = 20                   degrees          
+                  Radius = 2                    m                
+               Direction = 0                                     ; X=0 or Y=1
+                BendType = 0                                     ; 0-cyl,1-sph,2-tor
+                  TorRad = 10                   m                
+          CorrespondErho = 1.1914235e+6         J/c              
+
+
+{============================= BLOCK S2 - Drift ======================================}
+
+[S2_General]
+                    Name = MASS Slits,1                          ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+
+[S2_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-10.00,-100.0,10.00,100.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,1,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-12.00,-100.0,12.00,100.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[S2_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S2_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S2_DriftSettings]
+                    Mode = 1                                     ; E-Quad 3, M Sext-Quad 2, Standard 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+        Length_effective = 0                    m                
+               Leff_coef = 0.7                  1                
+               Leff_mode = 0                                     ; file-3, calc-2, manually-1, keep-0
+           MagneticField = 0                    KG               
+                  Radius = 5                    cm               ; half-aperture
+       Include 2nd order = 0                                     ; 1 - Yes / 0 - No
+          CorrespondBrho = 0                    Tm               
+          CorrespondErho = 0e+0                 J/c              ; for e-quad
+                 Voltage = 0                    kV               ; for e-quad
+           sextMagnField = 0                    KG               
+                 sextRad = 5                    cm               ; half-aperture
+        Calibration file = NULL
+
+
+{============================= BLOCK S3 - Drift ======================================}
+
+[S3_General]
+                    Name = Q6Q7,1                                ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 1.805000             m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+
+[S3_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-5.00,-50.0,5.00,50.0               ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-5.00,-50.0,5.00,50.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[S3_optics]
+                    row1 = +1.46861e+00,+1.99725e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = -9.95280e-01,-6.72630e-01,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+3.62400e-02,+1.17788e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,-8.14740e-01,+1.11316e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S3_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 27.3                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 20.2                 mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[S3_DriftSettings]
+                    Mode = 0                                     ; E-Quad 3, M Sext-Quad 2, Standard 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+        Length_effective = 1.805                m                
+               Leff_coef = 0.7                  1                
+               Leff_mode = 0                                     ; file-3, calc-2, manually-1, keep-0
+           MagneticField = 0                    KG               
+                  Radius = 5                    cm               ; half-aperture
+       Include 2nd order = 0                                     ; 1 - Yes / 0 - No
+          CorrespondBrho = 0                    Tm               
+          CorrespondErho = 0e+0                 J/c              ; for e-quad
+                 Voltage = 0                    kV               ; for e-quad
+           sextMagnField = 0                    KG               
+                 sextRad = 5                    cm               ; half-aperture
+        Calibration file = NULL
+
+
+{============================= BLOCK D2 - Dipole ======================================}
+
+[D2_General]
+                    Name = MD2,1                                 ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 4.437000             m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+             Before_Quad = 1                                     ; number of quadrupoles before optic device
+              After_Quad = 2                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 7                                     ;  Z - Q  = charge state settings
+        Calibration file = NULL
+
+[D2_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-1.00,-100.0,1.00,100.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-4.00,-45.0,4.00,45.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[D2_optics]
+                    row1 = -7.04900e-01,-2.21500e-02,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.02507e+01
+                    row2 = -6.25410e-01,-1.43830e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,-1.04367e+01
+                    row3 = +0.00000e+00,+0.00000e+00,-2.41683e+00,+3.24076e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,-1.35929e+00,+1.40892e+00,+0.00000e+00,+0.00000e+00
+                    row5 = -1.37677e+00,-1.49748e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,-2.78917e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[D2_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 10.2                 mrad             ; acceptance
+                   Shape = 0                                     ; 0 - rectangle, 1- ellipse
+
+[D2_DipoleSettings]
+                    Brho = 0.27948              Tm               ; magnetic rigidity
+                   Angle = 75                   degrees          
+                  Radius = 0.813                m                
+
+[D2_DipoleTransport]
+                 Code4_N = 0                                     ; default 0. code 4. n
+                 Code4_B = 0                                     ; default 0. code 4. b
+         Calculate2Order = 1                                     ; Use 1/0
+                 GapVert = 6                    cm               ; code 16.5
+                      K1 = 0.7                                   ; code 16.7
+                      K2 = 4.4                                   ; code 16.8
+       EntranceCurvature = 0                    1/m              ; 1/R1 - code 16.12
+           ExitCurvature = 0                    1/m              ; 1/R2 - code 16.13
+              Beta1angle = 29                   deg              ; code 2.0 - entrance
+              Beta2angle = 29                   deg              ; code 2.0 - exit
+          UseFringeField = 1                                     ; Use 1/0
+
+
+{============================= BLOCK E2 - ElecDip ======================================}
+
+[E2_General]
+                    Name = ED2,1                                 ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 4.956000             m                ; Length block for optical blocks
+               SE_method = 0                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 0                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+             Before_Quad = 0                                     ; number of quadrupoles before optic device
+              After_Quad = 2                                     ; number of quadrupoles after  optic device
+             QB_DontDraw = 0
+             QA_DontDraw = 0
+                     ZmQ = 7                                     ;  Z - Q  = charge state settings
+        Calibration file = NULL
+
+[E2_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-2.00,-50.0,2.00,50.0               ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-7.00,-75.0,7.00,75.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[E2_optics]
+                    row1 = -3.71644e-01,+1.83182e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+2.29528e+01
+                    row2 = -1.53779e-01,-1.93278e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,-1.94346e+01
+                    row3 = +0.00000e+00,+0.00000e+00,-6.63918e-01,+1.51311e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,-6.73848e-01,+2.95684e-02,+0.00000e+00,+0.00000e+00
+                    row5 = -1.07523e+00,-8.76234e-01,+0.00000e+00,+0.00000e+00,+1.00000e+00,-3.65949e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[E2_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[E2_ElectricDipoleSettings]
+                     E_F = 476.57               KV/m             ; electric field
+                     gap = 0.1                  m                ; distance between plates
+                   Angle = 35                   degrees          
+                  Radius = 2.5                  m                
+               Direction = 0                                     ; X=0 or Y=1
+                BendType = 0                                     ; 0-cyl,1-sph,2-tor
+                  TorRad = 10                   m                
+          CorrespondErho = 1.1914235e+6         J/c              
+
+
+{============================= BLOCK S4 - Drift ======================================}
+
+[S4_General]
+                    Name = Final Slits,1                         ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+               SE_method = 1                                     ; 0: S-block, 1: E-block
+             SecondOrder = 0                                     ; Exist - 1, Non - 0
+              ThirdOrder = 0                                     ; Number of lines
+               COSY file = NULL
+           CalculateAuto = 1                                     ; 0/1/2  nothing, keep_matrix, keep_field
+        RemotePermission = 1                                     ; 0/1 -  no/yes
+
+[S4_slits]
+              SlitsShape = 0                                     ; 0-slits, 1-ellipse
+           ApertureShape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-10.00,-100.0,10.00,100.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-10.00,-100.0,10.00,100.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[S4_optics]
+                    row1 = +1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row2 = +0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row3 = +0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00
+                    row4 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00,+0.00000e+00
+                    row5 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00,+0.00000e+00
+                    row6 = +0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+0.00000e+00,+1.00000e+00
+
+[S4_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+                   Shape = 1                                     ; 0 - rectangle, 1- ellipse
+
+[S4_DriftSettings]
+                    Mode = 1                                     ; E-Quad 3, M Sext-Quad 2, Standard 1, Beamline 0
+              ShowLength = 0                                     ; I 3 / B 2 / Brho 1 / Length 0
+        Length_effective = 0                    m                
+               Leff_coef = 0.7                  1                
+               Leff_mode = 0                                     ; file-3, calc-2, manually-1, keep-0
+           MagneticField = 0                    KG               
+                  Radius = 5                    cm               ; half-aperture
+       Include 2nd order = 0                                     ; 1 - Yes / 0 - No
+          CorrespondBrho = 0                    Tm               
+          CorrespondErho = 0e+0                 J/c              ; for e-quad
+                 Voltage = 0                    kV               ; for e-quad
+           sextMagnField = 0                    KG               
+                 sextRad = 5                    cm               ; half-aperture
+        Calibration file = NULL
+
+
+{============================= BLOCK M1 - Material ======================================}
+
+[M1_General]
+                    Name = Material 1,0                          ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M1_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,100,2.33,0,0                        ; State,Thickness,density,angle,SolidGas
+                  Defect = 0,0                                   ; [0] choice - % or micron at 0 degree,  [1]=value; 
+        Use for Q-states = 1                                     ; Use 1/0
+             ResolutionE = 0,0.1                                 ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.1,0.2,0.3          ns,mm,mm         ; Time&X&Y space
+
+[M1_slits]
+              SlitsShape = 1                                     ; 0-slits, 1-ellipse
+           ApertureShape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  X_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0,0                                 ; Use 1/0, Show 1/0, UseApp 1/0
+                  Y_size = 1,-20.00,-50.0,20.00,50.0             ; joint,Bottom,B-limit,Top,T-limit
+
+[M1_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+[M1_ProdTarget]
+              ProdTarget = 0                                     ; 1 - Yes / 0 - No
+

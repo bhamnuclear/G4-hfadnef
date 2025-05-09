@@ -1,0 +1,36 @@
+
+Filename:          C:/LISEcute/_install/lisecfg/AME_DB.sqlite
+Table name:        AME2016
+Version:           QSQLITE
+Record length:     unknown
+Number of fields:  23
+Number of records: 3365
+
+
+        FILE STRUCTURE
+
+  # FIELD NAME     TYPE        LEN 
+======================================
+  1 ID             Integer         
+  2 INDEX          Integer         
+  3 A              Integer         
+  4 EL             Text            
+  5 Z              Integer         
+  6 MASS_EXCES     Text            
+  7 BE             Text            
+  8 BETA_DECAY     Text            
+  9 Q_A            Text            
+ 10 S_2N           Text            
+ 11 S_2P           Text            
+ 12 S_N            Text            
+ 13 S_P            Text            
+ 14 D_T12          Text            
+ 15 T12            Text            
+ 16 TIME14         Text            
+ 17 D_BE           Text            
+ 18 D_BETA_DECAY   Text            
+ 19 D_Q_A          Text            
+ 20 D_S_2N         Text            
+ 21 D_S_2P         Text            
+ 22 D_S_N          Text            
+ 23 D_S_P          Text            

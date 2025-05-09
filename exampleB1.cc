@@ -79,9 +79,12 @@ int main(int argc,char** argv)
 #ifdef G4MULTITHREADED
    G4MTRunManager* runManager = new G4MTRunManager;
    runManager->SetNumberOfThreads(1);
+   G4cout<<"Single thread"<<G4endl;
 #else
    G4RunManager* runManager = new G4RunManager;
    runManager->SetNumberOfThreads(10);
+   G4cout<<"Multi thread"<<G4endl;
+
 #endif
   // Set mandatory initialization classes
   //

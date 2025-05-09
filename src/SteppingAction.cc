@@ -71,15 +71,18 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 //    step->GetTrack()->SetTrackStatus(fStopAndKill);
     //G4cout<<"Killing: "<<particlename<<" at "<<location<<G4endl;
   }
-  if(projectile->GetParticleName()=="e-") {
-    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any electrons!
+//  if(projectile->GetParticleName()=="e-") {
+//    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore any electrons!
+//  }
 
-  }
-/*
-  if(projectile->GetParticleName()!="neutron") {
-    step->GetTrack()->SetTrackStatus(fStopAndKill);//Ignore anything that isn't a neutron! Severe!
-  }
-*/
+//G4cout<<projectile->GetParticleName()<<G4endl;
+//  G4cout<<logicname<<G4endl;
+//  if(projectile->GetParticleName()!="neutron" && projectile->GetParticleName()!="e-" && projectile->GetParticleName()!="e+" && projectile->GetParticleName()!="gamma" && logicname=="World") {
+//  if(projectile->GetParticleName()=="Ar41" && logicname=="World") {
+//    G4cout<<projectile->GetParticleName()<<"\t"<<step->GetTrack()->GetParentID()<<G4endl;
+//    step->GetTrack()->SetTrackStatus(fStopAndKill);//
+//  }
+
 
   int runnumber = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
   G4double edep=step->GetTotalEnergyDeposit();

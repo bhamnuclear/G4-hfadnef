@@ -1,0 +1,27 @@
+# i[A]	Bcenter[T]	Bprobe[T]	Reff[m]*	Ks[T.m] 
+5 10				
+33.61	0.284716	0.284716	4.238133422	0.631808
+67.082	0.558486	0.558486	4.233366573	1.237932
+100.82	0.831364	0.831364	4.2280658	1.840482
+134.48	1.088346	1.088346	4.226003279	2.408216
+167.96	1.304729	1.304729	4.217994569	2.881542
+201.55	1.480764	1.480764	4.196071186	3.253324
+234.97	1.637448	1.637448	4.165843953	3.571652
+270.17	1.780775	1.780775	4.131173358	3.851954
+302.04	1.90511	1.90511	4.096135009	4.085949
+336.136	2.017083	2.017083	4.063302313	4.291425
+
+# Reff was calulated from Ks
+
+#FS_F1S1_DV_D1064  Ref. T40503-TD-001617-R001.pdf			
+#\\intranet\files\projects\fribmappers_data\FSD1\SCD1\			
+# B at NMR probe position was not available at time of mapping this magnet			
+#4	Design bend radius		
+#30	Bend angle		
+#0.1	half-gap		
+#0	Entrance edge angle		
+#0	Entrance curvature		
+#0	Exit edge angle		
+#0	Exit curvature		
+#0	 oper. lower limit (Tesla)		
+#2	 oper. upper limit (Tesla)		

@@ -1,14 +1,14 @@
-/run/verbose 2
-/run/initialize /control/execute vis.ma/tracking/storeTrajectory 2
-/run/initialize 
-/control/verbose 0
 /run/verbose 0
-/event/verbose 0
-/tracking/verbose 0
-/gun/particle proton
-/gun/energy 1.912 MeV
-/gun/position 0 0 -20 cm
-is/scene/create
+/run/initialize
+/control/execute vis.mac
+/vis/open OGL 600x600-0+0
+/vis/sceneHandler/create OGL
+/vis/viewer/create ! ! 600x600-0+0
+/vis/viewer/refresh
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/drawVolume
+/vis/scene/create
 /vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
 /vis/sceneHandler/attach
 /vis/viewer/set/viewpointVector -1 0 0
@@ -56,6 +56,94 @@ is/scene/create
 /event/verbose 0
 /tracking/verbose 0
 /gun/particle proton
-/gun/energy 1.912 MeV
+/gun/energy 2.0 MeV
 /gun/position 0 0 -20 cm
-/run/beamOn 2
+/run/beamOn 1
+/vis/set/touchable World 0 physical_walls 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_ceiling 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_floor 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_concretestack 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_blocker_1 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_blocker_2 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_blocker_3 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 physical_blocker_4 1
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 Lithium 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 Lithium 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logictarget 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logictarget 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logictarget 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logictarget 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility true
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 titanium 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers
+/vis/set/touchable World 0 logicfoil1 0
+/vis/touchable/set/visibility false
+/vis/viewer/refresh
+/vis/scene/notifyHandlers

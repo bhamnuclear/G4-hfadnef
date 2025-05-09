@@ -1,0 +1,19 @@
+"Stable" 3026478
+"Beta+ decay" 255
+"Beta- decay"   14680144
+"B+ & B- decay" 12680080
+"Alpha decay" 65535
+"A & B+ decay" 13981098
+"A & B- decay" 16074240
+"Proton decay" 16711935
+"P & B+ decay" 11141290
+"P & A decay" 5929120
+"Spont.fission" 3328150
+"SF & B+" 3328150
+"SF & B-" 3328150
+"SF & A" 3328150
+"unbound"   16777215
+"unknown"  12632256
+"B- & B-n decay" 15075910
+"B+ & B+p decay" 2302970
+"New (FRIB)"  32778

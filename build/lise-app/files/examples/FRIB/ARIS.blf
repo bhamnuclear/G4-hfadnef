@@ -1,0 +1,48 @@
+N,Block,Nickname,Official,use,Length,after,comment
+3,drift,shield,,1,0.502,0.502,"post-target shield, not implemented as of 3/2022"
+4,rotate,RAm90,,1,0,0.502,
+5,dipole,PS1A,,1,7.705,8.207,
+6,finger,Beam Dump,FS_PBD:BD_D1081,1,0,8.207,beam dump
+added ,slits,Fragment Catchers,,,,,"initially static, hence no known cntrol system channel"
+7,dipole,PS1B,,1,10.2,18.407,
+8,slits,Drift 3,FS_F1S1:SLV_D1183,1,0,18.407,
+9,wedge,PS_wdg,FS_F1S1:WED_D1184,1,0,18.407,
+10,dipole,PS1C,,1,13.86,32.267,
+11,dipole,PS1D,,1,14.141,46.408,
+12,faraday,FaradayCup 1,,0,0,46.408,
+added ,material,DB1_PPAC0,FS_F1S2:PM_D1460,,,,
+added ,material,DB1_PPACs,,,,,thickness for 2 PPACs as compputationally faster alternative
+added ,material,DB1_PPAC1,FS_F1S2:PM_D1464,,,,
+13,slits,DB1_slits,FS_F1S2:SLV_D1465,1,0,46.408,
+added ,material,DB1_SCI,FS_F1S2:TID_D1466,,,,
+added ,material,DB1_PIN,FS_F1S2:ELD_D1467,,,,
+14,material,SlitsMaterial,,0,0,46.408,
+15,rotate,RA90,,1,0,46.408,
+16,dipole,C_D1,,1,9.694,56.102,
+17,slits,DB2 slits,,1,0,56.102,"not yet implemented, no drawings, no name"
+18,wedge,DB2 Wedge,,0,0,56.102,"not yet implemented, no drawings, no name"
+19,dipole,C_D2,,1,9.745,65.847,
+20,faraday,FaradayCup 2,,0,0,65.847,
+added ,slits,DB3_slits0,FS_F2S2:SLH_D1657,1,0,65.847,"physical slit for extended version, alternative to single slit right in front of wedge"
+21,material,DB3_PPAC0,FS_F2S2:PM_D1658,0,0,65.847,
+22,slits,DB3_slits,,,,,"abstract slit location, used for condensed version instead of the two physical slits"
+23,wedge,DB3_wedge,FS_F2S2:WED_D1660,0,0,65.847,
+added ,slits,DB3_slits1,FS_F2S2:SLH_D1662,1,0,65.847,"physical slit for extended version, alternative to single slit right in front of wedge"
+24,material,DB3_PPAC1,FS_F2S2:PM_D1663,0,0,65.847,
+25,material,DB3_Sci,FS_F2S2:TID_D1664,1,0,65.847,
+26,faraday,FaradayCup 3,,0,0,65.847,needed?
+27,dipole,C_D3,,1,9.745,75.592,
+added ,slits,DB4_slits,FS_F3S1:SLH_D1757,,,,
+28,material,DB4 PPAC,FS_F3S1:PM_D1758,0,0,75.592,
+29,dipole,C_D4,,1,9.809,85.401,
+30,material,DB5_PPAC0,FS_F3S2:PM_D1849,0,0,85.401,
+added ,material,DB5_PPACs,,,,,thickness for 2 PPACs as compputationally faster alternative
+31,material,DB5_PPAC1,FS_F3S2:PM_D1853,0,0,85.401,
+32,slits,DB5_slits,FS_F3S2:SLH/V_1854,1,0,85.401,combined from FS_F3S2:SLH_1854 and FS_F3S2:SLV_1854
+33,material,DB5_SCI,FS_F3S2:TID_D1855,1,0,85.401,
+34,material,DB5_PIN,FS_F3S2:ELD_D1857,1,0,85.401,
+35,material,DB5_Si_TKE,FS_F3S2:ELD_D1858,1,0,85.401,
+36,dipole,C_D5,,0,0,85.401,
+37,material,Exp Timing,,0,0,85.401,"this was just for convenience, but may not be implemented"
+38,material,Exp PIN,,0,0,85.401,"this was just for convenience, but may not be implemented"
+39,material,Exp TKE,,0,0,85.401,"this was just for convenience, but may not be implemented"

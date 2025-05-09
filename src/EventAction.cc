@@ -48,7 +48,7 @@ void EventAction::BeginOfEventAction(const G4Event* evt)
 {
   fEdep = 0.;
   G4int eventno = evt->GetEventID();
-  if(eventno%10000==0) G4cout<<"EVENT: "<<eventno<<G4endl;
+  if(eventno%100000==0) G4cout<<"EVENT: "<<eventno<<G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

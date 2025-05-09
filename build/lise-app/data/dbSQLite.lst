@@ -1,0 +1,28 @@
+
+Filename:          C:/LISEcute/_install/lisecfg/ame2012.sqlite
+Table name:        mass_table
+Version:           QSQLITE
+Record length:     unknownNumber of fields:  16
+Number of records: 3353
+
+
+        FILE STRUCTURE
+
+  # FIELD NAME     TYPE        LEN 
+======================================
+  1 one            Integer         
+  2 two            Integer         
+  3 N              Integer         
+  4 Z              Integer         
+  5 A              Integer         
+  6 EL             Text            
+  7 O              Text            
+  8 MASS_EXC       Real            
+  9 E_MASS_EXC     Real            
+ 10 BE_A           Real            
+ 11 E_BE_A         Real            
+ 12 B              Text            
+ 13 B_DECAY_E      Real            
+ 14 E_B_DECAY_E    Real            
+ 15 MASS           Real            
+ 16 V_S            Real            

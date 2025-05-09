@@ -33,14 +33,16 @@ void buildspectrum() {
 	TH1F *h2 = new TH1F("h2","Energy spectrum",500,0,1);
 	TH1F *h2b = new TH1F("h2b","Energy spectrum epithermal",10000,0,0.001);
 	TH2F *hxy = new TH2F("hxy",";x [mm];y [mm]",100,-250,250,100,-250,250);
-	TH1F *hEncut = new TH1F("hEncut","",100,0,1);
-	TH1F *hEncutside = new TH1F("hEncutside","",100,0,1);
+	TH1F *hEncut = new TH1F("hEncut","",500,0,1.0);
+	TH1F *hEncutside = new TH1F("hEncutside","",500,0,1.0);
 	TH1F *hcharge = new TH1F("hcharge","",100,0,10);
 	const int nentries=tree->GetEntries();
 	double XSsum=0;
 	int total=0;
-	TH1F *hXS = new TH1F("hXS","",10,-2,5);
+	TH1F *hXS = new TH1F("hXS","Log(10) of energy in MeV, XS weighted",12,-10,2);
 	cout<<"ENTRIES: "<<nentries<<endl;
+	int scattered = 0;
+	int activation = 0;
 	for(int n=1;n<nentries;n++) {
 		tree->GetEntry(n);
 		double Echarge = 0;
@@ -54,15 +56,18 @@ void buildspectrum() {
 				Echarge=0;
 			}
 			oldeventid = feventid->at(i);
+//			if(!(fname->at(i)=="neutron" || fname->at(i)=="gamma")) cout<<fname->at(i)<<"\t"<<fEn->at(i)<<endl;
+
+			if(fname->at(i)=="Be10") activation++;
+			if(fname->at(i)=="Be9") scattered++;
 			if(fname->at(i)!="neutron" && fname->at(i)!="gamma") {//Only charged particles
-				cout<<fname->at(i)<<endl;
 //				if(fEn->at(i)>0) cout<<fname->at(i)<<"\t"<<fEn->at(i)<<endl;
 				Echarge+=fEn->at(i);
 			}
                         if(fname->at(i) == "neutron" && fEn->at(i)>0) {
 				XSsum+=g->Eval(fEn->at(i));//Averaged XS
 //				cout<<fEn->at(i)<<"MeV\t"<<g->Eval(fEn->at(i))<<endl;
-				hXS->Fill(TMath::Log10(g->Eval(fEn->at(i))));
+				hXS->Fill(TMath::Log10((fEn->at(i))),1/sqrt(fEn->at(i)));
 				total+=1;
 				hxy->Fill(fX->at(i),fY->at(i));
 				if(fabs(fX->at(i))<20 && fabs(fY->at(i))<20) hEncut->Fill(fEn->at(i));
@@ -84,8 +89,8 @@ void buildspectrum() {
 	TF1 *fMB = new TF1("fMB","[0]*x*TMath::Exp(-x/[1])",0.001,0.2);
 	fMB->SetParameter(0,10000);
 	fMB->SetParameter(1,0.03);
-	h2->Fit(fMB,"I");
-	fMB->Draw("SAME");
+//	h2->Fit(fMB,"I");
+//	fMB->Draw("SAME");
 //	g->Draw("SAME");
 	TCanvas *c2 = new TCanvas();
 	h2b->Draw("HIST");
@@ -93,7 +98,7 @@ void buildspectrum() {
 	g->Draw("SAME");
 	cout<<"MACS-like XS = "<<XSsum/total<<" barns"<<endl;
 	TCanvas *c3 = new TCanvas();
-	hXS->Draw();
+	hXS->Draw("HIST");
 	ofstream outs;
 	outs.open("spectrum.dat");
 	for(int x=0;x<h2->GetXaxis()->GetNbins();x++) {
@@ -108,4 +113,6 @@ void buildspectrum() {
 	hEncutside->Draw("SAME");
 	TCanvas *cC = new TCanvas();
 	hcharge->Draw();
+	cout<<"Activation: "<<activation<<" from "<<total<<endl;
+	cout<<"Scattered: "<<scattered<<" from "<<total<<endl;
 }

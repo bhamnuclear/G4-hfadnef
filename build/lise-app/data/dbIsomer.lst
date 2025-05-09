@@ -1,0 +1,35 @@
+
+Filename:          C:/LISEcute/_install/lisecfg/Isomer_DB.sqlite
+Table name:        Isomers
+Version:           QSQLITE
+Record length:     unknown
+Number of fields:  22
+Number of records: 3375
+
+
+        FILE STRUCTURE
+
+  # FIELD NAME     TYPE        LEN 
+======================================
+  1 INDEX_IT       Real            
+  2 A_IT           Integer         
+  3 Z_IT           Integer         
+  4 E_GAMMA        Real            
+  5 D_EG           Text            
+  6 IT_RATIO       Integer         
+  7 D_IT_RATIO     Text            
+  8 T12            Real            
+  9 D_T12          Text            
+ 10 LEVEL          Real            
+ 11 D_LEVEL        Text            
+ 12 JPI            Text            
+ 13 I_GAMMA        Text #5         
+ 14 D_IG           Text #5         
+ 15 M_GAMMA        Text            
+ 16 M-RATIO        Text #5         
+ 17 D_MRATIO       Text #5         
+ 18 CONV           Text #5         
+ 19 D_CONV         Text #5         
+ 20 SOURCE         Text            
+ 21 NAME           Text            
+ 22 ROW            Integer         

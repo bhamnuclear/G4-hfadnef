@@ -1,0 +1,21 @@
+# i2[A]	        B2(Rwb)[kG]	L2[m]	        g2[T/m]
+4 10 			
+0	        0	        0.873085	0
+20.971605	1.5978435	0.873085	1.065229
+41.974151	3.205971	0.87376	        2.137314
+63.978066	4.876983	0.872594	3.251322
+84.981335	6.471381	0.871064	4.314254
+105.985557	8.06217	        0.867689	5.37478
+126.989003	9.6371565	0.862464	6.424771
+147.993141	11.1458265	0.855036	7.430551
+161.996431	12.0897075	0.849552	8.059805
+179.998739	13.201347	0.841384	8.800898
+
+#2022-08 MP--  Ref. T40503-TR-000112				
+M5_PARAM_TABLE_V01				
+0.15	 Reference radius to use with coefficients.			
+0.781	 yoke length (used value from CIQT3)			
+2	 IMP order of multipole			
+2	 IMP_REF multipole for effective length of M5			
+0	 oper. lower limit (field gradient)			
+8.9	 oper. upper limit (field gradient)			

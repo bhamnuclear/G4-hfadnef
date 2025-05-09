@@ -1,0 +1,27 @@
+# i[A]	B(Rwb)[kG]	 Leff[m]	grad
+4 10			
+0	0	0.81989	0
+16.04	5.639	0.81989	3.759333
+24.03	8.425	0.81881	5.616667
+32.03	11.26	0.81553	7.506667
+40.03	14.037	0.80877	9.358
+50.03	17.252	0.79661	11.501333
+56.03	18.998	0.7888	12.665333
+64.02	20.848	0.78227	13.898667
+72.02	22.284	0.78093	14.856
+80.02	23.664	0.78055	15.776
+
+# Magnet: AC229TB 2012-Nov	 Type B (of A1900) quadrupole from "T2-spare triplet"							
+# Enge coefficients for IMP=2 (quadrupole)	 fit by minimizing difference       							
+#  between COSY POTFLD and B-radial component measured versus z in FR 4 mode.								
+#  RSS is the residual sum squared over all the data points in the fit.								
+#  Field map data acquired at N4 vault in Dec 2011								
+# source: ...\MP_analysis\MP_analysis_z_scans\Q2_FR4_v1\								
+#_________________________________________________________________________ 								
+#M5_PARAM_TABLE_V01								
+#0.15	 Reference radius to use with coefficients.							
+#0.715	 yoke length							
+#2	 IMP order of multipole							
+#2	 IMP_REF multipole for effective length of M5							
+#0	 oper. lower limit (field gradient)							
+#16.67	 oper. upper limit (field gradient)							
