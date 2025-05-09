@@ -4,7 +4,7 @@
 # or interactively: Idle> /control/execute run1.mac
 #
 # Change the default number of workers (in multi-threading mode) 
-#/run/numberOfThreads 1
+/run/numberOfThreads 16
 #
 # Initialize kernel
 /run/eventModulo 0 1
@@ -21,4 +21,4 @@
 /gun/energy 2.0 MeV
 /gun/position 0 0 -20 cm
 #
-/run/beamOn 10
+/run/beamOn 100000
