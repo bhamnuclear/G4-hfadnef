@@ -8,3 +8,10 @@
 	Imports .stl files for target and rooms and generates neutrons
 	using brumlit code (embedded into PrimaryGenerator)
 -------------------------------------------------------------------
+
+change to build directory, delete any existing CMakeCache.txt and CMakeFiles/ (I'll get around to automatically removing these at some point, I promise), then do cmake ..;make
+
+To run the visual mode do: ./adnef
+To run batch mode do: ./adnef run1.mac
+
+Change the proton energy and number of neutrons in the run1.mac file
