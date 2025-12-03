@@ -1,0 +1,496 @@
+2023-07-12T04:43:52    Etacha4 (GUI)      (C) INSP-ASUR JPR  + MSU  03/2017     (file "eUntitled")
+*****************************************************************************************
+PROJECTILE: atomic number=  20  incident charge=  10  atomic mass=  48
+    TARGET: atomic number=   3      atomic mass=   7      density= 0.530 g/cm3
+          incident energy=  28.000 MeV/u  velocity=  32.864 (au)
+           relative error=1e-05 absolute error=1e-12
+  Energy loss: S1=   7.419 MeV/mg/cm2 at E1=  28.000 MeV/u 
+          and: S2=   7.451 MeV/mg/cm2 at E2=  27.845 MeV/u 
+
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 8.070e-03  2s = 1.306e-03  2p = 1.773e-03
+                          3s = 3.606e-04  3p = 4.464e-04  3d = 6.856e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 9.697e-01  2s = 6.443e+00  2p = 7.367e+00
+                          3s = 2.884e+01  3p = 3.056e+01  3d = 3.346e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.079e-02  2p = 7.928e-01
+                          3s = 1.813e-02  3p = 1.399e-01  3d = 1.159e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 9.099e-01  3p = 2.979e+00  3d = 3.047e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.258e-01  3p = 1.033e+00  3d = 7.385e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.717e+01      3s to 3p = 4.502e+01
+********************************************************************************************************
+QM=10.0000     EE=28.0000
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.773e-03  2s = 5.502e-04  2p = 7.612e-04
+                          3s = 1.013e-04  3p = 4.036e-05  3d = 6.107e-05   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.363e+00  2s = 1.455e+01  2p = 1.648e+01
+                          3s = 6.294e+01  3p = 6.462e+01  3d = 7.334e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.763e-02  2p = 9.995e-01
+                          3s = 1.960e-02  3p = 1.771e-01  3d = 1.323e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.426e+00  3p = 4.188e+00  3d = 4.879e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 2.010e-01  3p = 1.644e+00  3d = 1.080e+01   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.717e+01      3s to 3p = 4.502e+01
+
+  Binding Energy
+  correction factors =   0.8108    0.5511    0.7599    1.0000    1.0000    1.0000
+   Effective charges =  19.7000   18.1000   14.7500   11.2000   10.0000   10.0000
+    Binding energies =   4281.0     614.1     562.3     189.6     151.2      85.0
+*****************************************************************************************
+QM=10.5904     EE=27.9985
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.776e-03  2s = 5.945e-04  2p = 8.213e-04
+                          3s = 1.130e-04  3p = 5.379e-05  3d = 8.224e-05   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.329e+00  2s = 1.331e+01  2p = 1.528e+01
+                          3s = 5.940e+01  3p = 6.114e+01  3d = 6.736e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.483e-02  2p = 9.713e-01
+                          3s = 1.903e-02  3p = 1.719e-01  3d = 1.285e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.372e+00  3p = 4.085e+00  3d = 4.684e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.932e-01  3p = 1.579e+00  3d = 1.048e+01   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.502e+01
+
+  Binding Energy
+  correction factors =   0.7999    0.5958    0.7851    0.9614    1.0000    1.0000
+   Effective charges =  20.0000   18.1704   15.1671   11.9964   10.8562   10.5904
+    Binding energies =   4353.4     669.1     614.4     209.2     178.2      95.4
+*****************************************************************************************
+QM=11.1849     EE=27.9977
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.777e-03  2s = 6.306e-04  2p = 8.707e-04
+                          3s = 1.231e-04  3p = 6.660e-05  3d = 1.024e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.303e+00  2s = 1.244e+01  2p = 1.433e+01
+                          3s = 5.587e+01  3p = 5.764e+01  3d = 6.304e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.463e-02  2p = 9.603e-01
+                          3s = 1.898e-02  3p = 1.700e-01  3d = 1.278e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.331e+00  3p = 4.002e+00  3d = 4.538e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.873e-01  3p = 1.531e+00  3d = 1.023e+01   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.502e+01
+
+  Binding Energy
+  correction factors =   0.8114    0.6334    0.8087    0.9488    1.0000    1.0000
+   Effective charges =  20.0000   18.2254   15.4955   12.6223   11.5502   11.1849
+    Binding energies =   4416.2     715.6     660.5     228.5     201.7     106.4
+*****************************************************************************************
+QM=11.7474     EE=27.9969
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.778e-03  2s = 6.584e-04  2p = 9.089e-04
+                          3s = 1.312e-04  3p = 7.761e-05  3d = 1.197e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.281e+00  2s = 1.181e+01  2p = 1.360e+01
+                          3s = 5.328e+01  3p = 5.507e+01  3d = 5.997e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.447e-02  2p = 9.511e-01
+                          3s = 1.895e-02  3p = 1.683e-01  3d = 1.273e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.302e+00  3p = 3.940e+00  3d = 4.432e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.829e-01  3p = 1.496e+00  3d = 1.005e+01   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8211    0.6645    0.8305    0.9516    1.0000    1.0000
+   Effective charges =  20.0000   18.2673   15.7412   13.0883   12.1011   11.7474
+    Binding energies =   4468.7     754.2     700.0     246.4     221.4     117.4
+*****************************************************************************************
+QM=12.2573     EE=27.9961
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.779e-03  2s = 6.823e-04  2p = 9.420e-04
+                          3s = 1.384e-04  3p = 8.787e-05  3d = 1.358e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.263e+00  2s = 1.143e+01  2p = 1.301e+01
+                          3s = 5.158e+01  3p = 5.339e+01  3d = 5.749e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.432e-02  2p = 9.429e-01
+                          3s = 1.891e-02  3p = 1.669e-01  3d = 1.268e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.278e+00  3p = 3.886e+00  3d = 4.346e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.794e-01  3p = 1.467e+00  3d = 9.893e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8297    0.6914    0.8499    0.9572    1.0000    1.0000
+   Effective charges =  20.0000   18.3032   15.9480   13.4789   12.5769   12.2573
+    Binding energies =   4515.5     787.8     735.2     262.9     239.1     127.8
+*****************************************************************************************
+QM=12.7161     EE=27.9954
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.780e-03  2s = 7.043e-04  2p = 9.726e-04
+                          3s = 1.453e-04  3p = 9.797e-05  3d = 1.516e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.246e+00  2s = 1.088e+01  2p = 1.251e+01
+                          3s = 4.968e+01  3p = 5.149e+01  3d = 5.544e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.418e-02  2p = 9.355e-01
+                          3s = 1.888e-02  3p = 1.655e-01  3d = 1.263e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.257e+00  3p = 3.838e+00  3d = 4.271e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.762e-01  3p = 1.442e+00  3d = 9.755e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8376    0.7153    0.8669    0.9619    1.0000    1.0000
+   Effective charges =  20.0000   18.3362   16.1352   13.8308   13.0058   12.7161
+    Binding energies =   4558.6     818.0     767.6     278.2     255.7     137.5
+*****************************************************************************************
+QM=13.1278     EE=27.9946
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.781e-03  2s = 7.247e-04  2p = 1.001e-03
+                          3s = 1.518e-04  3p = 1.079e-04  3d = 1.671e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.231e+00  2s = 1.067e+01  2p = 1.208e+01
+                          3s = 4.809e+01  3p = 4.991e+01  3d = 5.365e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.405e-02  2p = 9.287e-01
+                          3s = 1.885e-02  3p = 1.643e-01  3d = 1.259e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.238e+00  3p = 3.794e+00  3d = 4.203e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.734e-01  3p = 1.420e+00  3d = 9.631e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8450    0.7366    0.8818    0.9656    1.0000    1.0000
+   Effective charges =  20.0000   18.3667   16.3058   14.1508   13.3935   13.1278
+    Binding energies =   4598.6     845.2     797.4     292.3     271.2     146.6
+*****************************************************************************************
+QM=13.5005     EE=27.9938
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.782e-03  2s = 7.438e-04  2p = 1.028e-03
+                          3s = 1.580e-04  3p = 1.176e-04  3d = 1.822e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.217e+00  2s = 1.022e+01  2p = 1.170e+01
+                          3s = 4.647e+01  3p = 4.829e+01  3d = 5.214e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.392e-02  2p = 9.223e-01
+                          3s = 1.883e-02  3p = 1.632e-01  3d = 1.255e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.221e+00  3p = 3.754e+00  3d = 4.142e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.709e-01  3p = 1.399e+00  3d = 9.518e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8518    0.7557    0.8949    0.9686    1.0000    1.0000
+   Effective charges =  20.0000   18.3954   16.4628   14.4438   13.7467   13.5005
+    Binding energies =   4635.8     869.8     825.0     305.5     285.7     155.0
+*****************************************************************************************
+QM=13.8379     EE=27.9930
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.783e-03  2s = 7.615e-04  2p = 1.053e-03
+                          3s = 1.640e-04  3p = 1.270e-04  3d = 1.969e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.204e+00  2s = 9.956e+00  2p = 1.138e+01
+                          3s = 4.534e+01  3p = 4.717e+01  3d = 5.084e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.381e-02  2p = 9.165e-01
+                          3s = 1.880e-02  3p = 1.621e-01  3d = 1.251e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.206e+00  3p = 3.718e+00  3d = 4.088e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.686e-01  3p = 1.381e+00  3d = 9.416e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8582    0.7728    0.9066    0.9711    1.0000    1.0000
+   Effective charges =  20.0000   18.4221   16.6065   14.7112   14.0678   13.8379
+    Binding energies =   4670.4     892.1     850.4     317.7     299.2     162.8
+*****************************************************************************************
+QM=14.1456     EE=27.9923
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.784e-03  2s = 7.779e-04  2p = 1.076e-03
+                          3s = 1.696e-04  3p = 1.361e-04  3d = 2.111e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.193e+00  2s = 9.740e+00  2p = 1.111e+01
+                          3s = 4.421e+01  3p = 4.604e+01  3d = 4.962e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.370e-02  2p = 9.110e-01
+                          3s = 1.878e-02  3p = 1.611e-01  3d = 1.247e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.192e+00  3p = 3.684e+00  3d = 4.038e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.665e-01  3p = 1.365e+00  3d = 9.322e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8641    0.7884    0.9170    0.9732    1.0000    1.0000
+   Effective charges =  20.0000   18.4349   16.7388   14.9564   14.3612   14.1456
+    Binding energies =   4702.7     911.3     874.0     329.1     311.8     170.2
+*****************************************************************************************
+QM=14.4271     EE=27.9915
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.786e-03  2s = 7.933e-04  2p = 1.098e-03
+                          3s = 1.749e-04  3p = 1.449e-04  3d = 2.248e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.182e+00  2s = 9.554e+00  2p = 1.089e+01
+                          3s = 4.334e+01  3p = 4.516e+01  3d = 4.859e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.359e-02  2p = 9.059e-01
+                          3s = 1.875e-02  3p = 1.602e-01  3d = 1.244e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.179e+00  3p = 3.653e+00  3d = 3.994e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.646e-01  3p = 1.350e+00  3d = 9.237e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.503e+01
+
+  Binding Energy
+  correction factors =   0.8697    0.8028    0.9264    0.9750    1.0000    1.0000
+   Effective charges =  20.0000   18.4387   16.8610   15.1818   14.6303   14.4271
+    Binding energies =   4733.0     928.3     895.9     339.7     323.6     177.0
+*****************************************************************************************
+QM=14.6860     EE=27.9907
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.787e-03  2s = 8.077e-04  2p = 1.119e-03
+                          3s = 1.800e-04  3p = 1.533e-04  3d = 2.380e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.172e+00  2s = 9.376e+00  2p = 1.070e+01
+                          3s = 4.244e+01  3p = 4.426e+01  3d = 4.766e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.350e-02  2p = 9.012e-01
+                          3s = 1.873e-02  3p = 1.594e-01  3d = 1.241e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.168e+00  3p = 3.625e+00  3d = 3.953e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.629e-01  3p = 1.336e+00  3d = 9.159e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.504e+01
+
+  Binding Energy
+  correction factors =   0.8749    0.8160    0.9349    0.9766    1.0000    1.0000
+   Effective charges =  20.0000   18.4427   16.9740   15.3896   14.8779   14.6860
+    Binding energies =   4761.4     944.1     916.2     349.7     334.6     183.4
+*****************************************************************************************
+QM=15.1476     EE=27.9892
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.789e-03  2s = 8.342e-04  2p = 1.156e-03
+                          3s = 1.894e-04  3p = 1.694e-04  3d = 2.630e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.154e+00  2s = 9.088e+00  2p = 1.024e+01
+                          3s = 4.102e+01  3p = 4.284e+01  3d = 4.609e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.331e-02  2p = 8.925e-01
+                          3s = 1.869e-02  3p = 1.578e-01  3d = 1.235e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.147e+00  3p = 3.573e+00  3d = 3.881e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.598e-01  3p = 1.312e+00  3d = 9.018e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.504e+01
+
+  Binding Energy
+  correction factors =   0.8845    0.8399    0.9502    0.9793    1.0000    1.0000
+   Effective charges =  20.0000   18.4516   17.1782   15.7625   15.3204   15.1476
+    Binding energies =   4813.6     972.6     953.7     367.8     354.8     195.1
+*****************************************************************************************
+QM=15.5403     EE=27.9876
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.792e-03  2s = 8.572e-04  2p = 1.190e-03
+                          3s = 1.978e-04  3p = 1.840e-04  3d = 2.856e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.139e+00  2s = 8.843e+00  2p = 9.850e+00
+                          3s = 3.985e+01  3p = 4.167e+01  3d = 4.481e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.315e-02  2p = 8.849e-01
+                          3s = 1.865e-02  3p = 1.565e-01  3d = 1.230e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.130e+00  3p = 3.526e+00  3d = 3.820e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.571e-01  3p = 1.292e+00  3d = 8.892e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.504e+01
+
+  Binding Energy
+  correction factors =   0.8929    0.8602    0.9701    0.9817    1.0000    1.0000
+   Effective charges =  20.0000   18.4611   17.3533   16.0793   15.6958   15.5403
+    Binding energies =   4859.6     997.2     993.6     383.7     372.4     205.4
+*****************************************************************************************
+QM=15.8770     EE=27.9861
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.795e-03  2s = 8.775e-04  2p = 1.219e-03
+                          3s = 2.054e-04  3p = 1.972e-04  3d = 3.062e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.126e+00  2s = 8.644e+00  2p = 9.595e+00
+                          3s = 3.893e+01  3p = 4.075e+01  3d = 4.376e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.300e-02  2p = 8.782e-01
+                          3s = 1.862e-02  3p = 1.553e-01  3d = 1.225e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.116e+00  3p = 3.487e+00  3d = 3.769e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.549e-01  3p = 1.275e+00  3d = 8.788e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.504e+01
+
+  Binding Energy
+  correction factors =   0.9004    0.8776    0.9822    0.9837    1.0000    1.0000
+   Effective charges =  20.0000   18.4715   17.5053   16.3514   16.0173   15.8770
+    Binding energies =   4900.5    1018.5    1023.7     397.6     387.8     214.4
+*****************************************************************************************
+QM=16.1686     EE=27.9845
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.798e-03  2s = 8.956e-04  2p = 1.245e-03
+                          3s = 2.121e-04  3p = 2.093e-04  3d = 3.248e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.117e+00  2s = 8.476e+00  2p = 9.384e+00
+                          3s = 3.812e+01  3p = 3.993e+01  3d = 4.291e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.287e-02  2p = 8.723e-01
+                          3s = 1.859e-02  3p = 1.542e-01  3d = 1.221e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.103e+00  3p = 3.455e+00  3d = 3.724e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.530e-01  3p = 1.260e+00  3d = 8.701e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.505e+01
+
+  Binding Energy
+  correction factors =   0.9072    0.8926    0.9892    0.9854    1.0000    1.0000
+   Effective charges =  20.0000   18.4825   17.6384   16.5875   16.2955   16.1686
+    Binding energies =   4937.1    1037.2    1046.8     409.9     401.4     222.3
+*****************************************************************************************
+QM=16.4227     EE=27.9830
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.801e-03  2s = 9.118e-04  2p = 1.269e-03
+                          3s = 2.182e-04  3p = 2.202e-04  3d = 3.418e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.103e+00  2s = 8.334e+00  2p = 9.237e+00
+                          3s = 3.742e+01  3p = 3.923e+01  3d = 4.218e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.275e-02  2p = 8.669e-01
+                          3s = 1.856e-02  3p = 1.532e-01  3d = 1.217e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.092e+00  3p = 3.428e+00  3d = 3.686e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.514e-01  3p = 1.247e+00  3d = 8.628e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.718e+01      3s to 3p = 4.505e+01
+
+  Binding Energy
+  correction factors =   0.9132    0.9057    0.9928    0.9869    1.0000    1.0000
+   Effective charges =  20.0000   18.4942   17.7559   16.7935   16.5375   16.4227
+    Binding energies =   4970.2    1053.7    1064.6     420.8     413.4     229.3
+*****************************************************************************************
+QM=16.7473     EE=27.9807
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.806e-03  2s = 9.332e-04  2p = 1.300e-03
+                          3s = 2.264e-04  3p = 2.349e-04  3d = 3.644e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.090e+00  2s = 8.172e+00  2p = 9.103e+00
+                          3s = 3.660e+01  3p = 3.840e+01  3d = 4.127e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.259e-02  2p = 8.598e-01
+                          3s = 1.853e-02  3p = 1.519e-01  3d = 1.212e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.081e+00  3p = 3.401e+00  3d = 3.645e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.498e-01  3p = 1.233e+00  3d = 8.550e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.719e+01      3s to 3p = 4.505e+01
+
+  Binding Energy
+  correction factors =   0.9214    0.9223    0.9944    0.9889    1.0000    1.0000
+   Effective charges =  20.0000   18.5131   17.8855   17.0573   16.8463   16.7473
+    Binding energies =   5014.5    1075.3    1082.0     434.9     429.0     238.5
+*****************************************************************************************
+QM=17.0164     EE=27.9784
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.811e-03  2s = 9.516e-04  2p = 1.327e-03
+                          3s = 2.334e-04  3p = 2.476e-04  3d = 3.840e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.078e+00  2s = 8.025e+00  2p = 9.036e+00
+                          3s = 3.590e+01  3p = 3.770e+01  3d = 4.056e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.245e-02  2p = 8.536e-01
+                          3s = 1.849e-02  3p = 1.508e-01  3d = 1.207e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.074e+00  3p = 3.386e+00  3d = 3.622e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.489e-01  3p = 1.226e+00  3d = 8.508e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.719e+01      3s to 3p = 4.505e+01
+
+  Binding Energy
+  correction factors =   0.9285    0.9360    0.9952    0.9905    1.0000    1.0000
+   Effective charges =  20.0000   18.5332   17.9562   17.2763   17.1017   17.0164
+    Binding energies =   5053.4    1093.6    1091.4     446.9     442.1     246.2
+*****************************************************************************************
+QM=17.3700     EE=27.9737
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.821e-03  2s = 9.715e-04  2p = 1.347e-03
+                          3s = 2.432e-04  3p = 2.652e-04  3d = 4.112e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.062e+00  2s = 7.892e+00  2p = 8.937e+00
+                          3s = 3.496e+01  3p = 3.675e+01  3d = 3.963e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.224e-02  2p = 8.449e-01
+                          3s = 1.845e-02  3p = 1.493e-01  3d = 1.201e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.065e+00  3p = 3.365e+00  3d = 3.591e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.476e-01  3p = 1.215e+00  3d = 8.448e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.719e+01      3s to 3p = 4.506e+01
+
+  Binding Energy
+  correction factors =   0.9386    0.9534    0.9961    0.9926    1.0000    1.0000
+   Effective charges =  20.0000   18.5691   18.0588   17.5667   17.4377   17.3700
+    Binding energies =   5108.3    1118.2    1105.0     463.0     459.7     256.6
+*****************************************************************************************
+QM=17.6812     EE=27.9691
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.832e-03  2s = 9.901e-04  2p = 1.365e-03
+                          3s = 2.524e-04  3p = 2.816e-04  3d = 4.363e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.047e+00  2s = 7.717e+00  2p = 8.834e+00
+                          3s = 3.416e+01  3p = 3.594e+01  3d = 3.886e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.205e-02  2p = 8.366e-01
+                          3s = 1.840e-02  3p = 1.478e-01  3d = 1.195e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.056e+00  3p = 3.343e+00  3d = 3.559e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.463e-01  3p = 1.205e+00  3d = 8.388e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.719e+01      3s to 3p = 4.507e+01
+
+  Binding Energy
+  correction factors =   0.9484    0.9676    0.9971    0.9945    1.0000    1.0000
+   Effective charges =  20.0000   18.6146   18.1628   17.8234   17.7320   17.6812
+    Binding energies =   5161.4    1140.4    1118.8     477.6     475.3     265.8
+*****************************************************************************************
+QM=18.0279     EE=27.9598
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.852e-03  2s = 1.016e-03  2p = 1.394e-03
+                          3s = 2.638e-04  3p = 3.014e-04  3d = 4.667e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.028e+00  2s = 7.546e+00  2p = 8.701e+00
+                          3s = 3.330e+01  3p = 3.508e+01  3d = 3.801e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.180e-02  2p = 8.261e-01
+                          3s = 1.835e-02  3p = 1.459e-01  3d = 1.187e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.044e+00  3p = 3.314e+00  3d = 3.516e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.446e-01  3p = 1.190e+00  3d = 8.306e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.720e+01      3s to 3p = 4.508e+01
+
+  Binding Energy
+  correction factors =   0.9608    0.9814    0.9980    0.9964    1.0000    1.0000
+   Effective charges =  20.0000   18.6938   18.3078   18.1160   18.0611   18.0279
+    Binding energies =   5229.1    1166.6    1137.8     494.4     493.1     276.4
+*****************************************************************************************
+QM=18.2958     EE=27.9505
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.875e-03  2s = 1.042e-03  2p = 1.426e-03
+                          3s = 2.738e-04  3p = 3.179e-04  3d = 4.920e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 1.012e+00  2s = 7.416e+00  2p = 8.572e+00
+                          3s = 3.266e+01  3p = 3.443e+01  3d = 3.738e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.158e-02  2p = 8.169e-01
+                          3s = 1.830e-02  3p = 1.442e-01  3d = 1.180e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.032e+00  3p = 3.285e+00  3d = 3.473e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.429e-01  3p = 1.176e+00  3d = 8.225e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.720e+01      3s to 3p = 4.510e+01
+
+  Binding Energy
+  correction factors =   0.9718    0.9897    0.9987    0.9979    1.0000    1.0000
+   Effective charges =  20.0000   18.7885   18.4532   18.3482   18.3156   18.2958
+    Binding energies =   5289.0    1188.3    1156.8     507.9     507.1     284.6
+*****************************************************************************************
+QM=18.5811     EE=27.9350
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.913e-03  2s = 1.078e-03  2p = 1.474e-03
+                          3s = 2.864e-04  3p = 3.376e-04  3d = 5.220e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 9.927e-01  2s = 7.259e+00  2p = 8.403e+00
+                          3s = 3.200e+01  3p = 3.376e+01  3d = 3.671e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.133e-02  2p = 8.065e-01
+                          3s = 1.824e-02  3p = 1.424e-01  3d = 1.171e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 1.015e+00  3p = 3.245e+00  3d = 3.414e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.405e-01  3p = 1.157e+00  3d = 8.113e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.721e+01      3s to 3p = 4.512e+01
+
+  Binding Energy
+  correction factors =   0.9846    0.9950    0.9993    0.9990    1.0000    1.0000
+   Effective charges =  20.0000   18.9382   18.6580   18.6086   18.5911   18.5811
+    Binding energies =   5358.4    1213.9    1183.3     522.9     522.5     293.6
+*****************************************************************************************
+QM=18.8614     EE=27.9071
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 7.966e-03  2s = 1.123e-03  2p = 1.537e-03
+                          3s = 3.010e-04  3p = 3.598e-04  3d = 5.557e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 9.769e-01  2s = 7.099e+00  2p = 8.211e+00
+                          3s = 3.139e+01  3p = 3.315e+01  3d = 3.610e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.114e-02  2p = 7.973e-01
+                          3s = 1.820e-02  3p = 1.407e-01  3d = 1.164e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 9.959e-01  3p = 3.199e+00  3d = 3.347e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.378e-01  3p = 1.134e+00  3d = 7.983e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.723e+01      3s to 3p = 4.516e+01
+
+  Binding Energy
+  correction factors =   0.9960    0.9972    0.9995    0.9994    1.0000    1.0000
+   Effective charges =  20.0000   19.1307   18.9055   18.8783   18.8674   18.8614
+    Binding energies =   5420.5    1241.4    1215.2     538.4     538.2     302.5
+*****************************************************************************************
+QM=19.1269     EE=27.8761
+Reference ('hydrogenic') cross sections in 10E-20 cm2:
+  CAPTURE (MEC+REC) TO:   1s = 8.023e-03  2s = 1.171e-03  2p = 1.604e-03
+                          3s = 3.160e-04  3p = 3.825e-04  3d = 5.902e-04   (n=4) = 0.000e+00
+  IONIZATION OF:          1s = 9.729e-01  2s = 6.951e+00  2p = 8.024e+00
+                          3s = 3.082e+01  3p = 3.257e+01  3d = 3.551e+01   (n=4) = 0.000e+00
+1s EXCITATION TO:         2s = 9.114e-02  2p = 7.950e-01
+                          3s = 1.819e-02  3p = 1.403e-01  3d = 1.163e-02   (n=4) = 0.000e+00
+2s EXCITATION TO:         3s = 9.769e-01  3p = 3.152e+00  3d = 3.280e+00   (n=4) = 0.000e+00
+2p EXCITATION TO:         3s = 1.351e-01  3p = 1.112e+00  3d = 7.854e+00   (n=4) = 0.000e+00
+EXCITATION To n=4 from:   3s = 0.000e+00  3p = 0.000e+00  3d = 0.000e+00
+INTRASHELL EXCITATION:    2s to 2p = 1.725e+01      3s to 3p = 4.521e+01
+
+  Binding Energy
+  correction factors =   0.9993    0.9981    0.9997    0.9996    1.0000    1.0000
+   Effective charges =  20.0000   19.3297   19.1567   19.1387   19.1310   19.1269
+    Binding energies =   5438.4    1268.6    1247.9     553.5     553.3     311.1
+*****************************************************************************************
+
+********************************************************************************************************
+********************************************************************************************************
+
+        End time is  04:44:00
+    Elapsed time is  00:00:07 (or 7.775 sec)
+             Final energy : 27.799 (MeV/u)

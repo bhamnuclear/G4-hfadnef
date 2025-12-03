@@ -1,0 +1,1172 @@
+
+**************************************************************
+ Geant4 version Name: geant4-11-02-patch-02 [MT]   (21-June-2024)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+<<< Geant4 Physics List simulation engine: QGSP_BIC
+
+Enriching lithium
+Built CLLBC
+Importing room .stl files
+Checking overlaps for volume Lithium:0 (G4Box) ... OK! 
+Checking overlaps for volume Copper:0 (G4Box) ... OK! 
+Checking overlaps for volume Graphite:0 (G4Box) ... OK! 
+Checking overlaps for volume titanium:0 (G4Box) ... OK! 
+Checking overlaps for volume titanium:0 (G4Box) ... OK! 
+Checking overlaps for volume logic_cadmium:0 (G4Box) ... OK! 
+Checking overlaps for volume logictarget:0 (G4Box) ... OK! 
+Detector construction complete
+### Adding tracking cuts for neutron  TimeCut(ns)= 10000  KinEnergyCut(MeV)= 0
+=======================================================================
+======                 Electromagnetic Physics Parameters      ========
+=======================================================================
+LPM effect enabled                                 1
+Enable creation and use of sampling tables         0
+Apply cuts on all EM processes                     0
+Use combined TransportationWithMsc                 Disabled
+Use general process                                1
+Enable linear polarisation for gamma               0
+Enable photoeffect sampling below K-shell          1
+Enable sampling of quantum entanglement            0
+X-section factor for integral approach             0.8
+Min kinetic energy for tables                      100 eV 
+Max kinetic energy for tables                      100 TeV
+Number of bins per decade of a table               7
+Verbose level                                      1
+Verbose level for worker thread                    0
+Bremsstrahlung energy threshold above which 
+  primary e+- is added to the list of secondary    100 TeV
+Bremsstrahlung energy threshold above which primary
+  muon/hadron is added to the list of secondary    100 TeV
+Lowest triplet kinetic energy                      1 MeV
+Enable sampling of gamma linear polarisation       0
+5D gamma conversion model type                     0
+5D gamma conversion model on isolated ion          0
+Livermore data directory                           epics_2017
+=======================================================================
+======                 Ionisation Parameters                   ========
+=======================================================================
+Step function for e+-                              (0.2, 1 mm)
+Step function for muons/hadrons                    (0.2, 0.1 mm)
+Step function for light ions                       (0.2, 0.1 mm)
+Step function for general ions                     (0.2, 0.1 mm)
+Lowest e+e- kinetic energy                         1 keV
+Lowest muon/hadron kinetic energy                  1 keV
+Use ICRU90 data                                    0
+Fluctuations of dE/dx are enabled                  1
+Type of fluctuation model for leptons and hadrons  Urban
+Use built-in Birks satuaration                     0
+Build CSDA range enabled                           0
+Use cut as a final range enabled                   0
+Enable angular generator interface                 0
+Max kinetic energy for CSDA tables                 1 GeV
+Max kinetic energy for NIEL computation            0 eV 
+Linear loss limit                                  0.01
+Read data from file for e+e- pair production by mu 0
+=======================================================================
+======                 Multiple Scattering Parameters          ========
+=======================================================================
+Type of msc step limit algorithm for e+-           1
+Type of msc step limit algorithm for muons/hadrons 0
+Msc lateral displacement for e+- enabled           1
+Msc lateral displacement for muons and hadrons     0
+Urban msc model lateral displacement alg96         1
+Range factor for msc step limit for e+-            0.04
+Range factor for msc step limit for muons/hadrons  0.2
+Geometry factor for msc step limitation of e+-     2.5
+Safety factor for msc step limit for e+-           0.6
+Skin parameter for msc step limitation of e+-      1
+Lambda limit for msc step limit for e+-            1 mm
+Use Mott correction for e- scattering              0
+Factor used for dynamic computation of angular 
+  limit between single and multiple scattering     1
+Fixed angular limit between single 
+  and multiple scattering                          3.1416 rad
+Upper energy limit for e+- multiple scattering     100 MeV
+Type of electron single scattering model           0
+Type of nuclear form-factor                        1
+Screening factor                                   1
+=======================================================================
+
+phot:  for gamma SubType=12 BuildTable=0
+      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
+
+compt:  for gamma SubType=13 BuildTable=1
+      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
+      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
+
+conv:  for gamma SubType=14 BuildTable=1
+      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+     BetheHeitlerLPM : Emin=    0 eV  Emax=  100 TeV  ModifiedTsai
+
+Rayl:  for gamma SubType=11 BuildTable=1
+      Lambda table from 100 eV  to 150 keV, 7 bins/decade, spline: 0
+      LambdaPrime table from 150 keV to 100 TeV in 62 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
+
+msc:  for e-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+
+eIoni:  for e-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e-  XStype:4  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+CoulombScat:  for e- XStype:1 SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for e+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+
+eIoni:  for e+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e+  XStype:4  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+annihil:  for e+ XStype:2 SubType=5 BuildTable=0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for e+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for proton  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for proton  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for proton XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+ionIoni:  for GenericIon  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+ionIoni:  for alpha  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for anti_proton  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for anti_proton  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for anti_proton XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for kaon+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for kaon-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+muIoni:  for mu+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+        MuBetheBloch : Emin=  200 keV Emax=  100 TeV
+
+muBrems:  for mu+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 0.85 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+muIoni:  for mu-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+        MuBetheBloch : Emin=  200 keV Emax=  100 TeV
+
+muBrems:  for mu-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 0.85 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for pi+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for pi-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+-----------------------------------------------------------------------
+                           Hadronic Processes for neutron
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+  Process: neutronInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            Binary Cascade: 0 eV  ---> 6 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+  Process: nKiller
+-----------------------------------------------------------------------
+                           Hadronic Processes for GenericIon
+  Process: ionElastic
+        Model:          NNDiffuseElastic: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for He3
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for alpha
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_He3
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_alpha
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-------------------------------------------------------------------------
+                           Hadronic Processes for anti_hypertriton
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_lambda
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: anti_lambdaInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 0 eV  ---> 25 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_neutron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_proton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_triton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for deuteron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for e+
+  Process: positronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for e-
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for gamma
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 eV  ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 6 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            GammaNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for kaon+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: kaon+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for kaon-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: kaon-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for lambda
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: lambdaInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for mu+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for mu-
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+  Process: muMinusCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for pi+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: pi+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for pi-
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: pi-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for proton
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: protonInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            Binary Cascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for sigma-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: sigma-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for triton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+=======================================================================
+======       Geant4 Native Pre-compound Model Parameters       ========
+=======================================================================
+Type of pre-compound inverse x-section              3
+Pre-compound model active                           1
+Pre-compound excitation low energy                  100 keV
+Pre-compound excitation high energy                 30 MeV
+Angular generator for pre-compound model            1
+Use NeverGoBack option for pre-compound model       0
+Use SoftCutOff option for pre-compound model        0
+Use CEM transitions for pre-compound model          1
+Use GNASH transitions for pre-compound model        0
+Use HETC submodel for pre-compound model            0
+=======================================================================
+======       Nuclear De-excitation Module Parameters           ========
+=======================================================================
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy                               10 eV 
+Min energy per nucleon for multifragmentation       200 GeV
+Limit excitation energy for Fermi BreakUp           20 MeV
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      1
+Time limit for long lived isomeres                  1 ns 
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   0
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+G4WT0 > THREAD: neutrons0.root
+G4WT0 >      Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+EVENT: 0
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    -25.9     11.9     -0.1    0.0157        0        0         0     Lithium initStep
+G4WT0 >     1      -26     11.9     0.15    0.0157        0    0.258     0.258      Copper Transportation
+G4WT0 >     2    -26.7     12.2     3.15    0.0157        0     3.09      3.35       World Transportation
+G4WT0 >     3    -27.6     12.6     7.15    0.0157        0     4.12      7.47    Graphite Transportation
+G4WT0 >     4    -28.3     12.9     10.2    0.0157        0     3.09      10.6       World Transportation
+G4WT0 >     5    -34.2     15.6       36    0.0157        0     26.6      37.2    titanium Transportation
+G4WT0 >     6    -34.6     15.9     38.1    0.0152 0.000554     2.19      39.4    titanium hadElastic
+G4WT0 >     7    -35.3     16.7     38.1    0.0149 0.000304     1.04      40.4    titanium hadElastic
+G4WT0 >     8    -35.7     16.6     37.9    0.0139 0.000958    0.427      40.9    titanium hadElastic
+G4WT0 >     9    -35.4       16     38.7    0.0139 2.07e-05     1.07      41.9    titanium hadElastic
+G4WT0 >    10      -33     13.4     41.6    0.0138 5.52e-05     4.53      46.5    titanium hadElastic
+G4WT0 >    11    -32.4     12.3       42    0.0138        0     1.35      47.8       World Transportation
+G4WT0 >    12    -26.1    0.389     46.5    0.0138        0     14.2        62 logic_cadmium Transportation
+G4WT0 >    13    -24.7    -2.26     47.5    0.0138        0     3.16      65.2       World Transportation
+G4WT0 >    14     56.1     -155      105    0.0138        0      182       247 physical_concretestack Transportation
+G4WT0 >    15     81.7     -203      123    0.0132 0.000622     57.7       305 physical_concretestack hadElastic
+G4WT0 >    16      109     -230      103    0.0121  0.00116     43.3       348 physical_concretestack hadElastic
+G4WT0 >    17      124     -250     96.1    0.0121        0     25.6       374       World Transportation
+G4WT0 >    18      780 -1.15e+03     -193    0.0121        0 1.15e+03  1.53e+03 physical_blocker_4 Transportation
+G4WT0 >    19      782 -1.15e+03     -194   0.00988  0.00219     3.64  1.53e+03 physical_blocker_4 hadElastic
+G4WT0 >    20      785 -1.16e+03     -199   0.00306  0.00681     9.39  1.54e+03 physical_blocker_4 hadElastic
+G4WT0 >    21      783 -1.17e+03     -199   0.00299 7.77e-05     4.96  1.54e+03 physical_blocker_4 hadElastic
+G4WT0 >    22      780 -1.17e+03     -200   0.00299        0     3.81  1.55e+03       World Transportation
+G4WT0 >    23      745 -1.18e+03     -207   0.00299        0     40.1  1.59e+03 physical_floor Transportation
+G4WT0 >    24      722 -1.2e+03     -211   0.00193  0.00105     25.5  1.61e+03 physical_floor hadElastic
+G4WT0 >    25      705 -1.21e+03     -201   0.00065  0.00128     22.1  1.64e+03 physical_floor hadElastic
+G4WT0 >    26      667 -1.19e+03     -205  3.26e-06 0.000647     39.7  1.68e+03 physical_floor hadElastic
+G4WT0 >    27      669 -1.18e+03     -201  3.26e-06        0     9.23  1.68e+03       World Transportation
+G4WT0 >    28      780     -585     57.3  3.26e-06        0      662  2.35e+03 physical_blocker_3 Transportation
+G4WT0 >    29      780     -585     57.3  3.26e-06        0        0  2.35e+03 physical_blocker_3 nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0      4.4    -2.74     -0.1    0.0203        0        0         0     Lithium initStep
+G4WT0 >     1     4.46    -2.78     0.15    0.0203        0    0.261     0.261      Copper Transportation
+G4WT0 >     2     4.97     -3.1      2.2    0.0194 0.000921     2.14       2.4      Copper hadElastic
+G4WT0 >     3     1.19    -6.33     0.15    0.0194        0     5.37      7.77     Lithium Transportation
+G4WT0 >     4    0.642     -6.8    -0.15    0.0194        0    0.787      8.56       World Transportation
+G4WT0 >     5    -6.45    -12.9       -4    0.0194        0     10.1      18.7    titanium Transportation
+G4WT0 >     6    -6.54    -12.9    -4.05    0.0183  0.00107    0.124      18.8    titanium hadElastic
+G4WT0 >     7    -6.08    -12.7    -4.55    0.0177 0.000659    0.707      19.5    titanium hadElastic
+G4WT0 >     8    -5.06    -13.1       -4    0.0177        0     1.21      20.7       World Transportation
+G4WT0 >     9     2.12    -15.5    -0.15    0.0177        0      8.5      29.2     Lithium Transportation
+G4WT0 >    10     2.68    -15.7     0.15    0.0177        0    0.662      29.9      Copper Transportation
+G4WT0 >    11      4.7    -16.4     1.23    0.0174 0.000326     2.38      32.2      Copper hadElastic
+G4WT0 >    12     4.73    -16.3     1.49    0.0172 0.000141    0.283      32.5      Copper hadElastic
+G4WT0 >    13     6.67    -14.1     3.15    0.0172        0     3.38      35.9       World Transportation
+G4WT0 >    14     11.4    -8.72     7.15    0.0172        0     8.15        44    Graphite Transportation
+G4WT0 >    15     14.9    -4.72     10.2    0.0172        0     6.11      50.2       World Transportation
+G4WT0 >    16     45.1     29.8       36    0.0172        0     52.7       103    titanium Transportation
+G4WT0 >    17     45.6     30.3     36.4     0.017  0.00017    0.762       104    titanium hadElastic
+G4WT0 >    18     46.7       31     36.2    0.0168 0.000228     1.37       105    titanium hadElastic
+G4WT0 >    19     47.9     32.7     37.6    0.0166 0.000228     2.53       107    titanium hadElastic
+G4WT0 >    20     47.6       34       38    0.0162 0.000351     1.37       109    titanium hadElastic
+G4WT0 >    21     47.7       34     38.2    0.0161 0.000189    0.179       109    titanium hadElastic
+G4WT0 >    22     49.2     35.3     39.5    0.0156  0.00046      2.4       111    titanium hadElastic
+G4WT0 >    23       49     36.7     39.2    0.0143  0.00124     1.42       113    titanium hadElastic
+G4WT0 >    24     49.5     33.3     39.1    0.0137 0.000609     3.41       116    titanium hadElastic
+G4WT0 >    25     47.7       33       42    0.0137        0     3.46       120       World Transportation
+G4WT0 >    26     44.9     32.5     46.5    0.0137        0     5.31       125 logic_cadmium Transportation
+G4WT0 >    27     44.3     32.3     47.5    0.0137        0     1.18       126       World Transportation
+G4WT0 >    28     -851     -135  1.5e+03    0.0107  0.00305 1.71e+03  1.84e+03       World hadElastic
+G4WT0 >    29     -833      156 1.14e+03    0.0107        0      462   2.3e+03 physical_blocker_2 Transportation
+G4WT0 >    30     -832      159 1.14e+03  0.000904  0.00979     5.07  2.31e+03 physical_blocker_2 hadElastic
+G4WT0 >    31     -833      169 1.14e+03  0.000904        0     10.6  2.32e+03       World Transportation
+G4WT0 >    32     -937 1.78e+03 1.79e+03  0.000904        0 1.75e+03  4.06e+03 physical_ceiling Transportation
+G4WT0 >    33     -939 1.81e+03  1.8e+03  0.000563  0.00034     31.1  4.09e+03 physical_ceiling hadElastic
+G4WT0 >    34     -922 1.84e+03  1.8e+03  0.000125 0.000438     35.2  4.13e+03 physical_ceiling hadElastic
+G4WT0 >    35     -925 1.85e+03 1.81e+03  0.000118 6.69e-06     5.19  4.13e+03 physical_ceiling hadElastic
+G4WT0 >    36     -951 1.85e+03 1.81e+03  2.43e-05 9.42e-05     27.4  4.16e+03 physical_ceiling hadElastic
+G4WT0 >    37     -956 1.86e+03 1.82e+03  9.93e-06 1.43e-05     13.1  4.17e+03 physical_ceiling hadElastic
+G4WT0 >    38     -945 1.88e+03 1.83e+03  1.42e-07 9.78e-06     23.7   4.2e+03 physical_ceiling hadElastic
+G4WT0 >    39     -972 1.89e+03 1.85e+03  1.41e-07  9.3e-10     35.6  4.23e+03 physical_ceiling hadElastic
+G4WT0 >    40     -972 1.89e+03 1.85e+03  1.41e-07        0        0  4.23e+03 physical_ceiling nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    0.519     13.7     -0.1    0.0272        0        0         0     Lithium initStep
+G4WT0 >     1    0.516     13.6     0.15    0.0272        0    0.256     0.256      Copper Transportation
+G4WT0 >     2    0.502     13.3     1.87    0.0263 0.000969     1.76      2.02      Copper hadElastic
+G4WT0 >     3     2.94     8.68     0.15    0.0263        0     5.46      7.48     Lithium Transportation
+G4WT0 >     4     3.36     7.88    -0.15    0.0263        0    0.954      8.43       World Transportation
+G4WT0 >     5     8.83    -2.38       -4    0.0263        0     12.2      20.7    titanium Transportation
+G4WT0 >     6     17.3    -18.4      -10    0.0263        0     19.1      39.8       World Transportation
+G4WT0 >     7     51.9    -83.3    -34.3    0.0249  0.00142     77.4       117       World hadElastic
+G4WT0 >     8      780     -157     -457    0.0249        0      845       962 physical_blocker_4 Transportation
+G4WT0 >     9      784     -157     -460   0.00222   0.0226      5.2       968 physical_blocker_4 hadElastic
+G4WT0 >    10      787     -159     -458   0.00211 0.000111     3.34       971 physical_blocker_4 hadElastic
+G4WT0 >    11      790     -157     -458   0.00169 0.000425     4.13       975 physical_blocker_4 hadElastic
+G4WT0 >    12      785     -160     -462  0.000267  0.00142      6.3       981 physical_blocker_4 hadElastic
+G4WT0 >    13      780     -153     -466  0.000267        0     9.94       991       World Transportation
+G4WT0 >    14    -10.7      863 -1.13e+03  0.000267        0 1.45e+03  2.44e+03 physical_boronwalls Transportation
+G4WT0 >    15    -11.5      864 -1.14e+03  8.28e-05 0.000185     1.44  2.44e+03 physical_boronwalls hadElastic
+G4WT0 >    16    -11.6      866 -1.13e+03  8.28e-05        0     2.11  2.45e+03       World Transportation
+G4WT0 >    17    -81.6 1.78e+03     -829  8.28e-05        0      971  3.42e+03 physical_ceiling Transportation
+G4WT0 >    18    -81.6 1.78e+03     -829  8.28e-05        0        0  3.42e+03 physical_ceiling nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    -10.8     4.06     -0.1    0.0491        0        0         0     Lithium initStep
+G4WT0 >     1    -10.8     4.08     0.15    0.0491        0    0.254     0.254      Copper Transportation
+G4WT0 >     2    -11.3     4.26     3.15    0.0491        0     3.04       3.3       World Transportation
+G4WT0 >     3    -11.9      4.5     7.15    0.0491        0     4.06      7.35    Graphite Transportation
+G4WT0 >     4    -12.4     4.68     10.2    0.0491        0     3.04      10.4       World Transportation
+G4WT0 >     5    -16.5     6.22       36    0.0491        0     26.2      36.6    titanium Transportation
+G4WT0 >     6    -17.5     6.58       42    0.0491        0     6.09      42.7       World Transportation
+G4WT0 >     7    -18.2     6.85     46.5    0.0491        0     4.56      47.3 logic_cadmium Transportation
+G4WT0 >     8    -18.4     6.91     47.5    0.0491        0     1.01      48.3       World Transportation
+G4WT0 >     9     -660      249 4.09e+03    0.0491        0  4.1e+03  4.14e+03 physical_boronwalls Transportation
+G4WT0 >    10     -660      249 4.09e+03     0.033   0.0162     2.76  4.15e+03 physical_boronwalls hadElastic
+G4WT0 >    11     -663      249 4.09e+03     0.028  0.00494     3.52  4.15e+03 physical_boronwalls hadElastic
+G4WT0 >    12     -669      258 4.09e+03     0.028        0     12.1  4.16e+03       World Transportation
+G4WT0 >    13 -1.7e+03 1.78e+03  3.2e+03     0.028        0 2.05e+03  6.21e+03 physical_ceiling Transportation
+G4WT0 >    14 -1.72e+03 1.81e+03 3.18e+03    0.0221  0.00593     39.7  6.25e+03 physical_ceiling hadElastic
+G4WT0 >    15 -1.73e+03 1.85e+03 3.18e+03    0.0216 0.000532       33  6.28e+03 physical_ceiling hadElastic
+G4WT0 >    16 -1.74e+03 1.86e+03 3.17e+03   0.00788   0.0137     13.4   6.3e+03 physical_ceiling hadElastic
+G4WT0 >    17 -1.76e+03 1.86e+03 3.17e+03  0.000282  0.00759     21.2  6.32e+03 physical_ceiling hadElastic
+G4WT0 >    18 -1.76e+03 1.86e+03 3.19e+03   0.00027 1.18e-05     18.6  6.34e+03 physical_ceiling hadElastic
+G4WT0 >    19 -1.76e+03 1.86e+03 3.19e+03  0.000236 3.47e-05    0.568  6.34e+03 physical_ceiling hadElastic
+G4WT0 >    20 -1.77e+03 1.88e+03 3.21e+03  0.000198 3.77e-05       27  6.36e+03 physical_ceiling hadElastic
+G4WT0 >    21 -1.78e+03 1.87e+03  3.2e+03  3.03e-05 0.000168     14.6  6.38e+03 physical_ceiling hadElastic
+G4WT0 >    22 -1.79e+03 1.86e+03  3.2e+03  6.15e-06 2.41e-05     19.2   6.4e+03 physical_ceiling hadElastic
+G4WT0 >    23 -1.78e+03 1.84e+03 3.24e+03  5.76e-06 3.88e-07     40.9  6.44e+03 physical_ceiling hadElastic
+G4WT0 >    24 -1.78e+03 1.84e+03 3.25e+03  5.03e-06 7.33e-07     7.04  6.44e+03 physical_ceiling hadElastic
+G4WT0 >    25 -1.8e+03 1.83e+03 3.28e+03  1.93e-06  3.1e-06     41.2  6.49e+03 physical_ceiling hadElastic
+G4WT0 >    26 -1.81e+03 1.84e+03 3.29e+03  3.97e-07 1.53e-06     14.2   6.5e+03 physical_ceiling hadElastic
+G4WT0 >    27 -1.81e+03 1.84e+03 3.29e+03   3.9e-07 7.62e-09     3.25   6.5e+03 physical_ceiling hadElastic
+G4WT0 >    28 -1.81e+03 1.84e+03  3.3e+03  3.66e-07 2.33e-08     9.03  6.51e+03 physical_ceiling hadElastic
+G4WT0 >    29 -1.82e+03 1.83e+03  3.3e+03  2.36e-07  1.3e-07     9.78  6.52e+03 physical_ceiling hadElastic
+G4WT0 >    30 -1.84e+03 1.83e+03 3.31e+03  2.32e-07 4.14e-09     25.1  6.55e+03 physical_ceiling hadElastic
+G4WT0 >    31 -1.84e+03 1.83e+03 3.31e+03  2.32e-07        0        0  6.55e+03 physical_ceiling nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    -14.8     14.7     -0.1    0.0271        0        0         0     Lithium initStep
+G4WT0 >     1    -14.7     14.7     0.15    0.0271        0    0.255     0.255      Copper Transportation
+G4WT0 >     2    -14.3     14.3     3.15    0.0271        0     3.05      3.31       World Transportation
+G4WT0 >     3    -13.8     13.8     7.15    0.0271        0     4.07      7.38    Graphite Transportation
+G4WT0 >     4    -13.4     13.4     10.2    0.0271        0     3.05      10.4       World Transportation
+G4WT0 >     5    -9.88     9.88       36    0.0271        0     26.3      36.8    titanium Transportation
+G4WT0 >     6    -9.07     9.07       42    0.0271        0     6.11      42.9       World Transportation
+G4WT0 >     7    -8.47     8.46     46.5    0.0271        0     4.58      47.4 logic_cadmium Transportation
+G4WT0 >     8    -8.33     8.33     47.5    0.0271        0     1.02      48.5       World Transportation
+G4WT0 >     9    -7.93     7.92     50.5    0.0271        0     3.05      51.5 logictarget Transportation
+G4WT0 >    10    -7.79     7.79     51.5    0.0271        0     1.02      52.5       World Transportation
+G4WT0 >    11      537     -536 4.09e+03    0.0271        0 4.11e+03  4.16e+03 physical_boronwalls Transportation
+G4WT0 >    12      537     -537 4.09e+03    0.0267   0.0004     1.95  4.16e+03 physical_boronwalls hadElastic
+G4WT0 >    13      537     -537 4.09e+03    0.0028   0.0239    0.294  4.16e+03 physical_boronwalls hadElastic
+G4WT0 >    14      538     -537 4.09e+03  0.000912  0.00189     1.07  4.16e+03 physical_boronwalls hadElastic
+G4WT0 >    15      539     -535 4.09e+03  6.74e-05 0.000844     2.54  4.17e+03 physical_boronwalls hadElastic
+G4WT0 >    16      539     -534 4.09e+03  5.52e-05 1.22e-05     0.99  4.17e+03 physical_boronwalls hadElastic
+G4WT0 >    17      539     -534 4.09e+03  1.61e-05 3.91e-05    0.161  4.17e+03 physical_boronwalls hadElastic
+G4WT0 >    18      541     -534 4.09e+03  1.61e-05        0     3.53  4.17e+03       World Transportation
+G4WT0 >    19 2.18e+03     -539  1.5e+03  1.61e-05        0 3.06e+03  7.23e+03 physical_boronwalls Transportation
+G4WT0 >    20 2.18e+03     -539  1.5e+03  1.61e-05        0        0  7.23e+03 physical_boronwalls nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    -10.3     35.1     -0.1    0.0328        0        0         0     Lithium initStep
+G4WT0 >     1    -10.3     35.1     0.15    0.0328        0    0.256     0.256      Copper Transportation
+G4WT0 >     2    -10.5     35.8     3.15    0.0328        0     3.08      3.33       World Transportation
+G4WT0 >     3    -10.8     36.6     7.15    0.0328        0      4.1      7.43    Graphite Transportation
+G4WT0 >     4      -11     37.3     10.2    0.0328        0     3.08      10.5       World Transportation
+G4WT0 >     5    -12.6     42.9       36    0.0328        0     26.5        37    titanium Transportation
+G4WT0 >     6      -13     44.2       42    0.0328        0     6.15      43.2       World Transportation
+G4WT0 >     7    -13.3     45.2     46.5    0.0328        0     4.61      47.8 logic_cadmium Transportation
+G4WT0 >     8    -13.4     45.4     47.5    0.0328        0     1.03      48.8       World Transportation
+G4WT0 >     9     -270      918 4.09e+03    0.0328        0 4.14e+03  4.19e+03 physical_boronwalls Transportation
+G4WT0 >    10     -271      920 4.09e+03   0.00469   0.0281     5.34  4.19e+03 physical_boronwalls hadElastic
+G4WT0 >    11     -271      920 4.09e+03  0.000746  0.00394    0.758  4.19e+03 physical_boronwalls hadElastic
+G4WT0 >    12     -272      921 4.09e+03  0.000172 0.000574      1.3   4.2e+03 physical_boronwalls hadElastic
+G4WT0 >    13     -272      920 4.09e+03   0.00017 2.54e-06     1.95   4.2e+03 physical_boronwalls hadElastic
+G4WT0 >    14     -272      920 4.09e+03  8.52e-05 8.44e-05    0.458   4.2e+03 physical_boronwalls hadElastic
+G4WT0 >    15     -271      919 4.09e+03  4.89e-05 3.63e-05     1.47   4.2e+03 physical_boronwalls hadElastic
+G4WT0 >    16     -271      918 4.09e+03  7.61e-06 4.13e-05    0.505   4.2e+03 physical_boronwalls hadElastic
+G4WT0 >    17     -274      918 4.09e+03  7.61e-06        0      2.8   4.2e+03       World Transportation
+G4WT0 >    18 -2.67e+03      603 3.01e+03  7.61e-06        0 2.65e+03  6.85e+03 physical_boronwalls Transportation
+G4WT0 >    19 -2.67e+03      603 3.01e+03  7.61e-06        0        0  6.85e+03 physical_boronwalls nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0      -26     8.65     -0.1    0.0276        0        0         0     Lithium initStep
+G4WT0 >     1    -25.9     8.65     0.15    0.0276        0    0.252     0.252      Copper Transportation
+G4WT0 >     2    -25.6     8.54     3.15    0.0276        0     3.02      3.27       World Transportation
+G4WT0 >     3    -25.2      8.4     7.15    0.0276        0     4.03       7.3    Graphite Transportation
+G4WT0 >     4    -24.9     8.29     10.2    0.0276        0     3.02      10.3       World Transportation
+G4WT0 >     5    -22.1     7.37       36    0.0276        0       26      36.3    titanium Transportation
+G4WT0 >     6    -21.5     7.16       42    0.0276        0     6.04      42.4       World Transportation
+G4WT0 >     7      -21        7     46.5    0.0276        0     4.53      46.9 logic_cadmium Transportation
+G4WT0 >     8    -20.9     6.96     47.5    0.0276        0     1.01      47.9       World Transportation
+G4WT0 >     9      410     -137 4.09e+03    0.0276        0 4.06e+03  4.11e+03 physical_boronwalls Transportation
+G4WT0 >    10      411     -137 4.09e+03   0.00868   0.0189     3.71  4.12e+03 physical_boronwalls hadElastic
+G4WT0 >    11      411     -137 4.09e+03   0.00133  0.00734    0.176  4.12e+03 physical_boronwalls hadElastic
+G4WT0 >    12      417     -116 4.09e+03  0.000991 0.000342     21.8  4.14e+03 physical_boronwalls hadElastic
+G4WT0 >    13      419     -106 4.09e+03   1.3e-05 0.000978     10.8  4.15e+03 physical_boronwalls hadElastic
+G4WT0 >    14      419     -106 4.09e+03  3.76e-06 9.25e-06    0.792  4.15e+03 physical_boronwalls hadElastic
+G4WT0 >    15      426     -114  4.1e+03  1.37e-06 2.39e-06     12.4  4.16e+03 physical_boronwalls hadElastic
+G4WT0 >    16      426     -115  4.1e+03  6.69e-08 1.31e-06     1.27  4.16e+03 physical_boronwalls hadElastic
+G4WT0 >    17      423     -116  4.1e+03         0        0     3.33  4.17e+03 physical_boronwalls neutronInelastic
+G4WT0 >     :----- List of 2ndaries - #SpawnInStep=  2(Rest= 0,Along= 0,Post= 2), #SpawnTotal=  2 ---------------
+G4WT0 >     :       423      -116   4.1e+03      1.78              alpha
+G4WT0 >     :       423      -116   4.1e+03      1.01                Li7
+G4WT0 >     :----------------------------------------------------------------- EndOf2ndaries Info ---------------
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = Li7,   Track ID = 3,   Parent ID = 1
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0      423     -116  4.1e+03      1.01        0        0         0 physical_boronwalls initStep
+G4WT0 >     1      423     -116  4.1e+03         0     1.01  0.00204   0.00204 physical_boronwalls ionIoni
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = alpha,   Track ID = 2,   Parent ID = 1
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0      423     -116  4.1e+03      1.78        0        0         0 physical_boronwalls initStep
+G4WT0 >     1      423     -116  4.1e+03         0     1.78  0.00763   0.00763 physical_boronwalls ionIoni
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0     4.82    -2.75     -0.1    0.0361        0        0         0     Lithium initStep
+G4WT0 >     1     4.87    -2.77     0.15    0.0361        0    0.255     0.255      Copper Transportation
+G4WT0 >     2     5.07    -2.89     1.31    0.0344  0.00173     1.18      1.44      Copper hadElastic
+G4WT0 >     3     6.35    -2.13     0.15    0.0344        0     1.89      3.33     Lithium Transportation
+G4WT0 >     4     6.68    -1.93    -0.15    0.0344        0    0.488      3.81       World Transportation
+G4WT0 >     5     10.9    0.596       -4    0.0344        0     6.26      10.1    titanium Transportation
+G4WT0 >     6     15.7     3.46    -8.36    0.0323   0.0021     7.09      17.2    titanium hadElastic
+G4WT0 >     7       13    0.697      -10    0.0323        0     4.24      21.4       World Transportation
+G4WT0 >     8 -1.18e+03 -1.18e+03     -716    0.0323        0 1.82e+03  1.85e+03 physical_floor Transportation
+G4WT0 >     9 -1.21e+03 -1.22e+03     -736    0.0299  0.00234     50.4   1.9e+03 physical_floor hadElastic
+G4WT0 >    10 -1.21e+03 -1.22e+03     -736  0.000954    0.029    0.764   1.9e+03 physical_floor hadElastic
+G4WT0 >    11 -1.21e+03 -1.21e+03     -740  0.000633  0.00032     5.48   1.9e+03 physical_floor hadElastic
+G4WT0 >    12 -1.22e+03 -1.18e+03     -747  0.000633        0     30.6  1.93e+03       World Transportation
+G4WT0 >    13 -1.36e+03      364 -1.13e+03  0.000633        0  1.6e+03  3.54e+03 physical_boronwalls Transportation
+G4WT0 >    14 -1.36e+03      367 -1.13e+03  0.000421 0.000213      2.3  3.54e+03 physical_boronwalls hadElastic
+G4WT0 >    15 -1.36e+03      368 -1.13e+03  0.000421        0     1.53  3.54e+03       World Transportation
+G4WT0 >    16 -1.57e+03 1.78e+03     -577  0.000421        0 1.54e+03  5.08e+03 physical_ceiling Transportation
+G4WT0 >    17 -1.57e+03 1.78e+03     -577  0.000421        0        0  5.08e+03 physical_ceiling nKiller
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0    -5.87    -23.5     -0.1    0.0328        0        0         0     Lithium initStep
+G4WT0 >     1    -5.87    -23.6     0.15    0.0328        0    0.252     0.252      Copper Transportation
+G4WT0 >     2    -5.95    -23.9     3.15    0.0328        0     3.02      3.27       World Transportation
+G4WT0 >     3    -6.06    -24.3     7.15    0.0328        0     4.02      7.29    Graphite Transportation
+G4WT0 >     4    -6.14    -24.6     10.2    0.0328        0     3.02      10.3       World Transportation
+G4WT0 >     5    -6.83    -27.4       36    0.0328        0       26      36.3    titanium Transportation
+G4WT0 >     6    -6.99      -28       42    0.0328        0     6.04      42.4       World Transportation
+G4WT0 >     7    -7.11    -28.5     46.5    0.0328        0     4.53      46.9 logic_cadmium Transportation
+G4WT0 >     8    -7.14    -28.6     47.5    0.0328        0     1.01      47.9       World Transportation
+G4WT0 >     9     -115     -461 4.09e+03    0.0328        0 4.06e+03  4.11e+03 physical_boronwalls Transportation
+G4WT0 >    10     -115     -461 4.09e+03    0.0267  0.00612     7.93  4.12e+03 physical_boronwalls hadElastic
+G4WT0 >    11     -115     -463  4.1e+03    0.0221   0.0046     3.27  4.12e+03 physical_boronwalls hadElastic
+G4WT0 >    12     -114     -473  4.1e+03   0.00322   0.0188     11.9  4.13e+03 physical_boronwalls hadElastic
+G4WT0 >    13     -115     -473  4.1e+03   0.00177  0.00145    0.408  4.13e+03 physical_boronwalls hadElastic
+G4WT0 >    14     -115     -474  4.1e+03  0.000836 0.000934     1.21  4.14e+03 physical_boronwalls hadElastic
+G4WT0 >    15     -117     -477  4.1e+03  0.000167 0.000669     4.18  4.14e+03 physical_boronwalls hadElastic
+G4WT0 >    16     -121     -479  4.1e+03   0.00016 7.53e-06     4.94  4.14e+03 physical_boronwalls hadElastic
+G4WT0 >    17     -123     -480  4.1e+03  1.41e-05 0.000146     2.32  4.15e+03 physical_boronwalls hadElastic
+G4WT0 >    18     -123     -481  4.1e+03         0        0     1.08  4.15e+03 physical_boronwalls neutronInelastic
+G4WT0 >     :----- List of 2ndaries - #SpawnInStep=  2(Rest= 0,Along= 0,Post= 2), #SpawnTotal=  2 ---------------
+G4WT0 >     :      -123      -481   4.1e+03      1.78              alpha
+G4WT0 >     :      -123      -481   4.1e+03      1.01                Li7
+G4WT0 >     :----------------------------------------------------------------- EndOf2ndaries Info ---------------
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = Li7,   Track ID = 3,   Parent ID = 1
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0     -123     -481  4.1e+03      1.01        0        0         0 physical_boronwalls initStep
+G4WT0 >     1     -123     -481  4.1e+03         0     1.01  0.00204   0.00204 physical_boronwalls ionIoni
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = alpha,   Track ID = 2,   Parent ID = 1
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0     -123     -481  4.1e+03      1.78        0        0         0 physical_boronwalls initStep
+G4WT0 >     1     -123     -481  4.1e+03         0     1.78  0.00764   0.00764 physical_boronwalls ionIoni
+G4WT0 > 
+G4WT0 > *********************************************************************************************************
+G4WT0 > * G4Track Information:   Particle = neutron,   Track ID = 1,   Parent ID = 0
+G4WT0 > *********************************************************************************************************
+G4WT0 > 
+G4WT0 > Step#    X(mm)    Y(mm)    Z(mm) KinE(MeV)  dE(MeV) StepLeng TrackLeng  NextVolume ProcName
+G4WT0 >     0     9.35    -3.76     -0.1      0.04        0        0         0     Lithium initStep
+G4WT0 >     1     9.39    -3.77     0.15      0.04        0    0.255     0.255      Copper Transportation
+G4WT0 >     2     9.71     -3.9     1.88    0.0392 0.000711     1.76      2.02      Copper hadElastic
+G4WT0 >     3     7.97    -4.13     3.15    0.0392        0     2.17      4.18       World Transportation
+G4WT0 >     4     2.49    -4.87     7.15    0.0392        0     6.82        11    Graphite Transportation
+G4WT0 >     5    -1.62    -5.42     10.2    0.0392        0     5.12      16.1       World Transportation
+G4WT0 >     6      -37    -10.2       36    0.0392        0     44.1      60.2    titanium Transportation
+G4WT0 >     7    -45.2    -11.3       42    0.0392        0     10.2      70.4       World Transportation
+G4WT0 >     8     -115    -20.6       93    0.0392        0     86.9       157 physical_leadshield Transportation
+G4WT0 >     9     -115    -20.6       93     0.039 0.000217   0.0457       157 physical_leadshield hadElastic
+G4WT0 >    10     -115    -22.4     94.4     0.039        0     2.25       160       World Transportation
+G4WT0 >    11     -112     -155      195     0.039        0      167       326 physical_concretestack Transportation
+G4WT0 >    12     -112     -170      207    0.0381 0.000926     18.5       345 physical_concretestack hadElastic
+G4WT0 >    13     -103     -180      236    0.0296  0.00849     32.3       377 physical_concretestack hadElastic
+G4WT0 >    14     -105     -177      229    0.0176    0.012     7.76       385 physical_concretestack hadElastic
+G4WT0 >    15    -99.2     -155      213    0.0176        0     28.2       413       World Transportation
+G4WT0 >    16    -36.4     72.9       42    0.0176        0      292       705    titanium Transportation
+G4WT0 >    17    -36.1     73.8     41.3     0.017 0.000552     1.16       706    titanium hadElastic
+G4WT0 >    18    -36.9     74.6     41.6    0.0168 0.000213     1.21       707    titanium hadElastic
+G4WT0 >    19    -38.4     74.6     41.9    0.0155  0.00134     1.54       709    titanium hadElastic
+G4WT0 >    20    -36.4     74.5       42    0.0143  0.00117     2.04       711    titanium hadElastic
+G4WT0 >    21    -36.5     74.4       42    0.0143        0   0.0643       711       World Transportation
+G4WT0 >    22     -115     56.1     73.7    0.0143        0     86.7       798 physical_leadshield Transportation
+G4WT0 >    23     -142     49.8     84.7    0.0142 8.75e-05     29.9       827 physical_leadshield hadElastic
+G4WT0 >    24     -160     44.4       65    0.0141 0.000121       27       854 physical_leadshield hadElastic
+G4WT0 >    25     -171     37.3       74    0.0139 0.000193     15.7       870 physical_leadshield hadElastic
+G4WT0 >    26     -164     40.1     78.1    0.0137 0.000197      8.3       878 physical_leadshield hadElastic
+G4WT0 >    27     -171     12.1     81.6    0.0134 0.000235     29.2       908 physical_leadshield hadElastic
+G4WT0 >    28     -172     12.6     81.8    0.0134 4.08e-05    0.547       908 physical_leadshield hadElastic
+G4WT0 >    29     -166     21.7     82.4    0.0133 8.39e-05     10.8       919 physical_leadshield hadElastic
+G4WT0 >    30     -159     20.2     83.2    0.0133 4.27e-05     7.23       926 physical_leadshield hadElastic
+G4WT0 >    31     -155     22.9     82.7    0.0131 0.000165     4.95       931 physical_leadshield hadElastic
+G4WT0 >    32     -142    -26.2      154    0.0129  0.00017     87.8  1.02e+03 physical_leadshield hadElastic
+G4WT0 >    33     -115    -17.8      142    0.0129        0     30.7  1.05e+03       World Transportation
+G4WT0 >    34      112     52.7       42    0.0129        0      258  1.31e+03    titanium Transportation
+G4WT0 >    35      113     52.9     41.7    0.0119    0.001    0.699  1.31e+03    titanium hadElastic
+G4WT0 >    36      108     50.4     41.9    0.0119 1.23e-05     5.35  1.31e+03    titanium hadElastic
+G4WT0 >    37      107       50       42    0.0113  0.00062     1.52  1.32e+03    titanium hadElastic
+G4WT0 >    38      107       50       42    0.0113        0   0.0469  1.32e+03       World Transportation
+G4WT0 >    39      115     50.1     67.3    0.0113        0     26.7  1.34e+03 physical_leadshield Transportation
+G4WT0 >    40      116     50.1     70.3    0.0111 0.000212     3.15  1.35e+03 physical_leadshield hadElastic
+G4WT0 >    41      116     49.8     61.1    0.0111        0      9.2  1.35e+03       World Transportation
+G4WT0 >    42      116     49.1       42    0.0111        0     19.1  1.37e+03    titanium Transportation
+G4WT0 >    43      116       49     41.5    0.0109 0.000239    0.451  1.37e+03    titanium hadElastic
+G4WT0 >    44      115       49     41.4    0.0106 0.000228    0.303  1.37e+03    titanium hadElastic
+G4WT0 >    45      115     48.5     41.2    0.0105  0.00016    0.652  1.37e+03    titanium hadElastic
+G4WT0 >    46      113     47.5     41.7   0.00994 0.000527     1.92  1.38e+03    titanium hadElastic
+G4WT0 >    47      111     51.3       36   0.00994        0     7.13  1.38e+03       World Transportation
+G4WT0 >    48      102     68.5     10.1   0.00994        0     32.5  1.42e+03    Graphite Transportation
+G4WT0 >    49      101     70.5     7.15   0.00994        0     3.77  1.42e+03       World Transportation
+G4WT0 >    50       99     73.1     3.15   0.00994        0     5.03  1.43e+03      Copper Transportation
+G4WT0 >    51     97.9     75.1     0.15   0.00994        0     3.77  1.43e+03     Lithium Transportation
+G4WT0 >    52     97.8     75.3    -0.15   0.00994        0    0.377  1.43e+03       World Transportation
+G4WT0 >    53     96.3     77.9       -4   0.00994        0     4.84  1.43e+03    titanium Transportation
+G4WT0 >    54     95.5     79.4    -6.32   0.00973 0.000217     2.92  1.44e+03    titanium hadElastic
+G4WT0 >    55     95.6     79.8    -6.35   0.00948 0.000243    0.422  1.44e+03    titanium hadElastic
+G4WT0 >    56     93.6     82.2       -4   0.00948        0     3.94  1.44e+03       World Transportation
+G4WT0 >    57     90.3     86.2    -0.15   0.00948        0     6.43  1.45e+03     Lithium Transportation
+G4WT0 >    58       90     86.5     0.15   0.00948        0    0.501  1.45e+03      Copper Transportation
+G4WT0 >    59     87.5     89.6     3.15   0.00948        0     5.01  1.45e+03       World Transportation
+G4WT0 >    60     84.1     93.8     7.15   0.00948        0     6.69  1.46e+03    Graphite Transportation
+G4WT0 >    61     81.5     96.8     10.2   0.00948        0     5.01  1.47e+03       World Transportation
+G4WT0 >    62     59.4      124       36   0.00948        0     43.2  1.51e+03    titanium Transportation
+G4WT0 >    63     57.7      126       38   0.00912 0.000365     3.38  1.51e+03    titanium hadElastic
+G4WT0 >    64     56.8      125     37.6   0.00844 0.000679     1.04  1.51e+03    titanium hadElastic
+G4WT0 >    65     57.9      126     37.4   0.00787 0.000568     1.13  1.51e+03    titanium hadElastic
+G4WT0 >    66     57.5      125     37.7   0.00751 0.000362    0.686  1.51e+03    titanium hadElastic
+G4WT0 >    67       55      130       42   0.00751        0     7.11  1.52e+03       World Transportation
+G4WT0 >    68     43.7      153     61.1   0.00751        0     31.6  1.55e+03 physical_leadshield Transportation
+G4WT0 >    69     40.4      159     66.7    0.0075 1.43e-05     9.24  1.56e+03 physical_leadshield hadElastic
+G4WT0 >    70     40.6      163     77.6   0.00738 0.000115     11.6  1.57e+03 physical_leadshield hadElastic
+G4WT0 >    71     52.3      137     67.8   0.00736 2.12e-05     30.6   1.6e+03 physical_leadshield hadElastic
+G4WT0 >    72     53.9      136     67.8   0.00723 0.000132     1.73  1.61e+03 physical_leadshield hadElastic
+G4WT0 >    73     43.9      146     61.1   0.00723        0     15.5  1.62e+03       World Transportation
+G4WT0 >    74     15.8      174       42   0.00723        0     44.1  1.67e+03    titanium Transportation
+G4WT0 >    75     12.6      177     39.8   0.00688 0.000344     5.06  1.67e+03    titanium hadElastic
+G4WT0 >    76     14.6      180       42   0.00688        0     3.89  1.68e+03       World Transportation
+G4WT0 >    77     32.1      202     61.1   0.00688        0     33.9  1.71e+03 physical_leadshield Transportation
+G4WT0 >    78     39.1      210     68.8   0.00679 9.52e-05     13.6  1.72e+03 physical_leadshield hadElastic
+G4WT0 >    79     40.8      211     61.1   0.00679        0     7.84  1.73e+03       World Transportation
+G4WT0 >    80     44.9      211       42   0.00679        0     19.5  1.75e+03    titanium Transportation
+G4WT0 >    81     46.2      211       36   0.00679        0     6.14  1.76e+03       World Transportation
+G4WT0 >    82     51.8      212     10.1   0.00679        0     26.4  1.78e+03    Graphite Transportation
+G4WT0 >    83     52.4      212     7.15   0.00679        0     3.07  1.79e+03       World Transportation
+G4WT0 >    84     53.3      212     3.15   0.00679        0     4.09  1.79e+03      Copper Transportation
+G4WT0 >    85     53.9      212     0.15   0.00679        0     3.07  1.79e+03     Lithium Transportation
+G4WT0 >    86       54      212    -0.15   0.00679        0    0.307  1.79e+03       World Transportation
+G4WT0 >    87     54.8      212       -4   0.00679        0     3.94   1.8e+03    titanium Transportation
+G4WT0 >    88     56.1      212      -10   0.00679        0     6.14   1.8e+03       World Transportation
+G4WT0 >    89      298      235 -1.13e+03   0.00679        0 1.15e+03  2.95e+03 physical_boronwalls Transportation
+G4WT0 >    90      302      235 -1.15e+03   0.00555  0.00124     16.6  2.97e+03 physical_boronwalls hadElastic
+G4WT0 >    91      301      236 -1.16e+03   0.00418  0.00137     5.51  2.98e+03 physical_boronwalls hadElastic
+G4WT0 >    92      302      236 -1.16e+03   0.00418        0      3.6  2.98e+03 physical_walls Transportation
+G4WT0 >    93      313      231 -1.21e+03   0.00415 3.57e-05     48.5  3.03e+03 physical_walls hadElastic
+G4WT0 >    94      341      239 -1.23e+03   0.00398 0.000166     37.1  3.06e+03 physical_walls hadElastic
+G4WT0 >    95      345      251 -1.23e+03   0.00188   0.0021     13.5  3.08e+03 physical_walls hadElastic
+G4WT0 >    96      382      262 -1.26e+03   0.00165  0.00023     47.4  3.13e+03 physical_walls hadElastic
+G4WT0 >    97      379      267 -1.26e+03  0.000248  0.00141     6.54  3.13e+03 physical_walls hadElastic
+G4WT0 >    98      379      267 -1.26e+03  0.000235 1.32e-05     0.17  3.13e+03 physical_walls hadElastic
+G4WT0 >    99      380      267 -1.26e+03  0.000161 7.43e-05    0.807  3.13e+03 physical_walls hadElastic
+G4WT0 >   100      390      278 -1.27e+03   0.00012 4.11e-05     15.2  3.15e+03 physical_walls hadElastic
+G4WT0 >   101      398      284 -1.26e+03   0.00011 1.01e-05       11  3.16e+03 physical_walls hadElastic
+G4WT0 >   102      414      274 -1.27e+03  9.62e-05 1.37e-05     18.6  3.18e+03 physical_walls hadElastic
+G4WT0 >   103      380      339 -1.28e+03  7.68e-05 1.94e-05       74  3.25e+03 physical_walls hadElastic
+G4WT0 >   104      381      339 -1.28e+03  6.74e-05 9.36e-06    0.277  3.25e+03 physical_walls hadElastic
+G4WT0 >   105      355      384 -1.22e+03  6.69e-05 4.48e-07       77  3.33e+03 physical_walls hadElastic
+G4WT0 >   106      352      388 -1.21e+03  5.65e-05 1.04e-05     8.22  3.34e+03 physical_walls hadElastic
+G4WT0 >   107      358      374 -1.21e+03  4.43e-05 1.23e-05     16.7  3.35e+03 physical_walls hadElastic
+G4WT0 >   108      358      393 -1.21e+03  2.86e-05 1.57e-05     21.2  3.38e+03 physical_walls hadElastic
+G4WT0 >   109      358      395 -1.22e+03  2.45e-05 4.07e-06     2.62  3.38e+03 physical_walls hadElastic
+G4WT0 >   110      363      397 -1.22e+03  2.07e-05  3.8e-06     5.97  3.38e+03 physical_walls hadElastic
+G4WT0 >   111      371      340 -1.27e+03  1.12e-05  9.6e-06     81.9  3.47e+03 physical_walls hadElastic
+G4WT0 >   112      371      340 -1.27e+03   2.1e-06 9.05e-06    0.757  3.47e+03 physical_walls hadElastic
+G4WT0 >   113      361      349 -1.3e+03  1.68e-06 4.26e-07     30.8   3.5e+03 physical_walls hadElastic
+G4WT0 >   114      385      351 -1.28e+03  8.32e-07 8.46e-07     30.6  3.53e+03 physical_walls hadElastic
+G4WT0 >   115      386      354 -1.28e+03  4.96e-07 3.37e-07     7.74  3.54e+03 physical_walls hadElastic
+G4WT0 >   116      386      354 -1.28e+03  2.73e-07 2.23e-07     1.22  3.54e+03 physical_walls hadElastic
+G4WT0 >   117      418      361 -1.27e+03  2.69e-07 3.18e-09     33.6  3.57e+03 physical_walls hadElastic
+G4WT0 >   118      418      361 -1.27e+03  2.69e-07        0        0  3.57e+03 physical_walls nKiller
+G4WT0 > 1 neutrons in target for thread 0
+G4WT0 > Events: 1
+G4WT0 > FILL 0	0x7f07540a2030	0x7f075409a970
+G4WT0 > Trying to close thread 0
+Trying to close thread -1

@@ -1,0 +1,299 @@
+Version 6.4.4
+
+{============================= Main Part ======================================}
+[general]
+                    File = H:\user\c\lise_pp\config\Dubna\MASHA.lcn
+                    Date = 13-01-2004
+                    Time = 13:02:07
+                   Title = MASHA - DUBNA
+          BlockStructure = DDSDESM
+
+[OpticsBeam]
+                      BX = 0.5                  (±)mm            ; one-half the horisontal beam extent (x)
+                      BT = 20                   (±)mrad          ; one-half the horisontal beam divergence(x')
+                      BY = 0.5                  (±)mm            ; one-half the vertical beam extent (y)
+                      BF = 20                   (±)mrad          ; one-half the vertical beam divergence (y')
+                      BL = 0                    (±)mm            
+                      BD = 0.01                 (±)%             ; one-half of the momentum spread (dp/p)
+                  AngleX = 0                    mrad             ; beam respect to the spectrometer axis
+                  AngleY = 0                    mrad             ; beam respect to the spectrometer axis
+            Scheme Angle =   0                  degrees          
+
+[SlitsBeforeTarget]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,50.00,50.0,50.00,50.0               ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,50.00,50.0,50.00,50.0               ; joint,Bottom,B-limit,Top,T-limit
+
+
+{============================= BLOCK D1 - Dipole ======================================}
+
+[D1_General]
+                    Name = M1,1                                  ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.780000             m                ; Length block for optical blocks
+             Before_Quad = 0                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QA_DontDraw = 0
+                     ZmQ = 109                                   ;  Z - Q  = charge state settings
+        Calibration file = Masha\m1.cal
+
+[D1_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,1                                   ; Use 1/0, Show 1/0
+                  X_size = 1,50.00,50.0,50.00,50.0               ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,1                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,15.00,15.0,15.00,15.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[D1_optics]
+                    row1 = +8.8930e-01,+1.0270e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.1070e+00
+                    row2 = -1.7370e-01,+9.2400e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.7366e+00
+                    row3 = +0.0000e+00,+0.0000e+00,+1.0153e+00,+1.0810e+00,+0.0000e+00,+0.0000e+00
+                    row4 = +0.0000e+00,+0.0000e+00,+2.4000e-02,+1.0105e+00,+0.0000e+00,+0.0000e+00
+                    row5 = -1.7370e-01,-7.6000e-02,+0.0000e+00,+0.0000e+00,+1.0000e+00,-9.0000e-03
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[D1_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 100                  mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 28                   mrad             ; acceptance
+
+[D1_DipoleSettings]
+                    Brho = 0.53504              Tm               ; magnetic rigidity
+                   Angle = 10                   degrees          
+                  Radius = 1                    m                
+
+
+{============================= BLOCK D2 - Dipole ======================================}
+
+[D2_General]
+                    Name = M2,1                                  ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 2.325000             m                ; Length block for optical blocks
+             Before_Quad = 2                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QA_DontDraw = 0
+                     ZmQ = 109                                   ;  Z - Q  = charge state settings
+        Calibration file = Masha\m2.cal
+
+[D2_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,150.00,150.0,150.00,150.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,150.00,150.0,150.00,150.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[D2_optics]
+                    row1 = -3.4200e-01,+3.8020e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,+2.6974e+00
+                    row2 = -2.1627e+00,-5.1930e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,+4.2244e+00
+                    row3 = +0.0000e+00,+0.0000e+00,-2.8200e+00,+3.0167e+00,+0.0000e+00,+0.0000e+00
+                    row4 = +0.0000e+00,+0.0000e+00,-2.0806e+00,+1.8712e+00,+0.0000e+00,+0.0000e+00
+                    row5 = -4.3890e-01,-3.0110e-01,+0.0000e+00,+0.0000e+00,+1.0000e+00,-1.0920e-01
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[D2_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 100                  mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 50                   mrad             ; acceptance
+
+[D2_DipoleSettings]
+                    Brho = 0.53504              Tm               ; magnetic rigidity
+                   Angle = 25                   degrees          
+                  Radius = 0.8                  m                
+
+
+{============================= BLOCK S1 - Drift ======================================}
+
+[S1_General]
+                    Name = Slits_I2,1                            ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[S1_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,1                                   ; Use 1/0, Show 1/0
+                  X_size = 1,1400.00,1400.0,1400.00,1400.0       ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,1                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,25.00,25.0,25.00,25.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[S1_optics]
+                    row1 = +1.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e-05
+                    row2 = +0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00
+                    row3 = +0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e-05
+                    row4 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00
+                    row5 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[S1_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+
+[S1_DriftSettings]
+                    Mode = 0                                     ; Standard 1 / Beamline 0
+
+
+{============================= BLOCK D3 - Dipole ======================================}
+
+[D3_General]
+                    Name = M3,1                                  ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 6.961000             m                ; Length block for optical blocks
+             Before_Quad = 1                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QA_DontDraw = 0
+                     ZmQ = 109                                   ;  Z - Q  = charge state settings
+        Calibration file = Masha\m31.cal
+
+[D3_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,150.00,150.0,150.00,150.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,150.00,150.0,150.00,150.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[D3_optics]
+                    row1 = -8.5329e-01,+8.5265e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,-5.3845e+01
+                    row2 = -5.6350e-01,-6.0918e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,-1.4172e+01
+                    row3 = +0.0000e+00,+0.0000e+00,-9.9047e-01,+1.6718e+00,+0.0000e+00,+9.9047e-06
+                    row4 = +0.0000e+00,+0.0000e+00,-3.2508e-01,-4.6051e-01,+0.0000e+00,+3.2508e-06
+                    row5 = +1.8256e+00,+4.4883e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00,-1.4139e+01
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[D3_AngAcceptance]
+                   X-Use = 1                                     ; Use 1/0
+                 X-Value = 100                  mrad             ; acceptance
+                   Y-Use = 1                                     ; Use 1/0
+                 Y-Value = 50                   mrad             ; acceptance
+
+[D3_DipoleSettings]
+                    Brho = 0.53504              Tm               ; magnetic rigidity
+                   Angle = -100                 degrees          
+                  Radius = 1.4                  m                
+
+
+{============================= BLOCK E1 - ElecDip ======================================}
+
+[E1_General]
+                    Name = ElecDip,1                             ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 5.000000             m                ; Length block for optical blocks
+             Before_Quad = 0                                     ; number of quadrupoles before optic device
+              After_Quad = 0                                     ; number of quadrupoles after  optic device
+             QA_DontDraw = 0
+                     ZmQ = 109                                   ;  Z - Q  = charge state settings
+        Calibration file = NULL
+
+[E1_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,200.00,200.0,200.00,200.0           ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,200.00,200.0,200.00,200.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[E1_optics]
+                    row1 = +9.9962e-01,+1.3992e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,-2.7154e-02
+                    row2 = -8.0964e-05,+9.9994e-01,+0.0000e+00,+0.0000e+00,+0.0000e+00,-5.5514e-03
+                    row3 = +0.0000e+00,+0.0000e+00,-1.1311e+00,+1.6086e-01,+0.0000e+00,+1.4443e+01
+                    row4 = +0.0000e+00,+0.0000e+00,-1.5650e+00,-6.6191e-01,+0.0000e+00,+1.0610e+01
+                    row5 = +5.5732e-04,+4.1789e-04,+9.6875e-03,+1.0922e-02,+1.0000e+00,+1.1093e-01
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[E1_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+
+[E1_ElectricDipoleSettings]
+                     E_F = 143.083035           KV/m             ; electric field
+                     gap = 0.05                 m                ; distance between plates
+                   Angle = -90                  degrees          
+                  Radius = 0.7                  m                
+                     DiC = 4e-4                 mm/%             ; dispersion coefficient
+               Direction = 1                                     ; X=0 or Y=1
+
+
+{============================= BLOCK S2 - Drift ======================================}
+
+[S2_General]
+                    Name = Slits_FP,1                            ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[S2_slits]
+                   Shape = 0                                     ; 0-slits, 1-ellipse
+                X_action = 1,1                                   ; Use 1/0, Show 1/0
+                  X_size = 1,1273.00,1500.0,1273.00,1500.0       ; joint,Left,L-limit,Right,R-limit
+                Y_action = 1,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,200.00,200.0,200.00,200.0           ; joint,Bottom,B-limit,Top,T-limit
+
+[S2_optics]
+                    row1 = +1.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00
+                    row2 = +0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00
+                    row3 = +0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00
+                    row4 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00,+0.0000e+00
+                    row5 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00,+0.0000e+00
+                    row6 = +0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+0.0000e+00,+1.0000e+00
+
+[S2_AngAcceptance]
+                   X-Use = 0                                     ; Use 1/0
+                 X-Value = 1000                 mrad             ; acceptance
+                   Y-Use = 0                                     ; Use 1/0
+                 Y-Value = 1000                 mrad             ; acceptance
+
+[S2_DriftSettings]
+                    Mode = 0                                     ; Standard 1 / Beamline 0
+
+
+{============================= BLOCK M1 - Material ======================================}
+
+[M1_General]
+                    Name = FP_detector,1                         ; Name of Block, Constant name 1/0
+               Available = 1                                     ; Use 1/0
+                  Length = 0.000000             m                ; Length block for optical blocks
+
+[M1_Compound]
+               contents1 = 0,14,1,28.086                         ; Nomer,Z,Atoms,Mass
+               thickness = 0,1,2.321,0,0                         ; State,Thickness,density,angle,SolidGas
+                  Defect = 1,0.001                               ; [0] choice - % or micron at 0 degree,  [1]=value; 
+             ResolutionE = 1,0.01                                ; [0] choice - % or MeV,  [1]=value; 
+             Resolution2 = 0.2,0.1,2            ns,mm,mm         ; Time&X&Y space
+
+[M1_slits]
+                   Shape = 1                                     ; 0-slits, 1-ellipse
+                X_action = 0,0                                   ; Use 1/0, Show 1/0
+                  X_size = 1,25.00,25.0,25.00,25.0               ; joint,Left,L-limit,Right,R-limit
+                Y_action = 0,0                                   ; Use 1/0, Show 1/0
+                  Y_size = 1,25.00,25.0,25.00,25.0               ; joint,Bottom,B-limit,Top,T-limit
+
+[M1_BlockCalibration]
+                     TOF = 1,1,0,ns                              ; Input PV(0) or CH(1), A, B, dimension
+                      dE = 1,1,0,MeV                             ; Input PV(0) or CH(1), A, B, dimension
+                       X = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+                       Y = 1,1,0,mm                              ; Input PV(0) or CH(1), A, B, dimension
+
+
+{============================= Calculations ======================================}
+
+[Calculations]
+287B4 1+ 1+ 1+ 1+ =2.7803e+09,2.7803e+09,1,0,4.4484e-01,1.7414e-04,3.4470e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7834e-01,9.8695e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2996e-01,1,1,9.2996e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+285B4 1+ 1+ 1+ 1+ =2.7805e+09,2.7805e+09,1,0,4.4488e-01,1.7537e-04,3.4713e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7844e-01,9.8714e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2987e-01,1,1,9.2987e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+285B2 1+ 1+ 1+ 1+ =2.7805e+09,2.7805e+09,1,0,4.4488e-01,1.7537e-04,3.4714e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7844e-01,9.8714e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2987e-01,1,1,9.2987e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+284B2 1+ 1+ 1+ 1+ =2.7807e+09,2.7807e+09,1,0,4.4491e-01,1.7599e-04,3.4836e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7848e-01,9.8722e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2984e-01,1,1,9.2984e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+283B2 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4493e-01,1.7661e-04,3.4959e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7851e-01,9.8729e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2981e-01,1,1,9.2981e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+282B2 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4493e-01,1.7724e-04,3.5083e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7854e-01,9.8735e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2977e-01,1,1,9.2977e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+281B2 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4493e-01,1.7787e-04,3.5208e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7857e-01,9.8741e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2971e-01,1,1,9.2971e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+280B2 1+ 1+ 1+ 1+ =2.7807e+09,2.7807e+09,1,0,4.4492e-01,1.7851e-04,3.5334e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7859e-01,9.8745e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2965e-01,1,1,9.2965e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+279B2 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4492e-01,1.7914e-04,3.5461e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7860e-01,9.8748e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2963e-01,1,1,9.2963e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+278B2 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4492e-01,1.7979e-04,3.5588e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7862e-01,9.8751e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2960e-01,1,1,9.2960e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+277B2 1+ 1+ 1+ 1+ =2.7806e+09,2.7806e+09,1,0,4.4489e-01,1.8044e-04,3.5717e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7862e-01,9.8752e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2952e-01,1,1,9.2952e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+281B0 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4493e-01,1.7787e-04,3.5209e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7857e-01,9.8741e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2971e-01,1,1,9.2971e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+280B0 1+ 1+ 1+ 1+ =2.7807e+09,2.7807e+09,1,0,4.4492e-01,1.7851e-04,3.5335e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7859e-01,9.8745e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2965e-01,1,1,9.2965e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+277B0 1+ 1+ 1+ 1+ =2.7806e+09,2.7806e+09,1,0,4.4489e-01,1.8045e-04,3.5718e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7862e-01,9.8752e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2952e-01,1,1,9.2952e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+276B0 1+ 1+ 1+ 1+ =2.7803e+09,2.7803e+09,1,0,4.4485e-01,1.8110e-04,3.5848e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7863e-01,9.8753e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2943e-01,1,1,9.2943e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00
+273B0 1+ 1+ 1+ 1+ =2.7808e+09,2.7808e+09,1,0,4.4492e-01,1.8309e-04,3.6242e-08,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4.7860e-01,9.8748e-01,6.1072e-01,1,7.9361e-01,1,1,1,1,1,1,1,1,1,1,9.2963e-01,1,1,9.2963e-01,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,6.0000e+00

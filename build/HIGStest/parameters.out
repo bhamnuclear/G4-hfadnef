@@ -1,0 +1,6 @@
+PHYSICAL LEVEL PARAMETERS (BOUNDARY CONDITION SET TO SHIFT AT E_LEVEL)
+
+J = 1.0-  E_level =   9.7000 MeV  ITERATIONS =     0
+  R =  1  l =   1  s =  0.0  G  =    12.424000 keV        g_int =     0.119425 MeV^(1/2)   g_ext =  (0.000000,0.000000) MeV^(1/2) 
+  R =  2  L =  E1  s =  0.0  G  =    21.000000 eV         g_int =     0.299090 MeV^(1/2)   g_ext =  (0.000000,0.000000) MeV^(1/2) 
+

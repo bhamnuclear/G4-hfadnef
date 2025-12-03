@@ -1,0 +1,24 @@
+# i2[A]	        B2(Rwb)[kG]	L2[m]	        g2[T/m]
+4 9			
+0	        0	        0.942744	0
+34.79798	2.11320114	0.942744	1.090966
+69.299851	4.19468778	0.942752	2.165559
+104.301436	6.31081186	0.938869	3.258034
+139.002313	8.40539843	0.932562	4.33939
+173.804226	10.47158665	0.921193	5.406085
+208.505662	12.43693464	0.906384	6.42072
+243.307254	14.16660978	0.892203	7.313686
+278.006684	15.53024229	0.886012	8.017678
+
+#2020-12 MP--  Ref. FRIB-T40503-TD-001574							
+#\\intranet\files\departments\fribESD\MagnetSystems\Maxwell\FSQ8							
+# The quadrupole quenches abive the upper limit prescribed below. See refererences for more details.							
+#  Past tests show the at limit the multipoles were able to operate to full field.							
+#  0.252	 [m] pole-tip radius of quadrupole yoke T40303-TD-000917						
+M5_PARAM_TABLE_V01							
+0.1937	 Reference radius to use with coefficients.						
+0.781	 yoke length						
+2	 IMP order of multipole						
+2	 IMP_REF multipole for effective length of M5						
+0	 oper. lower limit (field gradient)						
+8.06	 oper. upper limit (field gradient)						

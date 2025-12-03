@@ -1,0 +1,4 @@
+#!/bin/bash
+make
+./adnef run1.mac
+root -l buildspectrum.cc

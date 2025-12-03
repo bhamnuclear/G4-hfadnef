@@ -1,0 +1,24 @@
+# i2[A]	B2(Rwb)[kG]	 L2[m]	g2[T/m]
+4 11			
+0	0	0.709781	0
+32.095474	2.21236586	0.709781	1.142161
+64.197357	4.41471936	0.70885	2.279153
+96.300194	6.618483	0.706141	3.416873
+128.401112	8.80839322	0.699542	4.547441
+160.501651	10.94263793	0.689342	5.649271
+192.604244	12.85946407	0.678022	6.638856
+224.706987	14.38818321	0.672236	7.428076
+256.81208	15.67182343	0.670101	8.090771
+288.91342	16.836158	0.669574	8.691873
+321.016615	17.939756	0.669335	9.261619
+
+#2020-12 MP--  Ref. FRIB-T40503-TD-001574								
+#model data \\intranet\files\departments\fribESD\MagnetSystems\Maxwell\FSQ7								
+#  0.252	 [m] pole-tip radius of quadrupole yoke T40303-TD-000917							
+#M5_PARAM_TABLE_V01								
+#0.1937	 Reference radius to use with coefficients.							
+#0.549	 yoke length							
+#2	 IMP order of multipole							
+#2	 IMP_REF multipole for effective length of M5							
+#0	 oper. lower limit (field gradient)							
+#9.22	 oper. upper limit (field gradient)							
