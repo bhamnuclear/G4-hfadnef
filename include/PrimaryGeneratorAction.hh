@@ -72,10 +72,10 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     TRandom3 *rndm = new TRandom3(threadid);
     double d2r=atan(1.)/45.;
     double pi=4.*atan(1.);
-    double mp=1.007825;
-    double mn=1.008665;
-    double mLi=7.016004;
-    double mBe=7.016929;
+    double mp=1.0072764665789;
+    double mn=1.00866491606;
+    double mLi=7.01435712;
+    double mBe=7.01473382;
     double amu=931.4941;
     double Q=-1.64424;
     double max_depth = 0.2;//mm
